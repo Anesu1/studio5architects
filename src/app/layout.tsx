@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body-family" });
-const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-heading-family" });
 
 export const metadata: Metadata = {
     title: "Studio 5 Architects",
@@ -18,7 +17,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${bebas.variable} antialiased`}>
+            <body className={`${inter.variable} antialiased`}>
                 <SmoothScroll>{children}</SmoothScroll>
             </body>
         </html>
