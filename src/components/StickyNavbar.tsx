@@ -69,7 +69,7 @@ export default function StickyNavbar() {
                             width={158}
                             height={44}
                             quality={100}
-                            className="h-8 w-auto sm:h-10"
+                            className="h-6 w-auto sm:h-10"
                             priority
                         />
                     </Link>

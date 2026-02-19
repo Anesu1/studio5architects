@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -7,14 +6,10 @@ export default function Footer() {
             <div className="max-w-7xl mx-auto flex flex-col justify-between h-full">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-14 md:mb-20">
                     <div className="w-full md:w-auto">
-                        <Link href="/" className="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity" aria-label="Studio 5 Architects home">
-                            <Image
-                                src="/logo.png"
-                                alt="Studio 5 Architects"
-                                width={240}
-                                height={52}
-                                className="h-14 w-auto md:h-16"
-                            />
+                        <Link href="/" className="inline-flex items-center opacity-30 hover:opacity-100 transition-opacity" aria-label="Studio 5 Architects home">
+                            <h2 className="text-5xl sm:text-6xl md:text-[8vw] leading-none font-heading font-bold uppercase tracking-tighter">
+                                Studio5Architects
+                            </h2>
                         </Link>
                     </div>
                     <div className="grid grid-cols-2 gap-8 md:flex md:gap-12 font-body text-sm uppercase tracking-wider w-full md:w-auto">
