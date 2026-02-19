@@ -40,7 +40,7 @@ export default function ServicesPage() {
                             href={`/services/${service.slug}`}
                             key={index}
                             className={clsx(
-                                "group relative overflow-hidden border border-black/5 cursor-none bg-gray-100",
+                                "group relative overflow-hidden border border-black/5 bg-gray-100 min-h-[300px] md:min-h-0",
                                 // Custom bento layout pattern
                                 index === 0 ? "md:col-span-2 md:row-span-2" :
                                     index === 4 ? "md:col-span-2 md:row-span-1" :
@@ -56,9 +56,9 @@ export default function ServicesPage() {
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
 
-                            <div className="absolute bottom-0 left-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 w-full">
+                            <div className="absolute bottom-0 left-0 p-6 translate-y-0 opacity-100 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 w-full">
                                 <div className="w-8 h-8 mb-2 text-white border border-white/30 rounded-full flex items-center justify-center">
                                     <ArrowUpRight size={16} />
                                 </div>

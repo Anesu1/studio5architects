@@ -5,33 +5,8 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
-
-const projects = [
-    {
-        title: "Hyundai Showroom",
-        location: "Harare, Zimbabwe",
-        image: "https://images.unsplash.com/photo-1614595737683-1740e41bfaac?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-        year: "2024",
-    },
-    {
-        title: "MSS Factory",
-        location: "Zimbabwe",
-        image: "https://images.unsplash.com/photo-1554793000-245d3a3c2a51?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-        year: "2023",
-    },
-    {
-        title: "UZ Quinary Hospital",
-        location: "Harare, Zimbabwe",
-        image: "https://images.unsplash.com/photo-1574848296471-28f79a036f79?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-        year: "2024",
-    },
-    {
-        title: "Electra House",
-        location: "Harare, Zimbabwe",
-        image: "https://images.unsplash.com/photo-1615406020658-6c4b805f1f30?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-        year: "2022",
-    },
-];
+import { projects } from "@/lib/projects";
+const featuredProjects = projects.slice(0, 4);
 
 export default function FeaturedProjects() {
     const targetRef = useRef<HTMLDivElement>(null);
@@ -53,8 +28,8 @@ export default function FeaturedProjects() {
                     Good design blends comfort with necessity and responds to lifestyle, context, and budget.
                 </p>
                 <div className="space-y-6">
-                    {projects.map((project) => (
-                        <Link key={project.title} href="/projects" className="block group">
+                    {featuredProjects.map((project) => (
+                        <Link key={project.slug} href={`/projects/${project.slug}`} className="block group">
                             <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                                 <Image
                                     src={project.image}
@@ -107,13 +82,13 @@ export default function FeaturedProjects() {
                         </Reveal>
                     </div>
 
-                        {projects.map((project, index) => (
+                        {featuredProjects.map((project, index) => (
                             <div
                                 key={index}
                                 className="relative h-[60vh] md:h-[70vh] w-[80vw] md:w-[50vw] flex-shrink-0 group overflow-hidden"
                                 data-cursor-text="View Project"
                             >
-                                <Link href={`/projects`}>
+                                <Link href={`/projects/${project.slug}`}>
                                     <div className="w-full h-full overflow-hidden relative">
                                         <Image
                                             src={project.image}

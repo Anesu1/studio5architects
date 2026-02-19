@@ -21,7 +21,7 @@ export default function ServicesPreview() {
         <section className="py-24 bg-verdant-white">
             <div className="px-6 md:px-12 mb-12 flex justify-between items-end">
                 <Reveal>
-                    <h2 className="text-5xl md:text-7xl font-heading uppercase">Expertise</h2>
+                    <h2 className="text-4xl sm:text-5xl md:text-7xl font-heading uppercase">Expertise</h2>
                 </Reveal>
                 <Reveal delay={0.2}>
                     <Link href="/services" className="hidden md:block text-sm uppercase font-bold border-b border-black pb-1 hover:opacity-50 transition-opacity">
@@ -30,35 +30,16 @@ export default function ServicesPreview() {
                 </Reveal>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[800px]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[260px]">
                 {services.map((service, index) => (
                     <Link
                         href={`/services/${service.slug}`}
                         key={index}
                         className={clsx(
-                            "group relative overflow-hidden border border-black/5 cursor-none bg-gray-100",
-                            index === 0 ? "md:col-span-2 md:row-span-2" : "md:col-span-1 md:row-span-1",
-                            // Make the 4th item span 2 columns if strictly following a specific bento, 
-                            // but for 6 items in 4x2 grid:
-                            // Item 0: 2x2
-                            // Item 1: 1x1
-                            // Item 2: 1x1
-                            // Item 3: 1x1
-                            // Item 4: 1x1
-                            // We have 6 items. 
-                            // Let's try a different pattern:
-                            // 0: 2x2
-                            // 1: 1x1
-                            // 2: 1x1
-                            // 3: 1x1
-                            // 4: 1x1
-                            // 5... wait 2x2 takes 4 spots. Total slots in 4x2 = 8.
-                            // We have 6 items. 4 + 1 + 1 + 1 + 1 = 8 slots? No 2x2 is 4 slots.
-                            // So Item 0 (4 slots) + Item 1 (1) + Item 2 (1) + Item 3 (1) + Item 4 (1) = 8.
-                            // That leaves Item 5.
-                            // Let's adjust grid to be flexible or hardcode classes for 6 items.
-                            // Let's go with a responsive masonry-like or just alternating spans.
-                            index === 0 || index === 5 ? "md:col-span-2 md:row-span-1" : "md:col-span-1 md:row-span-1"
+                            "group relative overflow-hidden border border-black/5 bg-gray-100 min-h-[280px] md:min-h-0",
+                            index === 0 ? "md:col-span-2 md:row-span-2" :
+                                index === 4 ? "md:col-span-2 md:row-span-1" :
+                                    "md:col-span-1 md:row-span-1"
                         )}
                         data-cursor="hover"
                         data-cursor-text="View Service"
@@ -70,16 +51,16 @@ export default function ServicesPreview() {
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500" />
 
-                        <div className="absolute bottom-0 left-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 w-full">
+                        <div className="absolute bottom-0 left-0 p-6 translate-y-0 opacity-100 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-500 w-full">
                             <div className="w-8 h-8 mb-2 text-white border border-white/30 rounded-full flex items-center justify-center">
                                 <ArrowUpRight size={16} />
                             </div>
                             <h3 className="text-white text-xl md:text-2xl font-heading uppercase tracking-widest">
                                 {service.title}
                             </h3>
-                            <span className="text-white/60 text-xs uppercase tracking-widest block mt-1">0{index + 1}/{services.length}</span>
+                            <span className="text-white/60 text-xs uppercase tracking-widest block mt-1">{index + 1 < 10 ? `0${index + 1}` : index + 1}/{services.length}</span>
                         </div>
                     </Link>
                 ))}
