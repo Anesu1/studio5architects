@@ -76,9 +76,7 @@ export default function Hero() {
                     </svg>
                 </div>
             </div>
-            <div className="hidden md:block absolute inset-x-0 bottom-0 h-[44%] z-0 bg-gradient-to-t from-black/65 via-black/35 to-transparent" />
-
-            <div className="relative md:absolute md:bottom-12 md:left-12 z-20 max-w-xl text-white px-6 pt-28 pb-10 md:px-8 md:py-7 md:rounded-2xl md:border md:border-white/20 md:bg-black/30 md:backdrop-blur-sm">
+            <div className="relative md:absolute md:bottom-12 md:left-12 z-20 max-w-xl text-white px-6 pt-28 pb-10 md:p-0 md:mix-blend-difference">
                 <div className="md:hidden rounded-2xl border border-white/25 bg-white/10 backdrop-blur-md px-5 py-6 shadow-2xl">
                     <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">Studio 5 Architects</p>
                     <h1 className="font-heading text-4xl leading-[0.92] uppercase tracking-tight mb-3">
