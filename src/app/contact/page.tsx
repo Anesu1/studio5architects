@@ -1,7 +1,6 @@
 "use client";
 
 import StickyNavbar from "@/components/StickyNavbar";
-import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
@@ -9,26 +8,25 @@ import MagneticButton from "@/components/ui/MagneticButton";
 export default function Contact() {
     return (
         <main className="min-h-screen bg-verdant-bg relative">
-            <CustomCursor />
             <StickyNavbar />
 
             <section className="pt-32 pb-20 px-6 md:px-12 bg-verdant-bg min-h-screen">
-                <div className="flex flex-col md:flex-row gap-20 max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row gap-12 md:gap-20 max-w-7xl mx-auto">
                     {/* Form Section */}
                     <div className="md:w-1/2">
                         <Reveal>
-                            <h1 className="text-[10vw] md:text-[8vw] leading-[0.85] font-heading font-bold uppercase tracking-tighter mb-12">
+                            <h1 className="text-5xl sm:text-6xl md:text-[8vw] leading-[0.85] font-heading font-bold uppercase tracking-tighter mb-10 md:mb-12">
                                 Contact
                             </h1>
                         </Reveal>
 
-                        <form className="space-y-12 mt-12">
+                        <form className="space-y-8 md:space-y-12 mt-8 md:mt-12">
                             <Reveal delay={0.2}>
                                 <div className="relative border-b border-black/20 focus-within:border-black transition-colors">
                                     <input
                                         type="text"
                                         placeholder="Name"
-                                        className="w-full bg-transparent py-4 outline-none text-xl placeholder:text-black/30 text-black uppercase font-heading tracking-wide"
+                                        className="w-full bg-transparent py-4 outline-none text-lg md:text-xl placeholder:text-black/30 text-black uppercase font-heading tracking-wide"
                                     />
                                 </div>
                             </Reveal>
@@ -37,7 +35,7 @@ export default function Contact() {
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="w-full bg-transparent py-4 outline-none text-xl placeholder:text-black/30 text-black uppercase font-heading tracking-wide"
+                                        className="w-full bg-transparent py-4 outline-none text-lg md:text-xl placeholder:text-black/30 text-black uppercase font-heading tracking-wide"
                                     />
                                 </div>
                             </Reveal>
@@ -46,14 +44,14 @@ export default function Contact() {
                                     <textarea
                                         placeholder="Message"
                                         rows={4}
-                                        className="w-full bg-transparent py-4 outline-none text-xl placeholder:text-black/30 text-black uppercase font-heading tracking-wide resize-none"
+                                        className="w-full bg-transparent py-4 outline-none text-lg md:text-xl placeholder:text-black/30 text-black uppercase font-heading tracking-wide resize-none"
                                     />
                                 </div>
                             </Reveal>
 
                             <Reveal delay={0.5}>
                                 <MagneticButton>
-                                    <button className="px-12 py-4 bg-verdant-black text-verdant-white rounded-full uppercase text-sm font-bold tracking-widest hover:scale-105 transition-transform">
+                                    <button className="w-full sm:w-auto px-10 md:px-12 py-4 bg-verdant-black text-verdant-white rounded-full uppercase text-sm font-bold tracking-widest hover:scale-105 transition-transform">
                                         Send Message
                                     </button>
                                 </MagneticButton>
@@ -83,7 +81,7 @@ export default function Contact() {
                             </Reveal>
                         </div>
 
-                        <div className="mt-12 h-64 md:h-auto md:flex-grow grayscale relative overflow-hidden bg-gray-200">
+                        <div className="mt-12 h-64 md:h-auto md:flex-grow grayscale relative overflow-hidden bg-gray-200 rounded-xl">
                             {/* Placeholder Map Image */}
                             <div
                                 className="absolute inset-0 bg-cover bg-center opacity-50 hover:opacity-100 transition-opacity duration-700"

@@ -25,12 +25,12 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
             <StickyNavbar />
 
             {/* Hero */}
-            <section className="h-[60vh] flex flex-col justify-end px-6 md:px-12 pb-24 bg-verdant-black text-white">
+            <section className="min-h-[48vh] md:h-[60vh] flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 bg-verdant-black text-white">
                 <Reveal>
                     <span className="block text-sm font-bold tracking-widest text-white/50 uppercase mb-4">Expertise Detail</span>
                 </Reveal>
                 <Reveal delay={0.1}>
-                    <h1 className="text-6xl md:text-9xl font-heading uppercase leading-none capitalize">
+                    <h1 className="text-4xl sm:text-5xl md:text-9xl font-heading uppercase leading-none capitalize">
                         {title}
                     </h1>
                 </Reveal>

@@ -1,7 +1,6 @@
 "use client";
 
 import StickyNavbar from "@/components/StickyNavbar";
-import CustomCursor from "@/components/CustomCursor";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
 import Image from "next/image";
@@ -31,7 +30,6 @@ export default function Projects() {
 
     return (
         <main className="min-h-screen bg-verdant-bg relative">
-            <CustomCursor />
             <StickyNavbar />
 
             <section className="pt-32 pb-12 px-6 md:px-12">
@@ -45,19 +43,23 @@ export default function Projects() {
                 </p>
 
                 {/* Filter Tabs */}
-                <div className="flex flex-wrap gap-8 mb-16 border-b border-black/10 pb-4">
+                <div className="mb-16 border-b border-black/10 pb-4 overflow-x-auto">
+                    <div className="flex min-w-max gap-3">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setActiveCategory(cat)}
                             className={clsx(
-                                "text-sm uppercase tracking-widest transition-colors hover:text-black",
-                                activeCategory === cat ? "text-black font-bold" : "text-black/40"
+                                "rounded-full border px-4 py-2 text-xs uppercase tracking-widest transition-colors",
+                                activeCategory === cat
+                                    ? "border-black bg-black text-white"
+                                    : "border-black/20 text-black/60 hover:border-black/40 hover:text-black"
                             )}
                         >
                             {cat}
                         </button>
                     ))}
+                    </div>
                 </div>
 
                 {/* Projects Grid */}

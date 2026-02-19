@@ -23,9 +23,9 @@ export default function ServicesPage() {
             <StickyNavbar />
 
             {/* Hero */}
-            <section className="py-32 px-6 md:px-12">
+            <section className="pt-28 md:pt-32 pb-14 px-6 md:px-12">
                 <Reveal>
-                    <h1 className="text-6xl md:text-9xl font-heading uppercase leading-none mb-12">Expertise<br />Services</h1>
+                    <h1 className="text-5xl sm:text-6xl md:text-9xl font-heading uppercase leading-none mb-8 md:mb-12">Expertise<br />Services</h1>
                 </Reveal>
                 <p className="text-lg max-w-3xl text-black/70">
                     We provide interior design, landscape design, feasibility studies, conceptual development, and full project and construction management.
@@ -34,7 +34,7 @@ export default function ServicesPage() {
 
             {/* Bento Grid */}
             <section className="px-6 md:px-12 pb-24">
-                <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-4 gap-4 md:h-[1600px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[280px]">
                     {services.map((service, index) => (
                         <Link
                             href={`/services/${service.slug}`}
@@ -43,9 +43,8 @@ export default function ServicesPage() {
                                 "group relative overflow-hidden border border-black/5 cursor-none bg-gray-100",
                                 // Custom bento layout pattern
                                 index === 0 ? "md:col-span-2 md:row-span-2" :
-                                    index === 3 ? "md:col-span-2 md:row-span-1" :
-                                        index === 6 ? "md:col-span-2 md:row-span-2" :
-                                            "md:col-span-1 md:row-span-1"
+                                    index === 4 ? "md:col-span-2 md:row-span-1" :
+                                        "md:col-span-1 md:row-span-1"
                             )}
                             data-cursor="hover"
                             data-cursor-text="View Service"

@@ -20,9 +20,23 @@ export default function StoryTimeline() {
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-60%"]);
 
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-verdant-black text-white">
-            <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-24 px-24">
+        <>
+            <section className="bg-verdant-black text-white py-16 px-6 md:hidden">
+                <h2 className="text-sm font-bold tracking-widest uppercase border-b border-white/30 pb-1 inline-block mb-8">Our History</h2>
+                <div className="space-y-8">
+                    {milestones.map((item) => (
+                        <div key={item.year} className="border border-white/15 p-5 rounded-xl">
+                            <span className="text-4xl font-heading opacity-30 block leading-none">{item.year}</span>
+                            <h3 className="text-2xl font-heading mt-3">{item.title}</h3>
+                            <p className="text-white/70 mt-3">{item.desc}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            <section ref={targetRef} className="relative h-[300vh] bg-verdant-black text-white hidden md:block">
+                <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+                    <motion.div style={{ x }} className="flex gap-24 px-24">
                     {milestones.map((item, i) => (
                         <div key={i} className="flex-shrink-0 w-[60vw] md:w-[40vw] flex flex-col gap-8 relative">
                             {/* The Circle/Dot */}
@@ -38,15 +52,16 @@ export default function StoryTimeline() {
                                 <p className="text-xl text-white/60 max-w-md">{item.desc}</p>
                             </div>
                         </div>
-                    ))}
-                    {/* Extra padding at end */}
-                    <div className="w-[20vw]" />
-                </motion.div>
+                        ))}
+                        {/* Extra padding at end */}
+                        <div className="w-[20vw]" />
+                    </motion.div>
 
-                <div className="absolute bottom-12 left-12">
-                    <h2 className="text-sm font-bold tracking-widest uppercase border-b border-white pb-1">Our History</h2>
+                    <div className="absolute bottom-12 left-12">
+                        <h2 className="text-sm font-bold tracking-widest uppercase border-b border-white pb-1">Our History</h2>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }

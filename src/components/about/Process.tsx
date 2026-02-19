@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useScroll } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -38,7 +38,22 @@ export default function Process() {
                 <h2 className="text-5xl md:text-8xl font-heading mb-8">Our Process</h2>
             </div>
 
-            <div className="flex flex-col gap-0">
+            <div className="flex flex-col gap-6 md:hidden px-6">
+                {steps.map((step) => (
+                    <div key={step.num} className="border border-white/15 rounded-xl overflow-hidden bg-white/5">
+                        <div className="relative h-56 w-full">
+                            <Image src={step.image} alt={step.title} fill className="object-cover opacity-70" />
+                        </div>
+                        <div className="p-6">
+                            <span className="text-xs font-bold tracking-widest text-white/60 block mb-2">STEP {step.num}</span>
+                            <h3 className="text-3xl font-heading mb-3">{step.title}</h3>
+                            <p className="text-white/75 leading-relaxed">{step.desc}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div className="hidden md:flex flex-col gap-0">
                 {steps.map((step, i) => (
                     <StickyStep key={i} step={step} index={i} total={steps.length} />
                 ))}
@@ -47,9 +62,16 @@ export default function Process() {
     );
 }
 
-function StickyStep({ step, index, total }: { step: any, index: number, total: number }) {
+type ProcessStep = {
+    num: string;
+    title: string;
+    desc: string;
+    image: string;
+};
+
+function StickyStep({ step, index }: { step: ProcessStep, index: number, total: number }) {
     const ref = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
+    useScroll({
         target: ref,
         offset: ["start end", "start start"]
     });

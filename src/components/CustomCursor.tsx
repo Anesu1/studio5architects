@@ -80,7 +80,7 @@ export default function CustomCursor() {
             height: 12,
             borderRadius: "50%",
             backgroundColor: "white",
-            mixBlendMode: "difference" as any,
+            mixBlendMode: "difference" as const,
         },
         hover: {
             x: mousePosition.x - 32,
@@ -89,7 +89,7 @@ export default function CustomCursor() {
             height: 64,
             borderRadius: "50%",
             backgroundColor: "white",
-            mixBlendMode: "difference" as any,
+            mixBlendMode: "difference" as const,
         },
         pill: {
             x: mousePosition.x - 60, // Center horizontally (width 120 / 2)
@@ -99,7 +99,7 @@ export default function CustomCursor() {
             borderRadius: "9999px",
             backgroundColor: "#222", // Verdant Black-ish
             color: "white",
-            mixBlendMode: "normal" as any, // No difference mode for pill usually, or verified against design
+            mixBlendMode: "normal" as const, // No difference mode for pill usually, or verified against design
         }
     };
 
@@ -117,7 +117,7 @@ export default function CustomCursor() {
                         "fixed top-0 left-0 z-[9999] pointer-events-none",
                         "flex items-center justify-center font-bold uppercase tracking-widest overflow-hidden"
                     )}
-                    animate={variants[currentVariant as keyof typeof variants] as any}
+                    animate={variants[currentVariant as keyof typeof variants]}
                     transition={{
                         type: "tween",
                         ease: "backOut",

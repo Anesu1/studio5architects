@@ -34,12 +34,12 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                         Back to Insights
                     </Link>
                     <div className="mt-8 max-w-4xl">
-                        <div className="flex items-center gap-4 text-xs uppercase tracking-widest text-black/50">
+                        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-black/50">
                             <span>{post.category}</span>
                             <span>{post.publishedAt}</span>
                             <span>{post.readTime}</span>
                         </div>
-                        <h1 className="mt-6 text-5xl md:text-8xl font-heading uppercase leading-[0.95]">{post.title}</h1>
+                        <h1 className="mt-6 text-4xl sm:text-5xl md:text-8xl font-heading uppercase leading-[0.95]">{post.title}</h1>
                     </div>
                 </section>
 
@@ -49,8 +49,8 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                     </div>
                 </section>
 
-                <section className="px-6 md:px-12 py-16">
-                    <div className="max-w-3xl space-y-6 text-lg leading-relaxed text-black/80">
+                <section className="px-6 md:px-12 py-14 md:py-16">
+                    <div className="max-w-3xl space-y-6 text-base md:text-lg leading-relaxed text-black/80">
                         {post.content.map((paragraph) => (
                             <p key={paragraph}>{paragraph}</p>
                         ))}

@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <footer className="bg-verdant-black text-verdant-bg py-20 px-6 md:px-12">
+        <footer className="bg-verdant-black text-verdant-bg py-16 md:py-20 px-6 md:px-12">
             <div className="max-w-7xl mx-auto flex flex-col justify-between h-full">
-                <div className="flex flex-col md:flex-row justify-between items-start mb-20">
-                    <div>
+                <div className="flex flex-col md:flex-row justify-between items-start gap-10 mb-14 md:mb-20">
+                    <div className="w-full md:w-auto">
                         <Link href="/" className="inline-flex items-center opacity-70 hover:opacity-100 transition-opacity" aria-label="Studio 5 Architects home">
                             <Image
                                 src="/logo.png"
@@ -17,7 +17,7 @@ export default function Footer() {
                             />
                         </Link>
                     </div>
-                    <div className="flex gap-12 mt-10 md:mt-0 font-body text-sm uppercase tracking-wider">
+                    <div className="grid grid-cols-2 gap-8 md:flex md:gap-12 font-body text-sm uppercase tracking-wider w-full md:w-auto">
                         <div className="flex flex-col gap-4">
                             <span className="opacity-50 mb-4">Sitemap</span>
                             <Link href="/" className="hover:text-white transition-colors">Home</Link>
@@ -43,7 +43,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="flex justify-between items-end border-t border-white/10 pt-8 text-xs opacity-40">
+                <div className="flex flex-col gap-3 md:flex-row md:justify-between md:items-end border-t border-white/10 pt-8 text-xs opacity-40">
                     <span>Copyright 2026 Studio 5 Architects. All rights reserved.</span>
                     <div className="flex gap-4">
                         <span>Privacy Policy</span>

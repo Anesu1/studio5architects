@@ -42,9 +42,49 @@ export default function FeaturedProjects() {
     const x = useTransform(scrollYProgress, [0, 1], ["1%", "-75%"]);
 
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-verdant-bg">
-            <div className="sticky top-0 h-screen flex items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-12 pl-12 md:pl-24">
+        <>
+            <section className="bg-verdant-bg py-16 px-6 md:hidden">
+                <h2 className="text-4xl font-heading uppercase leading-none mb-4">
+                    Some Of Our
+                    <br />
+                    Best Work
+                </h2>
+                <p className="text-black/70 mb-8">
+                    Good design blends comfort with necessity and responds to lifestyle, context, and budget.
+                </p>
+                <div className="space-y-6">
+                    {projects.map((project) => (
+                        <Link key={project.title} href="/projects" className="block group">
+                            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-black/15" />
+                                <div className="absolute bottom-0 left-0 right-0 p-5">
+                                    <h3 className="text-2xl font-heading uppercase text-white">{project.title}</h3>
+                                    <div className="mt-1 flex items-center justify-between text-xs uppercase tracking-wider text-white/80">
+                                        <span>{project.location}</span>
+                                        <span>{project.year}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+                <Link
+                    href="/projects"
+                    className="mt-8 inline-flex px-7 py-3 border border-black rounded-full uppercase text-xs font-bold tracking-widest"
+                >
+                    More Projects
+                </Link>
+            </section>
+
+            <section ref={targetRef} className="relative h-[300vh] bg-verdant-bg hidden md:block">
+                <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+                    <motion.div style={{ x }} className="flex gap-12 pl-12 md:pl-24">
                     <div className="flex flex-col justify-center min-w-[30vw] md:min-w-[20vw] pr-12">
                         <Reveal>
                             <h2 className="text-5xl md:text-7xl font-heading uppercase leading-none mb-6">
@@ -67,35 +107,36 @@ export default function FeaturedProjects() {
                         </Reveal>
                     </div>
 
-                    {projects.map((project, index) => (
-                        <div
-                            key={index}
-                            className="relative h-[60vh] md:h-[70vh] w-[80vw] md:w-[50vw] flex-shrink-0 group overflow-hidden"
-                            data-cursor-text="View Project"
-                        >
-                            <Link href={`/projects`}>
-                                <div className="w-full h-full overflow-hidden relative">
-                                    <Image
-                                        src={project.image}
-                                        alt={project.title}
-                                        fill
-                                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                                    />
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-                                </div>
-
-                                <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
-                                    <h3 className="text-3xl font-heading uppercase text-white mb-1">{project.title}</h3>
-                                    <div className="flex justify-between text-white/80 text-sm uppercase tracking-wider">
-                                        <span>{project.location}</span>
-                                        <span>{project.year}</span>
+                        {projects.map((project, index) => (
+                            <div
+                                key={index}
+                                className="relative h-[60vh] md:h-[70vh] w-[80vw] md:w-[50vw] flex-shrink-0 group overflow-hidden"
+                                data-cursor-text="View Project"
+                            >
+                                <Link href={`/projects`}>
+                                    <div className="w-full h-full overflow-hidden relative">
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                        />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
                                     </div>
-                                </div>
-                            </Link>
-                        </div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
+
+                                    <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
+                                        <h3 className="text-3xl font-heading uppercase text-white mb-1">{project.title}</h3>
+                                        <div className="flex justify-between text-white/80 text-sm uppercase tracking-wider">
+                                            <span>{project.location}</span>
+                                            <span>{project.year}</span>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </motion.div>
+                </div>
+            </section>
+        </>
     );
 }
