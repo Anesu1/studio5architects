@@ -25,21 +25,11 @@ export default function Hero() {
         <section ref={containerRef} className="relative min-h-[88svh] md:h-screen flex flex-col items-center justify-center overflow-hidden bg-verdant-bg">
             {/* Mobile Hero */}
             <div className="absolute inset-0 z-0 md:hidden">
-                <motion.div
-                    className="flex w-[200%] h-full"
-                    animate={{ x: ["0%", "-50%"] }}
-                    transition={{ repeat: Infinity, duration: 24, ease: "linear" }}
-                >
-                    {[...carouselImages, ...carouselImages].map((src, i) => (
-                        <div key={i} className="w-1/4 h-full relative shrink-0">
-                            <div
-                                className="absolute inset-0 bg-cover bg-center"
-                                style={{ backgroundImage: `url(${src})` }}
-                            />
-                            <div className="absolute inset-0 bg-black/55" />
-                        </div>
-                    ))}
-                </motion.div>
+                <div
+                    className="absolute inset-0 bg-cover bg-center scale-105"
+                    style={{ backgroundImage: `url(${carouselImages[1]})` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70" />
             </div>
 
             <div className="absolute inset-0 z-0 select-none pointer-events-none hidden md:block">
@@ -88,10 +78,17 @@ export default function Hero() {
             </div>
 
             <div className="relative md:absolute md:bottom-12 md:left-12 z-20 max-w-xl text-white px-6 pt-28 pb-10 md:p-0 md:mix-blend-difference">
-                <h1 className="md:hidden font-heading text-5xl leading-none uppercase tracking-tight mb-4">
-                    Studio 5
-                </h1>
-                <div className="overflow-hidden">
+                <div className="md:hidden rounded-2xl border border-white/25 bg-white/10 backdrop-blur-md px-5 py-6 shadow-2xl">
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">Studio 5 Architects</p>
+                    <h1 className="font-heading text-4xl leading-[0.92] uppercase tracking-tight mb-3">
+                        Designing Spaces For Human Thrive
+                    </h1>
+                    <p className="text-sm text-white/85 leading-relaxed">
+                        Registered architecture practice delivering commercial, institutional, medical, industrial, and residential projects.
+                    </p>
+                </div>
+
+                <div className="hidden md:block overflow-hidden">
                     <motion.p
                         initial={{ y: "100%" }}
                         animate={{ y: "0%" }}
@@ -101,7 +98,7 @@ export default function Hero() {
                         Designing spaces where humanity can thrive.
                     </motion.p>
                 </div>
-                <div className="h-[2px] bg-white/80 mt-4 w-28 md:w-0 md:animate-grow-line" />
+                <div className="h-[2px] bg-white/80 mt-4 w-20 md:w-0 md:animate-grow-line" />
 
                 <div className="mt-8">
                     <MagneticButton>

@@ -2,13 +2,13 @@
 
 import StickyNavbar from "@/components/StickyNavbar";
 import Footer from "@/components/Footer";
-import Reveal from "@/components/ui/Reveal";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
 import Link from "next/link";
 import { projects } from "@/lib/projects";
+import PageHero from "@/components/ui/PageHero";
 
 const categories = ["All", "Commercial", "Industrial", "Institutional", "Medical", "Residential"];
 
@@ -23,16 +23,12 @@ export default function Projects() {
         <main className="min-h-screen bg-verdant-bg relative">
             <StickyNavbar />
 
-            <section className="pt-32 pb-12 px-6 md:px-12">
-                <Reveal>
-                    <h1 className="text-[12vw] leading-[0.85] font-heading font-bold uppercase tracking-tighter mb-12">
-                        Projects
-                    </h1>
-                </Reveal>
-                <p className="text-lg max-w-3xl text-black/70 mb-12">
-                    Good design blends comfort with necessity. We shape spaces around client lifestyle, project function, and realistic budget outcomes.
-                </p>
+            <PageHero
+                title="Projects"
+                description="Good design blends comfort with necessity. We shape spaces around client lifestyle, project function, and realistic budget outcomes."
+            />
 
+            <section className="pb-12 px-6 md:px-12">
                 {/* Filter Tabs */}
                 <div className="mb-16 border-b border-black/10 pb-4 overflow-x-auto">
                     <div className="flex min-w-max gap-3">

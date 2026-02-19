@@ -8,7 +8,7 @@ export default function Footer() {
                     <div className="w-full md:w-auto">
                         <Link href="/" className="inline-flex items-center opacity-30 hover:opacity-100 transition-opacity" aria-label="Studio 5 Architects home">
                             <h2 className="text-5xl sm:text-6xl md:text-[8vw] leading-none font-heading font-bold uppercase tracking-tighter">
-                                Studio5Architects
+                                Studio 5 Architects
                             </h2>
                         </Link>
                     </div>

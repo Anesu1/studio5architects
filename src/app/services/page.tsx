@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
-import Reveal from "@/components/ui/Reveal";
+import PageHero from "@/components/ui/PageHero";
 
 const services = [
     { title: "Interior Design", image: "https://images.unsplash.com/photo-1614595737476-42487331b8a1?fm=jpg&q=80&w=800&auto=format&fit=crop", slug: "interior-design" },
@@ -22,18 +22,13 @@ export default function ServicesPage() {
         <main className="min-h-screen bg-verdant-bg relative">
             <StickyNavbar />
 
-            {/* Hero */}
-            <section className="pt-28 md:pt-32 pb-14 px-6 md:px-12">
-                <Reveal>
-                    <h1 className="text-5xl sm:text-6xl md:text-9xl font-heading uppercase leading-none mb-8 md:mb-12">Expertise<br />Services</h1>
-                </Reveal>
-                <p className="text-lg max-w-3xl text-black/70">
-                    We provide interior design, landscape design, feasibility studies, conceptual development, and full project and construction management.
-                </p>
-            </section>
+            <PageHero
+                title="Expertise Services"
+                description="We provide interior design, landscape design, feasibility studies, conceptual development, and full project and construction management."
+            />
 
             {/* Bento Grid */}
-            <section className="px-6 md:px-12 pb-24">
+            <section className="px-6 md:px-12 pb-24 pt-2">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[280px]">
                     {services.map((service, index) => (
                         <Link

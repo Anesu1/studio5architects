@@ -3,20 +3,19 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blogs";
+import PageHero from "@/components/ui/PageHero";
 
 export default function BlogsPage() {
     return (
         <main className="min-h-screen bg-verdant-bg">
             <StickyNavbar />
 
-            <section className="px-6 md:px-12 pt-32 pb-16">
-                <h1 className="text-6xl md:text-9xl font-heading uppercase leading-none">Insights</h1>
-                <p className="mt-6 max-w-2xl text-black/60 text-lg">
-                    Articles on projects, cost planning, urban design, sustainability, and architectural delivery in Zimbabwe.
-                </p>
-            </section>
+            <PageHero
+                title="Insights"
+                description="Articles on projects, cost planning, urban design, sustainability, and architectural delivery in Zimbabwe."
+            />
 
-            <section className="px-6 md:px-12 pb-24">
+            <section className="px-6 md:px-12 pb-24 pt-2">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {blogPosts.map((post) => (
                         <Link key={post.slug} href={`/blogs/${post.slug}`} className="group block">

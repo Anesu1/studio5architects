@@ -4,22 +4,23 @@ import StickyNavbar from "@/components/StickyNavbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
 import MagneticButton from "@/components/ui/MagneticButton";
+import PageHero from "@/components/ui/PageHero";
 
 export default function Contact() {
     return (
         <main className="min-h-screen bg-verdant-bg relative">
             <StickyNavbar />
 
-            <section className="pt-32 pb-20 px-6 md:px-12 bg-verdant-bg min-h-screen">
+            <PageHero
+                title="Contact"
+                description="Get in touch to discuss your project goals, location, timeline, and budget requirements."
+                compact
+            />
+
+            <section className="pb-20 px-6 md:px-12 bg-verdant-bg min-h-screen">
                 <div className="flex flex-col md:flex-row gap-12 md:gap-20 max-w-7xl mx-auto">
                     {/* Form Section */}
                     <div className="md:w-1/2">
-                        <Reveal>
-                            <h1 className="text-5xl sm:text-6xl md:text-[8vw] leading-[0.85] font-heading font-bold uppercase tracking-tighter mb-10 md:mb-12">
-                                Contact
-                            </h1>
-                        </Reveal>
-
                         <form className="space-y-8 md:space-y-12 mt-8 md:mt-12">
                             <Reveal delay={0.2}>
                                 <div className="relative border-b border-black/20 focus-within:border-black transition-colors">
