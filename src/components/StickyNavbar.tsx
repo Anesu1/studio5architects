@@ -55,7 +55,9 @@ export default function StickyNavbar() {
             <motion.nav
                 className={clsx(
                     "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 sm:px-6 transition-colors duration-300",
-                    isScrolled || isMobileMenuOpen ? "bg-verdant-bg/95 backdrop-blur-md border-b border-black/5" : "bg-transparent"
+                    isScrolled || isMobileMenuOpen
+                        ? "bg-verdant-bg/96 backdrop-blur-md border-b border-black/8 shadow-sm"
+                        : "bg-verdant-bg/90 backdrop-blur-md border-b border-black/6"
                 )}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -75,7 +77,7 @@ export default function StickyNavbar() {
                     </Link>
                 </div>
 
-                <div className="hidden sm:flex items-center gap-8 mix-blend-difference text-verdant-bg md:mix-blend-normal md:text-verdant-black">
+                <div className="hidden sm:flex items-center gap-8 text-verdant-black">
                     {navLinks.map((link) => (
                         link.children ? (
                             <div key={link.name} className="relative group">
@@ -127,7 +129,7 @@ export default function StickyNavbar() {
                 </MagneticButton>
 
                 <button
-                    className="sm:hidden rounded-full border border-black/20 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-verdant-black"
+                    className="sm:hidden rounded-full border border-black/25 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-verdant-black"
                     onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                     aria-expanded={isMobileMenuOpen}
                     aria-label="Toggle menu"
