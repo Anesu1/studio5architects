@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
+import ChatWidget from "@/components/ChatWidget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-body-family" });
 
@@ -19,6 +20,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${inter.variable} antialiased`}>
                 <SmoothScroll>{children}</SmoothScroll>
+                <ChatWidget />
             </body>
         </html>
     );
