@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import MagneticButton from "./ui/MagneticButton";
 import clsx from "clsx";
+import { ChevronDown } from "lucide-react";
 
 const serviceDropdownLinks = [
     { name: "Interior Design", href: "/services/interior-design" },
@@ -15,27 +16,37 @@ const serviceDropdownLinks = [
     { name: "Project & Construction Management", href: "/services/project-construction-management" },
 ];
 
+const projectDropdownLinks = [
+    { name: "Commercial", href: "/projects?category=Commercial" },
+    { name: "Industrial", href: "/projects?category=Industrial" },
+    { name: "Institutional", href: "/projects?category=Institutional" },
+    { name: "Medical", href: "/projects?category=Medical" },
+    { name: "Residential", href: "/projects?category=Residential" },
+];
+
 const navLinks = [
-    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { name: "Expertise", href: "/services", children: serviceDropdownLinks },
-    { name: "Projects", href: "/projects" },
-    { name: "Insights", href: "/blogs" },
+    { 
+        name: "Projects", 
+        href: "/projects", 
+        children: projectDropdownLinks 
+    },
+    { 
+        name: "Services", 
+        href: "/services", 
+        children: serviceDropdownLinks 
+    },
     { name: "Contact", href: "/contact" },
 ];
 
-export default function StickyNavbar() {
+export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackground?: boolean }) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isMobileExpertiseOpen, setIsMobileExpertiseOpen] = useState(false);
+    const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
     const { scrollY } = useScroll();
 
     useMotionValueEvent(scrollY, "change", (latest) => {
-        if (latest > 50) {
-            setIsScrolled(true);
-        } else {
-            setIsScrolled(false);
-        }
+        setIsScrolled(latest > 50);
     });
 
     useEffect(() => {
@@ -47,17 +58,21 @@ export default function StickyNavbar() {
 
     const closeMobileMenu = () => {
         setIsMobileMenuOpen(false);
-        setIsMobileExpertiseOpen(false);
+        setOpenMobileDropdown(null);
+    };
+
+    const toggleMobileDropdown = (name: string) => {
+        setOpenMobileDropdown(prev => prev === name ? null : name);
     };
 
     return (
         <>
             <motion.nav
                 className={clsx(
-                    "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 sm:px-6 transition-colors duration-300",
+                    "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 py-4 sm:px-10 transition-all duration-500",
                     isScrolled || isMobileMenuOpen
-                        ? "bg-verdant-bg/96 backdrop-blur-md border-b border-black/8 shadow-sm"
-                        : "bg-verdant-bg/90 backdrop-blur-md border-b border-black/6"
+                        ? "bg-white/90 backdrop-blur-xl border-b border-black/5 shadow-sm py-3"
+                        : "bg-transparent py-6"
                 )}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -71,42 +86,52 @@ export default function StickyNavbar() {
                             width={158}
                             height={44}
                             quality={100}
-                            className="h-6 w-auto sm:h-10"
+                            className={clsx(
+                                "h-8 sm:h-10 w-auto transition-transform duration-500",
+                                isScrolled ? "scale-90" : "scale-100"
+                            )}
                             priority
                         />
                     </Link>
                 </div>
 
-                <div className="hidden sm:flex items-center gap-8 text-verdant-black">
+                <div className={clsx(
+                    "hidden lg:flex items-center gap-10",
+                    isScrolled || isMobileMenuOpen ? "text-verdant-black" : (isDarkBackground ? "text-white" : "text-verdant-black")
+                )}>
                     {navLinks.map((link) => (
                         link.children ? (
-                            <div key={link.name} className="relative group">
+                            <div key={link.name} className="relative group py-2">
                                 <Link
                                     href={link.href}
-                                    className="text-sm font-medium uppercase tracking-wide hover:opacity-50 transition-opacity flex items-center gap-2"
+                                    className="text-[11px] font-bold uppercase tracking-[0.2em] hover:opacity-100 transition-all flex items-center gap-1 group-hover:text-black/60"
                                     data-cursor="hover"
                                 >
                                     {link.name}
+                                    <ChevronDown size={12} className="transition-transform duration-300 group-hover:rotate-180 opacity-40" />
                                 </Link>
 
-                                <div className="absolute left-1/2 top-full mt-3 w-64 -translate-x-1/2 rounded-xl border border-black/10 bg-verdant-bg p-2 text-verdant-black shadow-xl opacity-0 translate-y-2 pointer-events-none transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto group-focus-within:opacity-100 group-focus-within:translate-y-0 group-focus-within:pointer-events-auto">
-                                    {link.children.map((child) => (
-                                        <Link
-                                            key={child.href}
-                                            href={child.href}
-                                            className="block rounded-lg px-3 py-2 text-xs font-medium uppercase tracking-wide hover:bg-black/5 transition-colors"
-                                            data-cursor="hover"
-                                        >
-                                            {child.name}
-                                        </Link>
-                                    ))}
+                                {/* Hover Bridge and Dropdown */}
+                                <div className="absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+                                    <div className="w-64 rounded-2xl border border-black/5 bg-white/95 backdrop-blur-xl p-2 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+                                        {link.children.map((child) => (
+                                            <Link
+                                                key={child.href}
+                                                href={child.href}
+                                                className="block rounded-xl px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-black/60 hover:text-black hover:bg-black/[0.03] transition-all"
+                                                data-cursor="hover"
+                                            >
+                                                {child.name}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         ) : (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-sm font-medium uppercase tracking-wide hover:opacity-50 transition-opacity"
+                                className="text-[11px] font-bold uppercase tracking-[0.2em] hover:opacity-100 opacity-100 transition-all hover:text-black/60"
                                 data-cursor="hover"
                             >
                                 {link.name}
@@ -115,70 +140,100 @@ export default function StickyNavbar() {
                     ))}
                 </div>
 
-                <MagneticButton className="hidden sm:block">
-                    <Link
-                        href="/buy"
-                        className={clsx(
-                            "px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-transform",
-                            isScrolled ? "bg-verdant-black text-verdant-white" : "bg-verdant-black text-verdant-white"
-                        )}
-                        data-cursor="hover"
-                    >
-                        Request Consultation
-                    </Link>
-                </MagneticButton>
+                <div className="flex items-center gap-4">
+                    <MagneticButton className="hidden sm:block">
+                        <Link
+                            href="/contact"
+                            className={clsx(
+                                "px-8 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] transition-all",
+                                isScrolled 
+                                    ? "bg-black text-white hover:bg-black/80" 
+                                    : "bg-black text-white hover:shadow-lg"
+                            )}
+                            data-cursor="hover"
+                        >
+                            Get In Touch
+                        </Link>
+                    </MagneticButton>
 
-                <button
-                    className="sm:hidden rounded-full border border-black/25 bg-white/80 px-4 py-2 text-[11px] font-bold uppercase tracking-widest text-verdant-black"
-                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                    aria-expanded={isMobileMenuOpen}
-                    aria-label="Toggle menu"
-                >
-                    {isMobileMenuOpen ? "Close" : "Menu"}
-                </button>
+                    <button
+                        className={clsx(
+                            "lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-full border transition-colors",
+                            isScrolled || isMobileMenuOpen 
+                                ? "border-black/10 bg-white/80" 
+                                : (isDarkBackground ? "border-white/20 bg-white/10" : "border-black/10 bg-white/80")
+                        )}
+                        onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-label="Toggle menu"
+                    >
+                        <span className={clsx(
+                            "w-5 h-0.5 transition-all duration-300", 
+                            isScrolled || isMobileMenuOpen || !isDarkBackground ? "bg-black" : "bg-white",
+                            isMobileMenuOpen && "rotate-45 translate-y-2"
+                        )} />
+                        <span className={clsx(
+                            "w-5 h-0.5 transition-all duration-300", 
+                            isScrolled || isMobileMenuOpen || !isDarkBackground ? "bg-black" : "bg-white",
+                            isMobileMenuOpen && "opacity-0"
+                        )} />
+                        <span className={clsx(
+                            "w-5 h-0.5 transition-all duration-300", 
+                            isScrolled || isMobileMenuOpen || !isDarkBackground ? "bg-black" : "bg-white",
+                            isMobileMenuOpen && "-rotate-45 -translate-y-2"
+                        )} />
+                    </button>
+                </div>
             </motion.nav>
 
             <AnimatePresence>
                 {isMobileMenuOpen && (
                     <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-40 bg-verdant-bg pt-24 px-6 pb-8 sm:hidden overflow-y-auto"
+                        initial={{ opacity: 0, x: "100%" }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: "100%" }}
+                        transition={{ type: "spring", damping: 30, stiffness: 200 }}
+                        className="fixed inset-0 z-40 bg-white pt-32 px-10 pb-10 lg:hidden overflow-y-auto"
                     >
-                        <div className="flex flex-col gap-4">
-                            {navLinks.map((link) => (
-                                <div key={link.name} className="border-b border-black/10 pb-3">
+                        <div className="flex flex-col gap-8">
+                            {navLinks.map((link, i) => (
+                                <motion.div 
+                                    key={link.name}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.1 + i * 0.05 }}
+                                    className="border-b border-black/5 pb-6"
+                                >
                                     {link.children ? (
                                         <>
                                             <button
-                                                onClick={() => setIsMobileExpertiseOpen((prev) => !prev)}
-                                                className="w-full flex items-center justify-between text-left text-lg font-heading uppercase"
+                                                onClick={() => toggleMobileDropdown(link.name)}
+                                                className="w-full flex items-center justify-between text-left text-2xl font-heading uppercase"
                                             >
                                                 <span>{link.name}</span>
-                                                <span className="text-xs">{isMobileExpertiseOpen ? "-" : "+"}</span>
+                                                <ChevronDown className={clsx("transition-transform duration-300", openMobileDropdown === link.name && "rotate-180")} />
                                             </button>
                                             <AnimatePresence>
-                                                {isMobileExpertiseOpen && (
+                                                {openMobileDropdown === link.name && (
                                                     <motion.div
                                                         initial={{ height: 0, opacity: 0 }}
                                                         animate={{ height: "auto", opacity: 1 }}
                                                         exit={{ height: 0, opacity: 0 }}
-                                                        className="overflow-hidden mt-3 flex flex-col gap-2"
+                                                        className="overflow-hidden mt-6 flex flex-col gap-4 pl-4"
                                                     >
                                                         <Link
                                                             href={link.href}
                                                             onClick={closeMobileMenu}
-                                                            className="text-sm uppercase tracking-widest text-black/70 py-1"
+                                                            className="text-sm font-bold uppercase tracking-widest text-black/40"
                                                         >
-                                                            All Expertise
+                                                            All {link.name}
                                                         </Link>
                                                         {link.children.map((child) => (
                                                             <Link
                                                                 key={child.href}
                                                                 href={child.href}
                                                                 onClick={closeMobileMenu}
-                                                                className="text-sm uppercase tracking-widest text-black/70 py-1"
+                                                                className="text-sm font-bold uppercase tracking-widest text-black/70"
                                                             >
                                                                 {child.name}
                                                             </Link>
@@ -188,20 +243,31 @@ export default function StickyNavbar() {
                                             </AnimatePresence>
                                         </>
                                     ) : (
-                                        <Link href={link.href} onClick={closeMobileMenu} className="text-lg font-heading uppercase">
+                                        <Link 
+                                            href={link.href} 
+                                            onClick={closeMobileMenu} 
+                                            className="text-2xl font-heading uppercase block"
+                                        >
                                             {link.name}
                                         </Link>
                                     )}
-                                </div>
+                                </motion.div>
                             ))}
 
-                            <Link
-                                href="/buy"
-                                onClick={closeMobileMenu}
-                                className="mt-4 inline-flex justify-center rounded-full bg-verdant-black px-6 py-3 text-xs font-bold uppercase tracking-widest text-verdant-white"
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5 }}
+                                className="mt-4"
                             >
-                                Request Consultation
-                            </Link>
+                                <Link
+                                    href="/contact"
+                                    onClick={closeMobileMenu}
+                                    className="w-full inline-flex justify-center rounded-full bg-black px-10 py-5 text-sm font-bold uppercase tracking-widest text-white shadow-xl"
+                                >
+                                    Request Consultation
+                                </Link>
+                            </motion.div>
                         </div>
                     </motion.div>
                 )}

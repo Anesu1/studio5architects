@@ -5,9 +5,29 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blogs";
 
+import { Metadata } from "next";
+
 type BlogDetailProps = {
     params: Promise<{ slug: string }> | { slug: string };
 };
+
+export async function generateMetadata({ params }: BlogDetailProps): Promise<Metadata> {
+    const resolvedParams = await Promise.resolve(params);
+    const slug = resolvedParams?.slug;
+    if (!slug) return { title: "Blog Post" };
+    const post = getBlogPostBySlug(slug);
+    if (!post) return { title: "Post Not Found" };
+    
+    return {
+        title: `${post.title} | Studio 5 Architects News & Insights`,
+        description: post.excerpt,
+        openGraph: {
+            title: post.title,
+            description: post.excerpt,
+            images: [post.image],
+        },
+    };
+}
 
 export function generateStaticParams() {
     return blogPosts.map((post) => ({ slug: post.slug }));

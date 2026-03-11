@@ -1,10 +1,10 @@
 import Counter from "@/components/ui/Counter";
 
 const stats = [
-    { label: "Completed Projects", value: 30, suffix: "+" },
+    { label: "Projects Completed", value: 50, suffix: "+" },
+    { label: "Expert Professionals", value: 10, suffix: "" },
     { label: "Years Experience", value: 5, suffix: "+" },
-    { label: "Client-Centered Design", value: 100, suffix: "%" },
-    { label: "Environmental Focus", value: 100, suffix: "%" },
+    { label: "Client Satisfaction", value: 100, suffix: "%" },
 ];
 
 export default function Stats() {

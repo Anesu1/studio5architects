@@ -6,10 +6,10 @@ import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
 
 const carouselImages = [
-    "https://images.unsplash.com/photo-1519662978799-2f05096d3636?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1614595737683-1740e41bfaac?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1554793000-245d3a3c2a51?fm=jpg&q=80&w=2670&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1614595737476-42487331b8a1?fm=jpg&q=80&w=2670&auto=format&fit=crop",
+    "https://www.studio5architects.com/wp-content/uploads/2022/08/07-1-scaled.jpg",
+    "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-3.jpg",
+    "https://www.studio5architects.com/wp-content/uploads/2021/09/2.jpg",
+    "https://www.studio5architects.com/wp-content/uploads/2020/11/03-1.jpg",
 ];
 
 export default function Hero() {
@@ -78,12 +78,12 @@ export default function Hero() {
             </div>
             <div className="relative md:absolute md:bottom-12 md:left-12 z-20 max-w-xl text-white px-6 pt-28 pb-10 md:p-0 md:mix-blend-difference">
                 <div className="md:hidden rounded-2xl border border-white/25 bg-white/10 backdrop-blur-md px-5 py-6 shadow-2xl">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">Studio 5 Architects</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">Studio 5 Architects | Harare & Zimbabwe</p>
                     <h1 className="font-heading text-4xl leading-[0.92] uppercase tracking-tight mb-3">
-                        Designing Spaces For Human Thrive
+                        Designing spaces where humanity can thrive
                     </h1>
                     <p className="text-sm text-white/85 leading-relaxed">
-                        Registered architecture practice delivering commercial, institutional, medical, industrial, and residential projects.
+                        Registered Zimbabwe architecture practice dedicated to socially responsible and environmentally respectful design.
                     </p>
                 </div>
 

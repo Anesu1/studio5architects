@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "plus.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+      },
+      {
+        protocol: "https",
+        hostname: "www.studio5architects.com",
+        pathname: "/**",
+      },
     ],
   },
 };

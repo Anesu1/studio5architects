@@ -7,12 +7,11 @@ import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 
 const services = [
-    { title: "Interior Design", slug: "interior-design", image: "https://images.unsplash.com/photo-1614595737476-42487331b8a1?fm=jpg&q=80&w=800&auto=format&fit=crop" },
-    { title: "Landscape Design", slug: "landscape-design", image: "https://images.unsplash.com/photo-1578803203370-8b000b589edd?fm=jpg&q=80&w=800&auto=format&fit=crop" },
-    { title: "Feasibility Studies", slug: "feasibility-studies", image: "https://images.unsplash.com/photo-1543071293-d91175a68672?fm=jpg&q=80&w=800&auto=format&fit=crop" },
-    { title: "Conceptualising", slug: "conceptualising", image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?fm=jpg&q=80&w=800&auto=format&fit=crop" },
-    { title: "Project & Construction Management", slug: "project-construction-management", image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?fm=jpg&q=80&w=800&auto=format&fit=crop" },
-    { title: "Architectural Planning", slug: "architectural-planning", image: "https://images.unsplash.com/photo-1546349851-64285be8e9fa?fm=jpg&q=80&w=800&auto=format&fit=crop" },
+    { title: "Interior Design", slug: "interior-design", image: "https://www.studio5architects.com/wp-content/uploads/2022/08/07-1-scaled.jpg" },
+    { title: "Landscape Design", slug: "landscape-design", image: "https://www.studio5architects.com/wp-content/uploads/2021/09/2.jpg" },
+    { title: "Feasibility Studies", slug: "feasibility-studies", image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-1-scaled.jpg" },
+    { title: "Conceptualising", slug: "conceptualising", image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-scaled.jpg" },
+    { title: "Project & Construction Management", slug: "project-construction-management", image: "https://www.studio5architects.com/wp-content/uploads/2020/11/03-1.jpg" },
 ];
 
 export default function ServicesPreview() {

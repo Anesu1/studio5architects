@@ -6,6 +6,7 @@ import WhyUs from "@/components/home/WhyUs";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import FAQ from "@/components/home/FAQ";
+import NewsPreview from "@/components/home/NewsPreview";
 
 export default function Home() {
     return (
@@ -17,6 +18,7 @@ export default function Home() {
             <WhyUs />
             <ServicesPreview />
             <FeaturedProjects />
+            <NewsPreview />
             <FAQ />
 
             <Footer />

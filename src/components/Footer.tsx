@@ -12,28 +12,34 @@ export default function Footer() {
                             </h2>
                         </Link>
                     </div>
-                    <div className="grid grid-cols-2 gap-8 md:flex md:gap-12 font-body text-sm uppercase tracking-wider w-full md:w-auto">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 md:flex md:gap-12 font-body text-sm uppercase tracking-wider w-full md:w-auto">
                         <div className="flex flex-col gap-4">
                             <span className="opacity-50 mb-4">Sitemap</span>
-                            <Link href="/" className="hover:text-white transition-colors">Home</Link>
                             <Link href="/about" className="hover:text-white transition-colors">About</Link>
                             <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
-                            <Link href="/services" className="hover:text-white transition-colors">Expertise</Link>
+                            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
                             <Link href="/blogs" className="hover:text-white transition-colors">Insights</Link>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <span className="opacity-50 mb-4 whitespace-nowrap">Company</span>
+                            <Link href="/newsroom" className="hover:text-white transition-colors">Newsroom</Link>
+                            <Link href="/sustainability" className="hover:text-white transition-colors">Sustainability</Link>
+                            <Link href="/careers" className="hover:text-white transition-colors">Careers</Link>
                             <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <span className="opacity-50 mb-4">Categories</span>
-                            <Link href="/projects" className="hover:text-white transition-colors">Projects</Link>
-                            <Link href="/services" className="hover:text-white transition-colors">Commercial</Link>
-                            <Link href="/services" className="hover:text-white transition-colors">Industrial</Link>
-                            <Link href="/services" className="hover:text-white transition-colors">Residential</Link>
+                            <span className="opacity-50 mb-4">Portfolios</span>
+                            <Link href="/projects" className="hover:text-white transition-colors">Commercial</Link>
+                            <Link href="/projects" className="hover:text-white transition-colors">Residential</Link>
+                            <Link href="/projects" className="hover:text-white transition-colors">Industrial</Link>
+                            <Link href="/projects" className="hover:text-white transition-colors">Medical</Link>
                         </div>
                         <div className="flex flex-col gap-4">
-                            <span className="opacity-50 mb-4">Socials</span>
+                            <span className="opacity-50 mb-4">Connect</span>
                             <a href="#" className="hover:text-white transition-colors">Instagram</a>
                             <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-                            <a href="#" className="hover:text-white transition-colors">Twitter</a>
+                            <a href="#" className="hover:text-white transition-colors">Twitter (X)</a>
+                            <a href="#" className="hover:text-white transition-colors">Facebook</a>
                         </div>
                     </div>
                 </div>

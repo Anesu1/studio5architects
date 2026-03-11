@@ -16,31 +16,38 @@ export default function BlogsPage() {
             />
 
             <section className="px-6 md:px-12 pb-24 pt-2">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {blogPosts.map((post) => (
-                        <Link key={post.slug} href={`/blogs/${post.slug}`} className="group block">
-                            <article className="h-full border border-black/10 bg-white overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
-                                <div className="relative aspect-[16/10] overflow-hidden">
-                                    <Image
-                                        src={post.image}
-                                        alt={post.title}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                                    />
-                                </div>
-                                <div className="p-6">
-                                    <div className="flex items-center justify-between gap-4 text-xs uppercase tracking-widest text-black/50">
-                                        <span>{post.category}</span>
-                                        <span>{post.readTime}</span>
-                                    </div>
-                                    <h2 className="mt-3 text-2xl font-heading uppercase leading-tight">{post.title}</h2>
-                                    <p className="mt-4 text-sm text-black/70 leading-relaxed">{post.excerpt}</p>
-                                    <p className="mt-6 text-xs uppercase tracking-widest text-black/50">{post.publishedAt}</p>
-                                </div>
-                            </article>
-                        </Link>
-                    ))}
-                </div>
+                {Array.from(new Set(blogPosts.map(p => p.category))).map((category) => (
+                    <div key={category} className="mb-20">
+                        <div className="flex items-center gap-4 mb-10">
+                            <h2 className="text-2xl md:text-3xl font-heading uppercase tracking-widest">{category}</h2>
+                            <div className="h-px flex-1 bg-black/10" />
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {blogPosts.filter(p => p.category === category).map((post) => (
+                                <Link key={post.slug} href={`/blogs/${post.slug}`} className="group block">
+                                    <article className="h-full border border-black/10 bg-white overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
+                                        <div className="relative aspect-[16/10] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                                            <Image
+                                                src={post.image}
+                                                alt={post.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                            />
+                                        </div>
+                                        <div className="p-6">
+                                            <div className="flex items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-black/50">
+                                                <span>{post.readTime}</span>
+                                                <span>{post.publishedAt}</span>
+                                            </div>
+                                            <h3 className="mt-3 text-xl font-heading uppercase leading-tight group-hover:text-black/60 transition-colors">{post.title}</h3>
+                                            <p className="mt-4 text-xs text-black/70 leading-relaxed line-clamp-3">{post.excerpt}</p>
+                                        </div>
+                                    </article>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                ))}
             </section>
 
             <Footer />

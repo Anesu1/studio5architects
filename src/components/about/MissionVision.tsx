@@ -45,10 +45,9 @@ export default function MissionVision() {
         <section>
             <PinnedSection
                 title="Mission"
-                image="https://images.unsplash.com/photo-1486325212027-8081e485255e?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+                image="https://www.studio5architects.com/wp-content/uploads/2022/01/B-scaled.jpg"
             >
-                <p>Designing spaces where humanity can thrive by balancing comfort, performance, and contextual relevance.</p>
-                <p>We deliver architecture that respects the environment, reflects client goals, and remains practical to build and operate.</p>
+                <p>To design buildings that enhance both the built and natural environment. Through our diverse, highly qualified and innovative design team, we guarantee client satisfaction through provision of world class competitive design that corresponds with individual tastes and preferences.</p>
             </PinnedSection>
 
             <PinnedSection

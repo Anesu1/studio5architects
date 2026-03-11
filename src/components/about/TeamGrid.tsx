@@ -9,63 +9,51 @@ import clsx from "clsx";
 const team = [
     {
         name: "Brighton Madondo",
-        role: "Architect",
-        bio: "NUST graduate and board member of the Architects Council of Zimbabwe with leadership across complex architectural projects.",
-        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        role: "Principal Architect",
+        bio: "Master of Architecture (NUST), Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Board Member of both professional bodies.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0864-scaled.jpg"
     },
     {
         name: "Tapiwa Manditsera",
         role: "Architect",
-        bio: "Architect and NUST graduate with past board service and extensive experience in project design coordination.",
-        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        bio: "Master of Architecture (NUST). Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Former Board Member of both professional bodies.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0857-scaled.jpg"
     },
     {
         name: "Tinashe Honde",
         role: "Architect",
-        bio: "Architect with a master's degree from Cyprus and associate of the Royal Institute of Chartered Surveyors.",
-        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        bio: "Master of Architecture (Professional) (Cyprus), Associate Member of Royal Institute of Chartered Surveyors, and Member of the Architects Council of Zimbabwe.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0865-scaled.jpg"
     },
     {
         name: "C. B. Helegwa",
         role: "Project Manager",
-        bio: "Project manager with an HND in Architecture and a diploma in Project Management, focused on delivery performance.",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        bio: "Project Manager with an HND in Architecture and a Diploma in Project Management. Associate Member of the Institute of Architects Zimbabwe.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0943-scaled.jpg"
     },
     {
         name: "Augustine Jewure",
         role: "Graduate Architect",
-        bio: "Graduate architect contributing to concept development, documentation, and technical coordination.",
-        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_1008-scaled.jpg"
     },
     {
         name: "Tichaona Gondo",
         role: "Graduate Architect",
-        bio: "Supports design production and project visualization across residential and commercial workstreams.",
-        image: "https://images.unsplash.com/photo-1542206395-9feb3edaa68d?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        bio: "Bachelor of Architectural Studies (Hons) (NUST). Expert in architectural visualization and technical documentation.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_1034-scaled.jpg"
     },
     {
         name: "Bernice Murape",
-        role: "Architectural Technician",
-        bio: "Technician with strong drafting and detailing capability, supporting precise construction documentation.",
-        image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        role: "Graduate Architect",
+        bio: "Bachelor of Architectural Studies (Hons) (NUST). Specializes in coordinating complex design projects and documentation.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2022/09/DSC_0874-scaled.jpg"
     },
     {
         name: "Rumbidzai Njani",
-        role: "Graduate Architect",
-        bio: "Contributes to design research, planning studies, and coordinated architectural documentation.",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?fm=jpg&q=80&w=800&auto=format&fit=crop"
-    },
-    {
-        name: "Kelvin Mukucha",
-        role: "Graduate Architect",
-        bio: "Supports project development through modeling, drawing coordination, and interdisciplinary collaboration.",
-        image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?fm=jpg&q=80&w=800&auto=format&fit=crop"
-    },
-    {
-        name: "Thelma Mare",
         role: "Architectural Technician",
-        bio: "Technician focused on production quality, drawing consistency, and support to on-site implementation teams.",
-        image: "https://images.unsplash.com/photo-1546961329-78bef0414d7c?fm=jpg&q=80&w=800&auto=format&fit=crop"
+        bio: "National Diploma in Architectural Technology (Harare Polytechnic). Focused on technical precision and construction detailing.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_1038-scaled.jpg"
     },
 ];
 
@@ -78,7 +66,7 @@ export default function TeamGrid() {
                 <h2 className="text-4xl md:text-6xl font-heading uppercase">Meet Our Team</h2>
             </div>
 
-            <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {team.map((member, index) => (
                     <TeamCard
                         key={index}

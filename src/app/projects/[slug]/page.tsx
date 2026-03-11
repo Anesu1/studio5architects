@@ -51,6 +51,24 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
                 </div>
             </section>
 
+            {/* Project Gallery - Additional Views */}
+            {project.gallery && project.gallery.length > 0 && (
+                <section className="px-6 md:px-12 pt-16">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {project.gallery.map((img, idx) => (
+                            <div key={idx} className="relative aspect-square md:aspect-[4/3] overflow-hidden border border-black/10 group">
+                                <Image 
+                                    src={img} 
+                                    alt={`${project.title} - View ${idx + 2}`} 
+                                    fill 
+                                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                                />
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            )}
+
             <section className="px-6 md:px-12 py-14 md:py-20">
                 <div className="max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="border border-black/10 bg-white p-6">
