@@ -5,6 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blogs";
 import BentoGallery from "@/components/ui/BentoGallery";
+import BackButton from "@/components/navigation/BackButton";
 
 import { Metadata } from "next";
 
@@ -50,17 +51,22 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
             <StickyNavbar />
 
             <article>
-                <section className="px-6 md:px-12 pt-32 pb-10">
-                    <Link href="/blogs" className="text-xs uppercase tracking-widest text-black/60 hover:text-black">
-                        Back to Insights
-                    </Link>
-                    <div className="mt-8 max-w-4xl">
-                        <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-widest text-black/50">
-                            <span>{post.category}</span>
-                            <span>{post.publishedAt}</span>
-                            <span>{post.readTime}</span>
+                <section className="px-6 md:px-12 pt-32 pb-16">
+                    <BackButton label="BACK TO INSIGHTS" />
+                    
+                    <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
+                        <div className="lg:col-span-8">
+                            <div className="flex flex-wrap items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 mb-6">
+                                <span>{post.category}</span>
+                                <div className="w-1 h-1 rounded-full bg-black/10" />
+                                <span>{post.publishedAt}</span>
+                                <div className="w-1 h-1 rounded-full bg-black/10" />
+                                <span>{post.readTime}</span>
+                            </div>
+                            <h1 className="text-4xl sm:text-5xl md:text-8xl font-heading uppercase leading-[0.95] tracking-tighter">
+                                {post.title}
+                            </h1>
                         </div>
-                        <h1 className="mt-6 text-4xl sm:text-5xl md:text-8xl font-heading uppercase leading-[0.95]">{post.title}</h1>
                     </div>
                 </section>
 

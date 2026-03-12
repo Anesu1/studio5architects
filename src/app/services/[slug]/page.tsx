@@ -5,6 +5,7 @@ import FAQ from "@/components/home/FAQ";
 import StickyNavbar from "@/components/StickyNavbar";
 import Footer from "@/components/Footer";
 import Reveal from "@/components/ui/Reveal";
+import BackButton from "@/components/navigation/BackButton";
 
 import { Metadata } from "next";
 
@@ -47,6 +48,9 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
 
             {/* Hero */}
             <section className="min-h-[48vh] md:h-[60vh] flex flex-col justify-end px-6 md:px-12 pb-16 md:pb-24 bg-verdant-black text-white">
+                <div className="mb-12">
+                   <BackButton label="BACK TO EXPERTISE" />
+                </div>
                 <Reveal>
                     <span className="block text-sm font-bold tracking-widest text-white/50 uppercase mb-4">Expertise Detail</span>
                 </Reveal>

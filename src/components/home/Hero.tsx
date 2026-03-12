@@ -5,14 +5,16 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import MagneticButton from "@/components/ui/MagneticButton";
 import Link from "next/link";
 
-const carouselImages = [
-    "https://www.studio5architects.com/wp-content/uploads/2022/08/07-1-scaled.jpg",
-    "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-3.jpg",
-    "https://www.studio5architects.com/wp-content/uploads/2021/09/2.jpg",
-    "https://www.studio5architects.com/wp-content/uploads/2020/11/03-1.jpg",
+const defaultCarouselImages = [
+    "/images/gweru-mall (1).webp",
+    "/images/cell-insurance (1).webp",
+    "/images/glow-petroleum (1).webp",
+    "/images/gweru-mall (4).webp",
+    "/images/cell-insurance (6).webp",
 ];
 
-export default function Hero() {
+export default function Hero({ images }: { images?: string[] }) {
+    const carouselImages = images && images.length > 0 ? images : defaultCarouselImages;
     const containerRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -27,7 +29,7 @@ export default function Hero() {
             <div className="absolute inset-0 z-0 md:hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center scale-105"
-                    style={{ backgroundImage: `url(${carouselImages[1]})` }}
+                    style={{ backgroundImage: `url(${carouselImages[1] || carouselImages[0]})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/70" />
             </div>
@@ -78,7 +80,7 @@ export default function Hero() {
             </div>
             <div className="relative md:absolute md:bottom-12 md:left-12 z-20 max-w-xl text-white px-6 pt-28 pb-10 md:p-0 md:mix-blend-difference">
                 <div className="md:hidden rounded-2xl border border-white/25 bg-white/10 backdrop-blur-md px-5 py-6 shadow-2xl">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">Studio 5 Architects | Harare & Zimbabwe</p>
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">STUDIO <span className="font-centaur normal-case text-lg">5</span> ARCHITECTS | HARARE & ZIMBABWE</p>
                     <h1 className="font-heading text-4xl leading-[0.92] uppercase tracking-tight mb-3">
                         Designing spaces where humanity can thrive
                     </h1>

@@ -39,10 +39,9 @@ export const projectType = defineType({
       type: 'string',
       options: {
         list: [
+          { title: 'Conceptualization', value: 'Conceptualization' },
+          { title: 'Under Construction', value: 'Under Construction' },
           { title: 'Completed', value: 'Completed' },
-          { title: 'In Progress', value: 'In Progress' },
-          { title: 'Council Approved', value: 'Council Approved' },
-          { title: 'Concept', value: 'Concept' },
         ],
       },
     }),

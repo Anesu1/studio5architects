@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BackToTopButton from "./navigation/BackToTopButton";
 
 export default function Footer() {
     return (
@@ -8,7 +9,7 @@ export default function Footer() {
                     <div className="w-full md:w-auto">
                         <Link href="/" className="inline-flex items-center opacity-30 hover:opacity-100 transition-opacity" aria-label="Studio 5 Architects home">
                             <h2 className="text-5xl sm:text-6xl md:text-[8vw] leading-none font-heading font-bold uppercase tracking-tighter">
-                                Studio 5 Architects
+                                Studio <span className="font-centaur normal-case">5</span> Architects
                             </h2>
                         </Link>
                     </div>
@@ -45,11 +46,14 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col gap-3 md:flex-row md:justify-between md:items-end border-t border-white/10 pt-8 text-xs opacity-40">
-                    <span>Copyright 2026 Studio 5 Architects. All rights reserved.</span>
-                    <div className="flex gap-4">
-                        <span>Privacy Policy</span>
-                        <span>Terms of Service</span>
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+                        <span>Copyright 2026 Studio 5 Architects. All rights reserved.</span>
+                        <div className="flex gap-4">
+                            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+                            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+                        </div>
                     </div>
+                    <BackToTopButton />
                 </div>
             </div>
         </footer>

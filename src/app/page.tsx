@@ -17,7 +17,7 @@ export default async function Home() {
         <main className="min-h-screen bg-verdant-bg relative">
             <StickyNavbar />
 
-            <Hero />
+            <Hero images={projects.slice(0, 6).map(p => p.image).filter(Boolean)} />
             <Stats />
             <WhyUs />
             <ServicesPreview />

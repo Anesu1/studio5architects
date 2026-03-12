@@ -6,7 +6,7 @@ export type Project = {
     slug: string;
     title: string;
     category: "Commercial" | "Industrial" | "Institutional" | "Medical" | "Residential";
-    status: "Completed" | "In Progress" | "Council Approved" | "Concept";
+    status: "Completed" | "Under Construction" | "Conceptualization";
     image: string;
     gallery?: string[];
     location: string;
@@ -153,7 +153,7 @@ export const projects: Project[] = [
         slug: "uz-quinary-hospital",
         title: "UZ Quinary Hospital",
         category: "Medical",
-        status: "In Progress",
+        status: "Under Construction",
         image: "https://www.studio5architects.com/wp-content/uploads/2022/01/B-scaled.jpg",
         location: "Harare",
         year: "2022",
@@ -197,7 +197,7 @@ export const projects: Project[] = [
         slug: "u-z-mall",
         title: "U.Z Mall",
         category: "Commercial",
-        status: "In Progress",
+        status: "Under Construction",
         image: "https://www.studio5architects.com/wp-content/uploads/2020/09/UZ-Shopping-Mall-1-scaled.jpg",
         location: "University of Zimbabwe",
         year: "2020",

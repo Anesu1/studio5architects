@@ -25,17 +25,17 @@ const projectDropdownLinks = [
 ];
 
 const navLinks = [
-    { name: "Home", href:"/"},
+    { name: "Home", href: "/" },
     { name: "About", href: "/about" },
-    { 
-        name: "Projects", 
-        href: "/projects", 
-        children: projectDropdownLinks 
+    {
+        name: "Projects",
+        href: "/projects",
+        children: projectDropdownLinks
     },
-    { 
-        name: "Services", 
-        href: "/services", 
-        children: serviceDropdownLinks 
+    {
+        name: "Services",
+        href: "/services",
+        children: serviceDropdownLinks
     },
     { name: "Contact", href: "/contact" },
 ];
@@ -147,8 +147,8 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                             href="/contact"
                             className={clsx(
                                 "px-8 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] transition-all",
-                                isScrolled 
-                                    ? "bg-black text-white hover:bg-black/80" 
+                                isScrolled
+                                    ? "bg-black text-white hover:bg-black/80"
                                     : "bg-black text-white hover:shadow-lg"
                             )}
                             data-cursor="hover"
@@ -160,8 +160,8 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                     <button
                         className={clsx(
                             "lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-full border transition-colors",
-                            isScrolled || isMobileMenuOpen 
-                                ? "border-black/10 bg-white/80" 
+                            isScrolled || isMobileMenuOpen
+                                ? "border-black/10 bg-white/80"
                                 : (isDarkBackground ? "border-white/20 bg-white/10" : "border-black/10 bg-white/80")
                         )}
                         onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -169,17 +169,17 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                         aria-label="Toggle menu"
                     >
                         <span className={clsx(
-                            "w-5 h-0.5 transition-all duration-300", 
+                            "w-5 h-0.5 transition-all duration-300",
                             isScrolled || isMobileMenuOpen || !isDarkBackground ? "bg-black" : "bg-white",
                             isMobileMenuOpen && "rotate-45 translate-y-2"
                         )} />
                         <span className={clsx(
-                            "w-5 h-0.5 transition-all duration-300", 
+                            "w-5 h-0.5 transition-all duration-300",
                             isScrolled || isMobileMenuOpen || !isDarkBackground ? "bg-black" : "bg-white",
                             isMobileMenuOpen && "opacity-0"
                         )} />
                         <span className={clsx(
-                            "w-5 h-0.5 transition-all duration-300", 
+                            "w-5 h-0.5 transition-all duration-300",
                             isScrolled || isMobileMenuOpen || !isDarkBackground ? "bg-black" : "bg-white",
                             isMobileMenuOpen && "-rotate-45 -translate-y-2"
                         )} />
@@ -198,7 +198,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                     >
                         <div className="flex flex-col gap-8">
                             {navLinks.map((link, i) => (
-                                <motion.div 
+                                <motion.div
                                     key={link.name}
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -244,9 +244,9 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                                             </AnimatePresence>
                                         </>
                                     ) : (
-                                        <Link 
-                                            href={link.href} 
-                                            onClick={closeMobileMenu} 
+                                        <Link
+                                            href={link.href}
+                                            onClick={closeMobileMenu}
                                             className="text-2xl font-heading uppercase block"
                                         >
                                             {link.name}
