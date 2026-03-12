@@ -7,11 +7,11 @@ import clsx from "clsx";
 import { ArrowUpRight } from "lucide-react";
 
 const services = [
-    { title: "Interior Design", slug: "interior-design", image: "https://www.studio5architects.com/wp-content/uploads/2022/08/07-1-scaled.jpg" },
-    { title: "Landscape Design", slug: "landscape-design", image: "https://www.studio5architects.com/wp-content/uploads/2021/09/2.jpg" },
-    { title: "Feasibility Studies", slug: "feasibility-studies", image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-1-scaled.jpg" },
-    { title: "Conceptualising", slug: "conceptualising", image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-scaled.jpg" },
-    { title: "Project & Construction Management", slug: "project-construction-management", image: "https://www.studio5architects.com/wp-content/uploads/2020/11/03-1.jpg" },
+    { title: "Interior Design", slug: "interior-design", image: "/images/services/interior/interior (3).webp" },
+    { title: "Landscape Design", slug: "landscape-design", image: "/images/services/landscape.webp" },
+    { title: "Feasibility Studies", slug: "feasibility-studies", image: "/images/services/feasibility.webp" },
+    { title: "Conceptualising", slug: "conceptualising", image: "/images/services/conceptualizing.webp" },
+    { title: "Project & Construction Management", slug: "project-construction-management", image: "/images/services/manage.webp" },
 ];
 
 export default function ServicesPreview() {
