@@ -36,7 +36,7 @@ export const services: Service[] = [
         slug: "landscape-design",
         title: "Landscape Design",
         description: "External design of the natural environment to complement overall design.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/09/2.jpg",
+        image: "/images/services/landscape.webp",
         longDescription: "Aesthetic beauty of a building’s surroundings allows a viewer to take in a full visual experience. The landscape is designed according to the building’s purpose. Safely mixing natural elements with an artificial placement of structures that match and amplify the building’s tone.",
         approach: [
             {
@@ -57,7 +57,7 @@ export const services: Service[] = [
         slug: "feasibility-studies",
         title: "Feasibility Studies",
         description: "A professional assessment and evaluation of possibilities early on in the process.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-1-scaled.jpg",
+        image: "/images/services/feasibility.webp",
         longDescription: "We consider your budget, timelines, equipment, material and human resources to determine whether a project is possible. This is based on standard industrial practice as well as our experience with unique cases. A thorough feasibility study reduces risk and provides a clear roadmap for success.",
         approach: [
             {
@@ -78,7 +78,7 @@ export const services: Service[] = [
         slug: "conceptualising",
         title: "Conceptualising",
         description: "Design based on interconnected needs and solutions that define the purpose of the project.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-scaled.jpg",
+        image: "/images/services/conceptualizing.webp",
         longDescription: "We creatively approach the design based on a number of factors including Function and Context as well as the impression or language that the project intends to speak. Conceptualising is in essence an inspired realisation of the overall design, aligning vision with practical constraints.",
         approach: [
             {
@@ -99,7 +99,7 @@ export const services: Service[] = [
         slug: "project-construction-management",
         title: "Project & Construction Management",
         description: "Total involvement in the project to ensure that everything is where it is supposed to be.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2020/11/03-1.jpg",
+        image: "/images/services/manage.webp",
         longDescription: "Based on our knowledge and experience, we initiate and recommend steps that move the project forward. We inspect and ensure quality, manage timeframes, manage the budget and reinforce the quality of workmanship, ensuring your vision is realized exactly as intended.",
         approach: [
             {
