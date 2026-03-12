@@ -69,6 +69,23 @@ export const projectType = defineType({
       rows: 3,
     }),
     defineField({
+      name: 'gallery',
+      title: 'Gallery',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+    }),
+    defineField({
+      name: 'scrollSequence',
+      title: 'Scroll Sequence',
+      type: 'object',
+      fields: [
+        { name: 'folder', title: 'Folder Name', type: 'string' },
+        { name: 'frameCount', title: 'Frame Count', type: 'number' },
+        { name: 'prefix', title: 'Prefix', type: 'string' },
+        { name: 'extension', title: 'Extension', type: 'string' }
+      ]
+    }),
+    defineField({
       name: 'body',
       title: 'Body',
       type: 'array',

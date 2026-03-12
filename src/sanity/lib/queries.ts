@@ -10,6 +10,13 @@ export const projectsQuery = groq`*[_type == "project"] | order(year desc) {
   location,
   year,
   summary,
+  "gallery": gallery[].asset->url,
+  scrollSequence {
+    folder,
+    frameCount,
+    prefix,
+    extension
+  },
   body
 }`
 

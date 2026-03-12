@@ -3,15 +3,16 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { projects, getProjectBySlug } from "@/lib/projects";
+import { projects, getProjectBySlug, getProjects } from "@/lib/projects";
 import ProjectScrollSequence from "@/components/projects/ProjectScrollSequence";
 
 type ProjectDetailProps = {
     params: Promise<{ slug: string }> | { slug: string };
 };
 
-export function generateStaticParams() {
-    return projects.map((project) => ({ slug: project.slug }));
+export async function generateStaticParams() {
+    const allProjects = await getProjects();
+    return allProjects.map((project) => ({ slug: project.slug }));
 }
 
 export default async function ProjectDetailPage({ params }: ProjectDetailProps) {
@@ -20,10 +21,11 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
 
     if (!slug) notFound();
 
-    const project = getProjectBySlug(slug);
+    const project = await getProjectBySlug(slug);
     if (!project) notFound();
 
-    const relatedProjects = projects.filter((item) => item.slug !== project.slug).slice(0, 3);
+    const allProjects = await getProjects();
+    const relatedProjects = allProjects.filter((item) => item.slug !== project.slug).slice(0, 3);
 
     return (
         <main className="min-h-screen bg-verdant-bg">

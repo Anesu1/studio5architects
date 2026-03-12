@@ -1,3 +1,6 @@
+import { client } from "@/sanity/lib/client";
+import { projectsQuery } from "@/sanity/lib/queries";
+
 export type Project = {
     id: number;
     slug: string;
@@ -49,13 +52,13 @@ export const projects: Project[] = [
         title: "Cell Insurance HQ",
         category: "Commercial",
         status: "Completed",
-        image: "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-3.jpg",
+        image: "/images/cell-insurance (4).webp",
         gallery: [
-            "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-1.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-4.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-5.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-6.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2020/07/Cell-insurance-7.jpg"
+            "/images/cell-insurance (2).webp",
+            "/images/cell-insurance (3).webp",
+            "/images/cell-insurance (1).webp",
+            "/images/cell-insurance (5).webp",
+            "/images/cell-insurance (6).webp",
         ],
         location: "Greendale, Harare",
         year: "2020",
@@ -72,14 +75,14 @@ export const projects: Project[] = [
         slug: "gweru-mall",
         title: "Gweru Mall",
         category: "Commercial",
-        status: "In Progress",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/09/H.jpg",
+        status: "Completed",
+        image: "/images/gweru-mall (3).webp",
         gallery: [
-            "https://www.studio5architects.com/wp-content/uploads/2021/09/K.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2021/09/J.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2021/09/I.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2021/09/F.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2021/09/E.jpg"
+            "/images/gweru-mall (2).webp",
+            "/images/gweru-mall (1).webp",
+            "/images/gweru-mall (4).webp",
+            "/images/gweru-mall (5).webp",
+            "/images/gweru-mall (6).webp",
         ],
         location: "Gweru",
         year: "2021",
@@ -91,11 +94,11 @@ export const projects: Project[] = [
         title: "Glow Petroleum Westgate",
         category: "Commercial",
         status: "Completed",
-        image: "https://www.studio5architects.com/wp-content/uploads/2020/11/03-1.jpg",
+        image: "/images/glow-petroleum (1).webp",
         gallery: [
-            "https://www.studio5architects.com/wp-content/uploads/2020/11/01.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2020/11/02.jpg",
-            "https://www.studio5architects.com/wp-content/uploads/2020/11/07.jpg"
+            "/images/glow-petroleum (2).webp",
+            "/images/glow-petroleum (3).webp",
+            "/images/glow-petroleum (4).webp",
         ],
         location: "Westgate, Harare",
         year: "2020",
@@ -224,6 +227,43 @@ export const projects: Project[] = [
     },
 ];
 
-export function getProjectBySlug(slug: string) {
-    return projects.find((project) => project.slug === slug);
+export async function getProjects(): Promise<Project[]> {
+    try {
+        const sanityProjects = await client.fetch(projectsQuery);
+        // If Sanity returns projects, use them, otherwise fallback to local data
+        return sanityProjects.length > 0 ? sanityProjects : projects;
+    } catch (error) {
+        console.error("Error fetching projects from Sanity:", error);
+        return projects;
+    }
+}
+
+export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
+    try {
+        const query = `*[_type == "project" && slug.current == $slug][0] {
+            _id,
+            title,
+            "slug": slug.current,
+            category,
+            status,
+            "image": mainImage.asset->url,
+            location,
+            year,
+            summary,
+            "gallery": gallery[].asset->url,
+            scrollSequence {
+                folder,
+                frameCount,
+                prefix,
+                extension
+            },
+            body
+        }`;
+        const sanityProject = await client.fetch(query, { slug });
+        if (sanityProject) return sanityProject;
+        return projects.find((project) => project.slug === slug);
+    } catch (error) {
+        console.error(`Error fetching project with slug ${slug}:`, error);
+        return projects.find((project) => project.slug === slug);
+    }
 }

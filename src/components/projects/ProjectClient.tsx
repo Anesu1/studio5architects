@@ -14,7 +14,11 @@ import Footer from "@/components/Footer";
 const categories = ["All", "Commercial", "Industrial", "Institutional", "Medical", "Residential"];
 const statuses = ["All", "Completed", "In Progress"];
 
-function ProjectsContent() {
+interface ProjectsContentProps {
+    currentProjects: any[];
+}
+
+function ProjectsContent({ currentProjects }: ProjectsContentProps) {
     const searchParams = useSearchParams();
     const categoryParam = searchParams.get("category");
     
@@ -29,7 +33,7 @@ function ProjectsContent() {
         }
     }, [categoryParam]);
 
-    const filteredProjects = projects.filter(p => {
+    const filteredProjects = currentProjects.filter(p => {
         const matchesCategory = activeCategory === "All" || p.category === activeCategory;
         const matchesStatus = activeStatus === "All" || p.status === activeStatus;
         const matchesSearch = p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
@@ -38,8 +42,8 @@ function ProjectsContent() {
     });
 
     const getCount = (type: 'category' | 'status', value: string) => {
-        if (value === "All") return projects.length;
-        return projects.filter(p => 
+        if (value === "All") return currentProjects.length;
+        return currentProjects.filter(p => 
             type === 'category' ? p.category === value : p.status === value
         ).length;
     };
@@ -122,7 +126,7 @@ function ProjectsContent() {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
                             {filteredProjects.map((project) => (
                                 <motion.div
-                                    key={project.id}
+                                    key={project.slug || project._id}
                                     layout
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
@@ -189,7 +193,11 @@ function ProjectsContent() {
     );
 }
 
-export default function ProjectClient() {
+interface ProjectClientProps {
+    initialProjects?: any[];
+}
+
+export default function ProjectClient({ initialProjects = projects }: ProjectClientProps) {
     return (
         <main className="min-h-screen bg-verdant-bg relative">
             <StickyNavbar />
@@ -200,7 +208,7 @@ export default function ProjectClient() {
             />
 
             <Suspense fallback={<div className="py-20 text-center uppercase tracking-widest text-[10px] opacity-50">Loading Projects...</div>}>
-                <ProjectsContent />
+                <ProjectsContent currentProjects={initialProjects} />
             </Suspense>
 
             <Footer />

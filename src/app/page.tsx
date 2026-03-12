@@ -7,8 +7,12 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import FeaturedProjects from "@/components/home/FeaturedProjects";
 import FAQ from "@/components/home/FAQ";
 import NewsPreview from "@/components/home/NewsPreview";
+import { getProjects } from "@/lib/projects";
 
-export default function Home() {
+export default async function Home() {
+    const projects = await getProjects();
+    const featuredProjects = projects.slice(0, 4);
+
     return (
         <main className="min-h-screen bg-verdant-bg relative">
             <StickyNavbar />
@@ -17,7 +21,7 @@ export default function Home() {
             <Stats />
             <WhyUs />
             <ServicesPreview />
-            <FeaturedProjects />
+            <FeaturedProjects initialProjects={featuredProjects} />
             <NewsPreview />
             <FAQ />
 

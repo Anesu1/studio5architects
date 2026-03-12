@@ -5,10 +5,14 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
-import { projects } from "@/lib/projects";
-const featuredProjects = projects.slice(0, 4);
+import { Project, projects } from "@/lib/projects";
 
-export default function FeaturedProjects() {
+interface FeaturedProjectsProps {
+    initialProjects?: Project[];
+}
+
+export default function FeaturedProjects({ initialProjects = projects.slice(0, 4) }: FeaturedProjectsProps) {
+    const featuredProjects = initialProjects;
     const targetRef = useRef<HTMLDivElement>(null);
     const { scrollYProgress } = useScroll({
         target: targetRef,
