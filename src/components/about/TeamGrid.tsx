@@ -26,12 +26,6 @@ const team = [
         image: "/about/team/honde.webp"
     },
     {
-        name: "C. B. Helegwa",
-        role: "Project Manager",
-        bio: "Project Manager with an HND in Architecture and a Diploma in Project Management. Associate Member of the Institute of Architects Zimbabwe.",
-        image: "/about/team/helegwa.webp"
-    },
-    {
         name: "Augustine Jewure",
         role: "Graduate Architect",
         bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",

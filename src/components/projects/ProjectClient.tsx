@@ -12,7 +12,7 @@ import StickyNavbar from "@/components/StickyNavbar";
 import Footer from "@/components/Footer";
 
 const categories = ["All", "Commercial", "Industrial", "Institutional", "Medical", "Residential"];
-const statuses = ["All", "Completed", "In Progress", "Council Approved"];
+const statuses = ["All", "Completed", "In Progress", "Council Approved", "Concept"];
 
 interface ProjectsContentProps {
     currentProjects: any[];
