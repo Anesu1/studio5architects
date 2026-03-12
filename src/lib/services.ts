@@ -15,7 +15,7 @@ export const services: Service[] = [
         slug: "interior-design",
         title: "Interior Design",
         description: "Designs that shape-out internal space according use and intended level of privacy.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2022/09/cell_00006.jpg",
+        image: "/images/services/interior/interior (1).webp",
         longDescription: "As much as buildings can be a marvel outside, they should create just as good an experience inside. Residential space should afford you comfort, privacy and safety. Business space should allow accessibility and promote productivity. We start out every project with the experience of occupants in mind.",
         approach: [
             {
