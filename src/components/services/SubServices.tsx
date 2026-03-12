@@ -10,22 +10,22 @@ const subServices = [
     {
         title: "Space Planning",
         desc: "Optimizing the flow and functionality of your space to ensure it meets your specific needs while maximizing potential.",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/images/services/space-planning.webp"
     },
     {
         title: "Concept Development",
         desc: "Creating a cohesive design language that reflects your brand or personality through mood boards and initial sketches.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/images/services/concept-dev.webp"
     },
     {
         title: "Material Selection",
         desc: "Curating a palette of materials and finishes that align with the aesthetic and functional requirements of the project.",
-        image: "https://images.unsplash.com/photo-1581094794320-c914639975b9?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/images/services/material-selection.webp"
     },
     {
         title: "Lighting Design",
         desc: "Designing lighting schemes that enhance the mood and architectural features of the space.",
-        image: "https://images.unsplash.com/photo-1554793000-245d3a3c2a51?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/images/services/lighting.webp"
     }
 ];
 

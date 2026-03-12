@@ -1,6 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 
 interface Message {
     role: "user" | "assistant";
@@ -64,6 +63,7 @@ function formatLeadInfoHtml(lead: LeadInfo): string {
 }
 
 export async function POST(request: Request) {
+    const resend = new Resend(process.env.RESEND_API_KEY || "re_123");
     try {
         const { messages, visitorEmail, leadInfo } = await request.json();
 

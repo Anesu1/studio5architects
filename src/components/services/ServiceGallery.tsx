@@ -5,12 +5,12 @@ import Image from "next/image";
 import clsx from "clsx";
 
 const textPattern = [
-    "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?fm=jpg&q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?fm=jpg&q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?fm=jpg&q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?fm=jpg&q=80&w=1600&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600210492493-0946911123ea?fm=jpg&q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600607687644-c7171b42498b?fm=jpg&q=80&w=800&auto=format&fit=crop",
+    "/images/services/interior/interior (10).webp",
+    "/images/services/interior/interior (9).webp",
+    "/images/services/interior/interior (8).webp",
+    "/images/services/interior/interior (7).webp",
+    "/images/services/interior/interior (6).webp",
+    "/images/services/interior/interior (5).webp",
 ];
 
 export default function ServiceGallery() {
