@@ -101,7 +101,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
             <SubServices />
             <ReasonsScroll />
             <ServiceGallery />
-            <PricingTables />
+            {/* <PricingTables /> */}
 
             {/* Reuse FAQ from Home */}
             <FAQ />
