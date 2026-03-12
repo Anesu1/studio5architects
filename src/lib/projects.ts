@@ -6,7 +6,7 @@ export type Project = {
     slug: string;
     title: string;
     category: "Commercial" | "Industrial" | "Institutional" | "Medical" | "Residential";
-    status: "Completed" | "In Progress";
+    status: "Completed" | "In Progress" | "Council Approved";
     image: string;
     gallery?: string[];
     location: string;

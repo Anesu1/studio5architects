@@ -41,6 +41,7 @@ export const projectType = defineType({
         list: [
           { title: 'Completed', value: 'Completed' },
           { title: 'In Progress', value: 'In Progress' },
+          { title: 'Council Approved', value: 'Council Approved' },
         ],
       },
     }),
