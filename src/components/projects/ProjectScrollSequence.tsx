@@ -2,6 +2,7 @@
 
 import { useScroll, useTransform, motion, useMotionValueEvent } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { Loader2 } from "lucide-react";
 
 interface ProjectScrollSequenceProps {
     folder: string;
@@ -117,15 +118,33 @@ export default function ProjectScrollSequence({
     return (
         <section ref={containerRef} className="h-[400vh] relative bg-black">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+                
+                {/* Background Placeholder (First Frame) */}
                 {!isLoaded && (
-                    <div className="text-white text-center block mx-auto text-[10px] uppercase tracking-[0.3em] font-bold opacity-40 animate-pulse">
-                        initiating experience...
+                    <div 
+                        className="absolute inset-0 bg-cover bg-center opacity-40 transition-opacity duration-1000"
+                        style={{ backgroundImage: `url(/images/projects/${folder}/${prefix}001.${extension})` }}
+                    />
+                )}
+
+                {!isLoaded && (
+                    <div className="relative z-30 flex flex-col items-center gap-4">
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            className="text-white/60"
+                        >
+                            <Loader2 size={40} strokeWidth={1.5} />
+                        </motion.div>
+                        <div className="text-white text-center text-[10px] uppercase tracking-[0.3em] font-bold opacity-40">
+                            initiating experience
+                        </div>
                     </div>
                 )}
 
                 <canvas
                     ref={canvasRef}
-                    className={`w-full h-full block transition-opacity duration-1000 ${!isLoaded ? 'opacity-0' : 'opacity-100'}`}
+                    className={`w-full h-full block relative z-10 transition-opacity duration-1000 ${!isLoaded ? 'opacity-0' : 'opacity-100'}`}
                 />
 
                 {/* Title Overlay */}
