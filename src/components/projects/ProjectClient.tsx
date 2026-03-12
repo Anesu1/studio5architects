@@ -88,6 +88,7 @@ function ProjectsContent({ currentProjects }: ProjectsContentProps) {
                 <div className="flex flex-col gap-10">
                     {/* Categories - Horizontal Scroll on Mobile */}
                     <div className="flex flex-col gap-5">
+                        
                         <span className="text-[11px] font-black uppercase tracking-[0.3em] text-black/60 text-center md:text-left">Sector Selection</span>
                         <div className="flex overflow-x-auto no-scrollbar pb-4 md:pb-0 -mx-6 px-6 md:mx-0 md:px-0 scroll-smooth">
                             <div className="flex md:flex-wrap items-center gap-x-10 gap-y-4 min-w-max md:min-w-0 mx-auto md:mx-0">
