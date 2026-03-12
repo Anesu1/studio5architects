@@ -1,7 +1,6 @@
 import SubServices from "@/components/services/SubServices";
 import ReasonsScroll from "@/components/services/ReasonsScroll";
 import ServiceGallery from "@/components/services/ServiceGallery";
-import PricingTables from "@/components/services/PricingTables";
 import FAQ from "@/components/home/FAQ";
 import StickyNavbar from "@/components/StickyNavbar";
 import Footer from "@/components/Footer";
@@ -101,7 +100,6 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
             <SubServices />
             <ReasonsScroll />
             <ServiceGallery />
-            {/* <PricingTables /> */}
 
             {/* Reuse FAQ from Home */}
             <FAQ />
