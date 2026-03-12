@@ -26,7 +26,7 @@ export default function BlogsPage() {
                             {blogPosts.filter(p => p.category === category).map((post) => (
                                 <Link key={post.slug} href={`/blogs/${post.slug}`} className="group block">
                                     <article className="h-full border border-black/10 bg-white overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-                                        <div className="relative aspect-[16/10] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+                                        <div className="relative aspect-[16/10] overflow-hidden  group-hover:grayscale-0 transition-all duration-700">
                                             <Image
                                                 src={post.image}
                                                 alt={post.title}

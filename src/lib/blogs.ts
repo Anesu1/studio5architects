@@ -45,7 +45,7 @@ export const blogPosts: BlogPost[] = [
         title: "Checklist for Building Investment Success",
         category: "Guides",
         excerpt: "Key considerations for investors and property owners before breaking ground on new developments.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/04/Front-scaled.jpg",
+        image: "/images/insights/checklist.webp",
         publishedAt: "January 28, 2026",
         readTime: "6 min read",
         content: [
@@ -60,7 +60,7 @@ export const blogPosts: BlogPost[] = [
         title: "Understanding the Cost of Construction & Design",
         category: "Cost Planning",
         excerpt: "How to budget effectively for your architectural project in today's market conditions.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2020/07/03.jpg",
+        image: "/images/insights/cost.webp",
         publishedAt: "January 14, 2026",
         readTime: "5 min read",
         content: [
@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
         title: "VR Enhancer For Architectural Visualization",
         category: "Technology",
         excerpt: "How Virtual Reality is transforming the way clients experience and approve architectural designs before construction.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/02-1-scaled.jpg",
+        image: "/images/insights/VR.webp",
         publishedAt: "February 22, 2026",
         readTime: "5 min read",
         content: [
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
         title: "Green Design: Fictional or Not?",
         category: "Sustainability",
         excerpt: "Moving beyond 'green-washing' to implement genuine sustainable architectural solutions in the Zimbabwean context.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/STUDIO_5_ARCHITECTS__COPM-187.jpg",
+        image: "/images/insights/green.webp",
         publishedAt: "March 05, 2026",
         readTime: "7 min read",
         content: [
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
         title: "Residential Design: History, Present & Future",
         category: "Residential",
         excerpt: "Analyzing the evolution of Zimbabwean residential architecture and what the future holds for modern living spaces.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2022/01/B-scaled.jpg",
+        image: "/images/insights/residential.webp",
         publishedAt: "March 12, 2026",
         readTime: "6 min read",
         content: [
