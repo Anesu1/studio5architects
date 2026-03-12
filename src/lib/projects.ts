@@ -9,6 +9,12 @@ export type Project = {
     location: string;
     year: string;
     summary: string;
+    scrollSequence?: {
+        folder: string;
+        frameCount: number;
+        prefix: string;
+        extension: string;
+    };
 };
 
 export const projects: Project[] = [
@@ -31,6 +37,12 @@ export const projects: Project[] = [
         location: "Westgate, Harare",
         year: "2022",
         summary: "Modern approach for car showrooms with aluminum cladding featuring a novel architectural pattern.",
+        scrollSequence: {
+            folder: "hyndai",
+            frameCount: 200,
+            prefix: "ezgif-frame-",
+            extension: "webp"
+        }
     },
     {
         id: 2,
@@ -49,6 +61,12 @@ export const projects: Project[] = [
         location: "Greendale, Harare",
         year: "2020",
         summary: "Renovation and expansion project blending new structures with existing residential-zone architecture.",
+        scrollSequence: {
+            folder: "cell-insurance",
+            frameCount: 200,
+            prefix: "ezgif-frame-",
+            extension: "webp"
+        }
     },
     {
         id: 3,

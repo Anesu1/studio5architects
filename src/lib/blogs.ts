@@ -55,6 +55,51 @@ export const blogPosts: BlogPost[] = [
             "In a fluctuating market, contingency planning is non-negotiable. We recommend a 10-15% buffer to accommodate unforeseen site conditions or price changes in imported materials, ensuring the project reaches its conclusion without financial strain."
         ],
     },
+    {
+        slug: "vr-enhancer-for-architectural-visualization",
+        title: "VR Enhancer For Architectural Visualization",
+        category: "Technology",
+        excerpt: "How Virtual Reality is transforming the way clients experience and approve architectural designs before construction.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/02-1-scaled.jpg",
+        publishedAt: "February 22, 2026",
+        readTime: "5 min read",
+        content: [
+            "Virtual Reality (VR) has moved beyond a novelty to become an essential tool in our design process. At Studio 5, we use immersive VR to bridge the gap between 2D plans and 3D reality, allowing clients to 'walk through' their buildings before a single brick is laid.",
+            "This immersive experience helps in making critical decisions about spatial scale, lighting, and interior finishes. Seeing a room's volume and how natural light interacts with the space in real-time provides a level of confidence that traditional renderings simply cannot match.",
+            "Moreover, VR acts as a powerful coordination tool. It allows technical teams to identify potential clashes or design inconsistencies early in the development phase, significantly reducing the likelihood of costly changes during construction.",
+            "As we continue to embrace spatial computing, our goal is to make the design journey as transparent and exciting as possible for our clients, ensuring the final build matches their vision perfectly."
+        ],
+    },
+    {
+        slug: "green-design-fictional-or-not",
+        title: "Green Design: Fictional or Not?",
+        category: "Sustainability",
+        excerpt: "Moving beyond 'green-washing' to implement genuine sustainable architectural solutions in the Zimbabwean context.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/STUDIO_5_ARCHITECTS__COPM-187.jpg",
+        publishedAt: "March 05, 2026",
+        readTime: "7 min read",
+        content: [
+            "In a world where 'sustainability' has become a buzzword, it is crucial to distinguish between surface-level green-washing and meaningful ecological design. For Studio 5, green design is not a fictional ideal—it is a functional necessity.",
+            "Genuine sustainability begins with passive design strategies. By considering building orientation, natural ventilation, and thermal mass, we can drastically reduce a building's energy footprint without the need for expensive high-tech additions.",
+            "We also focus on water security and resource management. In the Zimbabwean context, integrating greywater recycling, rainwater harvesting, and solar energy systems into the initial design is key to creating resilient buildings that can withstand utility fluctuations.",
+            "Ultimately, green design is about long-term value. While the initial investment in sustainable materials and systems can be higher, the reduction in operational costs and the improvement in occupant well-being provide a significant return on investment."
+        ],
+    },
+    {
+        slug: "residential-design-history-present-future",
+        title: "Residential Design: History, Present & Future",
+        category: "Residential",
+        excerpt: "Analyzing the evolution of Zimbabwean residential architecture and what the future holds for modern living spaces.",
+        image: "https://www.studio5architects.com/wp-content/uploads/2022/01/B-scaled.jpg",
+        publishedAt: "March 12, 2026",
+        readTime: "6 min read",
+        content: [
+            "The story of residential architecture in Zimbabwe is one of continuous evolution, blending colonial influences with modern aspirations and indigenous environmental wisdom.",
+            "Today, we are seeing a move away from the massive, disconnected estates of the past toward more functional, integrated living spaces. Modern homeowners are prioritizing open-plan layouts that foster family connection while demanding high-tech security and off-grid utility independence.",
+            "The future of residential design lies in 'intelligent flexibility.' Houses will need to adapt as families grow or as work-from-home requirements shift. We envision homes that are not just shelters, but dynamic environments that support health, productivity, and connection to nature.",
+            "As we move forward, Studio 5 remains committed to designing residences that respect our architectural heritage while boldly embracing the technologies and aesthetics of the future."
+        ],
+    },
 ];
 
 export function getBlogPostBySlug(slug: string) {

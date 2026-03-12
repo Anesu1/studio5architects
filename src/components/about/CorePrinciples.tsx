@@ -10,19 +10,19 @@ const principles = [
         id: "01",
         title: "Comfort & Function",
         desc: "Every concept is anchored in use-case clarity, spatial comfort, and practical long-term operation for occupants and owners.",
-        image: "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/principles (1).webp"
     },
     {
         id: "02",
         title: "Environmental Respect",
         desc: "Our design decisions consider climate response, durability, and resource-conscious material choices to support responsible architecture.",
-        image: "https://images.unsplash.com/photo-1518531933037-9a847e0d3886?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/principles (2).webp"
     },
     {
         id: "03",
         title: "Client Alignment",
         desc: "Design quality and delivery quality are both essential; we coordinate closely with clients and technical teams so outcomes match intent.",
-        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/principles (3).webp"
     }
 ];
 

@@ -9,25 +9,25 @@ const steps = [
         num: "01",
         title: "Conceptual Design",
         desc: "We begin by understanding your vision, needs, and the unique characteristics of the site. This phase involves brainstorming, sketching, and exploring initial ideas.",
-        image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/process (1).webp"
     },
     {
         num: "02",
         title: "Schematic Design",
         desc: "We refine the concepts into tangible plans. Floor plans, elevations, and 3D models are developed to visualize the spatial relationships and overall aesthetic.",
-        image: "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/process (2).webp"
     },
     {
         num: "03",
         title: "Design Development",
         desc: "Detailed drawings and specifications are created. We select materials, finishes, and fixtures, ensuring every detail aligns with the design intent.",
-        image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/process (3).webp"
     },
     {
         num: "04",
         title: "Construction Docs",
         desc: "Comprehensive technical drawings are produced for construction. We coordinate with engineers and consultants to ensure a smooth build process.",
-        image: "https://images.unsplash.com/photo-1581094794320-c914639975b9?fm=jpg&q=80&w=1600&auto=format&fit=crop"
+        image: "/about/process (4).webp"
     }
 ];
 

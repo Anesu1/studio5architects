@@ -11,50 +11,62 @@ const team = [
         name: "Brighton Madondo",
         role: "Principal Architect",
         bio: "Master of Architecture (NUST), Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Board Member of both professional bodies.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0864-scaled.jpg"
+        image: "/about/team/madondo.webp"
     },
     {
         name: "Tapiwa Manditsera",
         role: "Architect",
-        bio: "Master of Architecture (NUST). Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Former Board Member of both professional bodies.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0857-scaled.jpg"
+        bio: "Master of Architecture (NUST). Bachelor of Architectural Studies (Hons) (NUST). Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Former Board Member of both professional bodies.",
+        image: "/about/team/manditsera.webp"
     },
     {
         name: "Tinashe Honde",
         role: "Architect",
-        bio: "Master of Architecture (Professional) (Cyprus), Associate Member of Royal Institute of Chartered Surveyors, and Member of the Architects Council of Zimbabwe.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0865-scaled.jpg"
+        bio: "Master of Architecture (Professional) (Cyprus). Bachelor of Architectural Studies (Hons) (NUST). Associate Member of Royal Institute of Chartered Surveyors, and Member of the Architects Council of Zimbabwe.",
+        image: "/about/team/honde.webp"
     },
     {
         name: "C. B. Helegwa",
         role: "Project Manager",
         bio: "Project Manager with an HND in Architecture and a Diploma in Project Management. Associate Member of the Institute of Architects Zimbabwe.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_0943-scaled.jpg"
+        image: "/about/team/helegwa.webp"
     },
     {
         name: "Augustine Jewure",
         role: "Graduate Architect",
         bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_1008-scaled.jpg"
+        image: "/about/team/jewure.webp"
     },
     {
         name: "Tichaona Gondo",
         role: "Graduate Architect",
-        bio: "Bachelor of Architectural Studies (Hons) (NUST). Expert in architectural visualization and technical documentation.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_1034-scaled.jpg"
+        bio: "Bachelor of Architectural Studies (Hons) (NUST).",
+        image: "/about/team/gondo.webp"
     },
     {
         name: "Bernice Murape",
         role: "Graduate Architect",
-        bio: "Bachelor of Architectural Studies (Hons) (NUST). Specializes in coordinating complex design projects and documentation.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2022/09/DSC_0874-scaled.jpg"
+        bio: "Bachelor of Architectural Studies (Hons) (NUST).",
+        image: "/about/team/murape.webp"
     },
     {
         name: "Rumbidzai Njani",
         role: "Architectural Technician",
-        bio: "National Diploma in Architectural Technology (Harare Polytechnic). Focused on technical precision and construction detailing.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/10/DSC_1038-scaled.jpg"
+        bio: "National Diploma in Architectural Technology (Harare Polytechnic). ",
+        image: "/about/team/njani.webp"
     },
+    {
+        name:"Kelvin Mukucha",
+        role:"",
+        bio:"Bachelor of Architectural Studies (Hons) (NUST)",
+        image:"/about/team/mukucha.webp"
+    },
+    {
+        name:"Thelma Mare",
+        role:"",
+        bio:"National Diploma in Architectural Technology (Harare Polytechnic)",
+        image:"/about/team/mare.webp"
+    }
 ];
 
 export default function TeamGrid() {
@@ -66,7 +78,7 @@ export default function TeamGrid() {
                 <h2 className="text-4xl md:text-6xl font-heading uppercase">Meet Our Team</h2>
             </div>
 
-            <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
                 {team.map((member, index) => (
                     <TeamCard
                         key={index}
@@ -92,12 +104,12 @@ function TeamCard({ member, isOpen, onToggle }: { member: TeamMember, isOpen: bo
         <motion.div
             layout
             className={clsx(
-                "relative bg-white border border-black/5 overflow-hidden transition-all duration-500",
-                isOpen ? "col-span-1 md:col-span-2 row-span-1 h-[400px]" : "h-[400px]"
+                "relative bg-white border border-black/5 overflow-hidden transition-all duration-500 group h-[450px]",
+                isOpen ? "shadow-xl border-black/10" : "shadow-sm"
             )}
             style={{ borderRadius: isOpen ? 24 : 0 }}
         >
-            <motion.div layout className={clsx("relative w-full h-full transition-all duration-500", isOpen ? "p-8" : "p-0")}>
+            <motion.div layout className={clsx("relative w-full h-full transition-all duration-500", isOpen ? "p-8 flex flex-col" : "p-0 ")}>
 
                 {/* Image State */}
                 <motion.div
@@ -107,7 +119,7 @@ function TeamCard({ member, isOpen, onToggle }: { member: TeamMember, isOpen: bo
                         isOpen ? "w-24 h-24 rounded-full float-left mr-6 mb-2" : "w-full h-full absolute inset-0"
                     )}
                 >
-                    <Image src={member.image} alt={member.name} fill className="object-cover grayscale hover:grayscale-0 transition-all duration-500" />
+                    <Image src={member.image} alt={member.name} fill className="object-cover transition-all duration-500" />
                     {!isOpen && (
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                     )}
@@ -147,14 +159,14 @@ function TeamCard({ member, isOpen, onToggle }: { member: TeamMember, isOpen: bo
                 {/* Expanded Content */}
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="pt-2"
+                        className="pt-1 overflow-y-auto max-h-[280px] scrollbar-hide"
                     >
-                        <h3 className="text-3xl font-heading uppercase mb-1">{member.name}</h3>
-                        <p className="text-sm font-bold tracking-widest text-gray-500 mb-6">{member.role}</p>
-                        <p className="text-lg leading-relaxed text-gray-700 max-w-lg">
+                        <h3 className="text-xl font-heading uppercase mb-0.5">{member.name}</h3>
+                        <p className="text-[10px] font-bold tracking-widest text-gray-400 mb-4">{member.role}</p>
+                        <p className="text-sm leading-relaxed text-gray-600">
                             {member.bio}
                         </p>
                     </motion.div>

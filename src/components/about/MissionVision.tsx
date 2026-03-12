@@ -45,18 +45,18 @@ export default function MissionVision() {
         <section>
             <PinnedSection
                 title="Mission"
-                image="https://www.studio5architects.com/wp-content/uploads/2022/01/B-scaled.jpg"
+                image="/about/mission.webp"
             >
                 <p>To design buildings that enhance both the built and natural environment. Through our diverse, highly qualified and innovative design team, we guarantee client satisfaction through provision of world class competitive design that corresponds with individual tastes and preferences.</p>
             </PinnedSection>
 
-            <PinnedSection
+            {/* <PinnedSection
                 title="Vision"
                 image="https://images.unsplash.com/photo-1503387762-592deb58ef4e?fm=jpg&q=80&w=1600&auto=format&fit=crop"
             >
                 <p>To be a leading Zimbabwean practice known for socially responsible, high-impact design in commercial, institutional, medical, industrial, and residential sectors.</p>
                 <p>We envision built environments that are durable, inclusive, and aligned with local realities and global standards.</p>
-            </PinnedSection>
+            </PinnedSection> */}
         </section>
     );
 }

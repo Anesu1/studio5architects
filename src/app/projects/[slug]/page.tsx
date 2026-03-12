@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects, getProjectBySlug } from "@/lib/projects";
+import ProjectScrollSequence from "@/components/projects/ProjectScrollSequence";
 
 type ProjectDetailProps = {
     params: Promise<{ slug: string }> | { slug: string };
@@ -45,11 +46,22 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
                 </div>
             </section>
 
-            <section className="px-6 md:px-12">
-                <div className="relative aspect-[16/8] overflow-hidden border border-black/10">
-                    <Image src={project.image} alt={project.title} fill className="object-cover" priority />
-                </div>
-            </section>
+            {/* Main Featured Image / Sequence */}
+            {project.scrollSequence ? (
+                <ProjectScrollSequence
+                    folder={project.scrollSequence.folder}
+                    frameCount={project.scrollSequence.frameCount}
+                    prefix={project.scrollSequence.prefix}
+                    extension={project.scrollSequence.extension}
+                    title={project.title}
+                />
+            ) : (
+                <section className="px-6 md:px-12">
+                    <div className="relative aspect-[16/8] overflow-hidden border border-black/10">
+                        <Image src={project.image} alt={project.title} fill className="object-cover" priority />
+                    </div>
+                </section>
+            )}
 
             {/* Project Gallery - Additional Views */}
             {project.gallery && project.gallery.length > 0 && (
