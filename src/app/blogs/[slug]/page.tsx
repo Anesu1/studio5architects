@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPostBySlug } from "@/lib/blogs";
+import BentoGallery from "@/components/ui/BentoGallery";
 
 import { Metadata } from "next";
 
@@ -75,6 +76,16 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                             <p key={paragraph}>{paragraph}</p>
                         ))}
                     </div>
+
+                    {post.gallery && (
+                        <div className="mt-16">
+                            <div className="flex items-center gap-4 mb-8 text-[10px] font-bold uppercase tracking-widest text-black/40">
+                                <span>Project Gallery</span>
+                                <div className="h-px w-20 bg-black/10" />
+                            </div>
+                            <BentoGallery images={post.gallery} />
+                        </div>
+                    )}
                 </section>
             </article>
 

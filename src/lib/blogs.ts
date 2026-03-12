@@ -7,6 +7,7 @@ export type BlogPost = {
     publishedAt: string;
     readTime: string;
     content: string[];
+    gallery?: string[];
 };
 
 export const blogPosts: BlogPost[] = [
@@ -15,7 +16,7 @@ export const blogPosts: BlogPost[] = [
         title: "House Tokwe: Modern Residential Excellence",
         category: "Residential",
         excerpt: "A deep dive into the design philosophy behind House Tokwe, focusing on privacy and geometric forms.",
-        image: "https://www.studio5architects.com/wp-content/uploads/2021/11/MAIN-scaled.jpg",
+        image: "/images/insights/tokwe/DJI_0243-768x450.webp",
         publishedAt: "February 15, 2026",
         readTime: "4 min read",
         content: [
@@ -24,6 +25,20 @@ export const blogPosts: BlogPost[] = [
             "The spatial organization prioritizes family flow, with open-plan living areas that transition seamlessly into private retreats. Every room was positioned to capture specific garden views, grounding the home in its natural context.",
             "By utilizing sustainable materials and local craftsmanship, House Tokwe stands as a testament to what is possible when modern design meets site-specific environmental considerations."
         ],
+        gallery: [
+            "/images/insights/tokwe/1-768x488.webp",
+            "/images/insights/tokwe/4-768x512.webp",
+            "/images/insights/tokwe/DJI_0251-768x439.webp",
+            "/images/insights/tokwe/2-768x517.webp",
+            "/images/insights/tokwe/8-768x512.webp",
+            "/images/insights/tokwe/DJI_0260-768x432.webp",
+            "/images/insights/tokwe/3-768x480.webp",
+            "/images/insights/tokwe/9-768x521.webp",
+            "/images/insights/tokwe/DJI_0243-768x450.webp",
+            "/images/insights/tokwe/10-1-768x512.webp",
+            "/images/insights/tokwe/15-768x512.webp",
+            "/images/insights/tokwe/DJI_0224-768x432.webp"
+        ]
     },
     {
         slug: "checklist-for-building-investment-success",
