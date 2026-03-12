@@ -5,7 +5,7 @@ export type Project = {
     id: number;
     slug: string;
     title: string;
-    category: "Commercial" | "Industrial" | "Institutional" | "Medical" | "Residential";
+    category: "Commercial" | "Industrial" | "Institutional" | "Medical" | "Residential" | "Religious" | "Recreational" | "Adaptive Reuse" | "Hospitality";
     status: "Completed" | "Under Construction" | "Conceptualization";
     image: string;
     gallery?: string[];

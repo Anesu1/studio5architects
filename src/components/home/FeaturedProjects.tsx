@@ -23,7 +23,7 @@ export default function FeaturedProjects({ initialProjects = projects.slice(0, 4
     return (
         <>
             <section className="bg-verdant-bg py-16 px-6 md:hidden">
-                <h2 className="text-4xl font-heading uppercase leading-none mb-4">
+                <h2 className="text-3xl font-heading !capitalize leading-none mb-4">
                     Some Of Our
                     <br />
                     Best Work
@@ -66,7 +66,7 @@ export default function FeaturedProjects({ initialProjects = projects.slice(0, 4
                     <motion.div style={{ x }} className="flex gap-12 pl-12 md:pl-24">
                     <div className="flex flex-col justify-center min-w-[30vw] md:min-w-[20vw] pr-12">
                         <Reveal>
-                            <h2 className="text-5xl md:text-7xl font-heading uppercase leading-none mb-6">
+                            <h2 className="text-4xl md:text-6xl font-heading uppercase leading-none mb-6">
                                 Some Of Our<br />Best Work
                             </h2>
                         </Reveal>

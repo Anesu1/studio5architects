@@ -152,9 +152,7 @@ export default function ProjectScrollSequence({
                     style={{ opacity: useTransform(scrollYProgress, [0, 0.15], [1, 0]) }}
                     className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-20 px-6"
                 >
-                    <h2 className="text-white text-4xl md:text-7xl font-heading uppercase tracking-widest text-center">
-                        {title}
-                    </h2>
+                   
                     <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: "100px" }}
@@ -167,9 +165,7 @@ export default function ProjectScrollSequence({
                     style={{ opacity: useTransform(scrollYProgress, [0.85, 1], [0, 1]) }}
                     className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-20 text-center px-6"
                 >
-                    <h2 className="text-white text-4xl md:text-7xl font-heading uppercase tracking-widest leading-[0.9]">
-                        Vision Into <br /> Reality
-                    </h2>
+                 
                 </motion.div>
             </div>
         </section>

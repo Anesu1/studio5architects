@@ -23,7 +23,7 @@ function AccordionItem({ title, children, isOpen, onClick, index }: AccordionIte
             >
                 <div className="flex items-center gap-8">
                     <span className="text-xs font-mono text-gray-400">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="text-xl md:text-3xl font-heading uppercase text-left group-hover:pl-4 transition-all duration-300">{title}</span>
+                    <span className="text-xl md:text-3xl font-heading  text-left group-hover:pl-4 transition-all duration-300">{title}</span>
                 </div>
                 <div className="relative">
                     <Plus className={clsx("w-6 h-6 transition-transform duration-300", isOpen ? "rotate-45 opacity-0" : "rotate-0 opacity-100")} />

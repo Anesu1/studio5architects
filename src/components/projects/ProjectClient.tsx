@@ -11,7 +11,7 @@ import PageHero from "@/components/ui/PageHero";
 import StickyNavbar from "@/components/StickyNavbar";
 import Footer from "@/components/Footer";
 
-const categories = ["All", "Commercial", "Industrial", "Institutional", "Medical", "Residential"];
+const categories = ["All", "Commercial", "Industrial", "Institutional", "Medical", "Residential", "Religious", "Recreational", "Adaptive Reuse", "Hospitality"];
 const statuses = ["All", "Conceptualization", "Under Construction", "Completed"];
 
 interface ProjectsContentProps {

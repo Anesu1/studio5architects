@@ -20,7 +20,7 @@ export default function ServicesPreview() {
         <section className="py-24 bg-verdant-white">
             <div className="px-6 md:px-12 mb-12 flex justify-between items-end">
                 <Reveal>
-                    <h2 className="text-4xl sm:text-5xl md:text-7xl font-heading uppercase">Expertise</h2>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-heading capitalize">Expertise</h2>
                 </Reveal>
                 <Reveal delay={0.2}>
                     <Link href="/services" className="hidden md:block text-sm uppercase font-bold border-b border-black pb-1 hover:opacity-50 transition-opacity">

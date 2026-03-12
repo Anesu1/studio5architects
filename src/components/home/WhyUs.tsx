@@ -47,7 +47,7 @@ export default function WhyUs() {
                         <h2 className="text-sm font-bold uppercase tracking-widest mb-4 opacity-50">Our Mission</h2>
                     </Reveal>
                     <Reveal delay={0.4}>
-                        <p className="text-3xl md:text-4xl font-heading leading-tight uppercase">
+                        <p className="text-3xl md:text-4xl font-heading leading-tight ">
                             Designing buildings that enhance
                             <br />
                             the built and natural environment.

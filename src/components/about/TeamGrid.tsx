@@ -33,13 +33,13 @@ const team = [
     },
     {
         name: "Tichaona Gondo",
-        role: "Graduate Architect",
+        role: "Candidate Architect",
         bio: "Bachelor of Architectural Studies (Hons) (NUST).",
         image: "/about/team/gondo.webp"
     },
     {
         name: "Bernice Murape",
-        role: "Graduate Architect",
+        role: "Candidate Architect",
         bio: "Bachelor of Architectural Studies (Hons) (NUST).",
         image: "/about/team/murape.webp"
     },
@@ -51,7 +51,7 @@ const team = [
     },
     {
         name:"Kelvin Mukucha",
-        role:"",
+        role:"Candidate Architect",
         bio:"Bachelor of Architectural Studies (Hons) (NUST)",
         image:"/about/team/mukucha.webp"
     },
@@ -60,6 +60,24 @@ const team = [
         role:"",
         bio:"National Diploma in Architectural Technology (Harare Polytechnic)",
         image:"/about/team/mare.webp"
+    },
+    {
+        name: "Fortunate Nyamanza",
+        role: "Admin",
+        bio: "Dedicated administrative professional managing studio operations and client communications.",
+        image: "/about/team/placeholder.svg"
+    },
+    {
+        name: "Paddington",
+        role: "Graduate Architect",
+        bio: "Aspiring architectural designer focusing on innovative spatial solutions and technical precision.",
+        image: "/about/team/placeholder.svg"
+    },
+    {
+        name: "Evans Mbizi",
+        role: "Graduate Architect",
+        bio: "Creative architectural graduate specializing in conceptual modeling and sustainable design practices.",
+        image: "/about/team/placeholder.svg"
     }
 ];
 

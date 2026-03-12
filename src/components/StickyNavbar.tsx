@@ -22,6 +22,10 @@ const projectDropdownLinks = [
     { name: "Institutional", href: "/projects?category=Institutional" },
     { name: "Medical", href: "/projects?category=Medical" },
     { name: "Residential", href: "/projects?category=Residential" },
+    { name: "Religious", href: "/projects?category=Religious" },
+    { name: "Recreational", href: "/projects?category=Recreational" },
+    { name: "Adaptive Reuse", href: "/projects?category=Adaptive%20Reuse" },
+    { name: "Hospitality", href: "/projects?category=Hospitality" },
 ];
 
 const navLinks = [
