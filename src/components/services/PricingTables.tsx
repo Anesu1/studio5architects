@@ -46,7 +46,7 @@ export default function PricingTables() {
         <section className="py-24 bg-verdant-bg">
             <div className="container mx-auto px-6 md:px-12 mb-16 text-center">
                 <Reveal width="100%">
-                    <h2 className="text-4xl md:text-6xl font-heading uppercase mb-4">Pricing Plans</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading mb-4">Pricing Plans</h2>
                     <p className="text-lg text-black/60 max-w-2xl mx-auto">Transparent pricing tailored to the scale and complexity of your project.</p>
                 </Reveal>
             </div>
@@ -63,7 +63,7 @@ export default function PricingTables() {
                             </span>
                         )}
 
-                        <h3 className="text-xl font-heading uppercase tracking-widest mb-4">{plan.name}</h3>
+                        <h3 className="text-xl font-heading mb-4">{plan.name}</h3>
                         <div className="text-4xl font-bold font-heading mb-8">{plan.price}</div>
 
                         <ul className="flex-1 space-y-4 mb-8">

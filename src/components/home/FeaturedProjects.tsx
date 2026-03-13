@@ -43,7 +43,7 @@ export default function FeaturedProjects({ initialProjects = projects.slice(0, 4
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-black/15" />
                                 <div className="absolute bottom-0 left-0 right-0 p-5">
-                                    <h3 className="text-2xl font-heading uppercase text-white">{project.title}</h3>
+                                    <h3 className="text-2xl font-heading text-white">{project.title}</h3>
                                     <div className="mt-1 flex items-center justify-between text-xs uppercase tracking-wider text-white/80">
                                         <span>{project.location}</span>
                                         <span>{project.year}</span>
@@ -66,7 +66,7 @@ export default function FeaturedProjects({ initialProjects = projects.slice(0, 4
                     <motion.div style={{ x }} className="flex gap-12 pl-12 md:pl-24">
                     <div className="flex flex-col justify-center min-w-[30vw] md:min-w-[20vw] pr-12">
                         <Reveal>
-                            <h2 className="text-4xl md:text-6xl font-heading uppercase leading-none mb-6">
+                            <h2 className="text-4xl md:text-6xl font-heading leading-none mb-6">
                                 Some Of Our<br />Best Work
                             </h2>
                         </Reveal>
@@ -104,7 +104,7 @@ export default function FeaturedProjects({ initialProjects = projects.slice(0, 4
                                     </div>
 
                                     <div className="absolute bottom-0 left-0 p-8 w-full transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
-                                        <h3 className="text-3xl font-heading uppercase text-white mb-1">{project.title}</h3>
+                                        <h3 className="text-3xl font-heading text-white mb-1">{project.title}</h3>
                                         <div className="flex justify-between text-white/80 text-sm uppercase tracking-wider">
                                             <span>{project.location}</span>
                                             <span>{project.year}</span>

@@ -17,7 +17,7 @@ export default function ServiceGallery() {
     return (
         <section className="py-24 bg-white">
             <div className="container mx-auto px-6 md:px-12 mb-12">
-                <h2 className="text-4xl md:text-6xl font-heading uppercase">Project Gallery</h2>
+                <h2 className="text-4xl md:text-6xl font-heading">Project Gallery</h2>
             </div>
 
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-4">

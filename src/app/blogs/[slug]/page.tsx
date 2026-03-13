@@ -63,7 +63,7 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                                 <div className="w-1 h-1 rounded-full bg-black/10" />
                                 <span>{post.readTime}</span>
                             </div>
-                            <h1 className="text-4xl sm:text-5xl md:text-8xl font-heading uppercase leading-[0.95] tracking-tighter">
+                            <h1 className="text-4xl sm:text-5xl md:text-8xl font-heading leading-[0.95] tracking-normal">
                                 {post.title}
                             </h1>
                         </div>
@@ -96,7 +96,7 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
             </article>
 
             <section className="px-6 md:px-12 pb-24">
-                <h2 className="text-4xl md:text-6xl font-heading uppercase mb-8">Related Insights</h2>
+                <h2 className="text-4xl md:text-6xl font-heading mb-8">Related Insights</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {relatedPosts.map((relatedPost) => (
                         <Link key={relatedPost.slug} href={`/blogs/${relatedPost.slug}`} className="group block">
@@ -111,7 +111,7 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                                 </div>
                                 <div className="p-6">
                                     <p className="text-xs uppercase tracking-widest text-black/50">{relatedPost.category}</p>
-                                    <h3 className="mt-3 text-2xl font-heading uppercase leading-tight">{relatedPost.title}</h3>
+                                    <h3 className="mt-3 text-2xl font-heading leading-tight">{relatedPost.title}</h3>
                                 </div>
                             </article>
                         </Link>

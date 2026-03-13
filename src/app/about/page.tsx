@@ -26,7 +26,7 @@ export default function About() {
             {/* WHO WE ARE Section */}
             <section id="who-we-are" className="pt-12">
                 <div className="px-6 md:px-12 mb-12">
-                    <h2 className="text-4xl md:text-6xl font-heading uppercase text-verdant-black border-b border-black/10 pb-8">Who we are</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading text-verdant-black border-b border-black/10 pb-8">Who we are</h2>
                 </div>
                 <MissionVision />
                 <StoryTimeline />
@@ -35,7 +35,7 @@ export default function About() {
             {/* WHAT WE DO Section */}
             <section id="what-we-do" className="pt-24 bg-black/5">
                 <div className="px-6 md:px-12 mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
-                    <h2 className="text-4xl md:text-6xl font-heading uppercase text-verdant-black">What we do</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading text-verdant-black">What we do</h2>
                     <Link href="/services" className="text-xs font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-black/60 transition-colors">
                         View All Expertise
                     </Link>
@@ -47,7 +47,7 @@ export default function About() {
             {/* HOW WE WORK Section */}
             <section id="how-we-work" className="pt-24">
                 <div className="px-6 md:px-12 mb-12">
-                    <h2 className="text-4xl md:text-6xl font-heading uppercase text-verdant-black border-b border-black/10 pb-8">How we work</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading text-verdant-black border-b border-black/10 pb-8">How we work</h2>
                 </div>
                 <Process />
                 <TeamGrid />

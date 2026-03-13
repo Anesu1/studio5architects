@@ -43,7 +43,7 @@ export default function FAQ() {
         <section className="py-24 px-6 md:px-12 bg-verdant-white">
             <div className="max-w-4xl mx-auto">
                 <Reveal className="mb-16 text-center">
-                    <h2 className="text-4xl md:text-6xl font-heading uppercase mb-4">Frequently Asked Questions</h2>
+                    <h2 className="text-4xl md:text-6xl font-heading mb-4">Frequently Asked Questions</h2>
                     <p className="text-verdant-black/60 max-w-lg mx-auto">
                         Key information on our expertise, delivery process, and project approach.
                     </p>

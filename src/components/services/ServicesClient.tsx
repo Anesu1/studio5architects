@@ -50,7 +50,7 @@ export default function ServicesClient() {
                                 <div className="w-8 h-8 mb-2 text-white border border-white/30 rounded-full flex items-center justify-center">
                                     <ArrowUpRight size={16} />
                                 </div>
-                                <h3 className="text-white text-xl md:text-2xl font-heading uppercase tracking-widest">
+                                <h3 className="text-white text-xl md:text-2xl font-heading">
                                     {service.title}
                                 </h3>
                                 <span className="text-white/60 text-xs uppercase tracking-widest block mt-1">
