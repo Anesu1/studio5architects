@@ -25,12 +25,7 @@ const team = [
         bio: "Master of Architecture (Professional) (Cyprus). Bachelor of Architectural Studies (Hons) (NUST). Associate Member of Royal Institute of Chartered Surveyors, and Member of the Architects Council of Zimbabwe.",
         image: "/about/team/honde.webp"
     },
-    {
-        name: "Augustine Jewure",
-        role: "Graduate Architect",
-        bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
-        image: "/about/team/jewure.webp"
-    },
+   
     {
         name: "Tichaona Gondo",
         role: "Candidate Architect",
@@ -43,17 +38,19 @@ const team = [
         bio: "Bachelor of Architectural Studies (Hons) (NUST).",
         image: "/about/team/murape.webp"
     },
-    {
-        name: "Rumbidzai Njani",
-        role: "Architectural Technician",
-        bio: "National Diploma in Architectural Technology (Harare Polytechnic). ",
-        image: "/about/team/njani.webp"
-    },
+   
     {
         name:"Kelvin Mukucha",
         role:"Candidate Architect",
         bio:"Bachelor of Architectural Studies (Hons) (NUST)",
         image:"/about/team/mukucha.webp"
+    },
+   
+     {
+        name: "Augustine Jewure",
+        role: "Graduate Architect",
+        bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
+        image: "/about/team/jewure.webp"
     },
     {
         name:"Thelma Mare",
@@ -61,12 +58,8 @@ const team = [
         bio:"National Diploma in Architectural Technology (Harare Polytechnic)",
         image:"/about/team/mare.webp"
     },
-    {
-        name: "Fortunate Nyamanza",
-        role: "Admin",
-        bio: "Dedicated administrative professional managing studio operations and client communications.",
-        image: "/about/team/placeholder.svg"
-    },
+     
+
     {
         name: "Paddington",
         role: "Graduate Architect",
@@ -78,7 +71,19 @@ const team = [
         role: "Graduate Architect",
         bio: "Creative architectural graduate specializing in conceptual modeling and sustainable design practices.",
         image: "/about/team/placeholder.svg"
-    }
+    },
+     {
+        name: "Rumbidzai Njani",
+        role: "Architectural Technician",
+        bio: "National Diploma in Architectural Technology (Harare Polytechnic). ",
+        image: "/about/team/njani.webp"
+    },
+    {
+        name: "Fortunate Nyamanza",
+        role: "Admin",
+        bio: "Dedicated administrative professional managing studio operations and client communications.",
+        image: "/about/team/placeholder.svg"
+    },
 ];
 
 export default function TeamGrid() {
