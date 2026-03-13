@@ -52,12 +52,7 @@ const team = [
         bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
         image: "/about/team/jewure.webp"
     },
-    {
-        name:"Thelma Mare",
-        role:"",
-        bio:"National Diploma in Architectural Technology (Harare Polytechnic)",
-        image:"/about/team/mare.webp"
-    },
+   
      
 
     {
@@ -71,6 +66,12 @@ const team = [
         role: "Graduate Architect",
         bio: "Creative architectural graduate specializing in conceptual modeling and sustainable design practices.",
         image: "/about/team/placeholder.svg"
+    },
+     {
+        name:"Thelma Mare",
+        role:"Architectural Technician",
+        bio:"National Diploma in Architectural Technology (Harare Polytechnic)",
+        image:"/about/team/mare.webp"
     },
      {
         name: "Rumbidzai Njani",
