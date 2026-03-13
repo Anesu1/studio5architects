@@ -80,7 +80,7 @@ export default function Hero({ images }: { images?: string[] }) {
             </div>
             <div className="relative md:absolute md:bottom-12 md:left-12 z-20 max-w-xl text-white px-6 pt-28 pb-10 md:p-0 md:mix-blend-difference">
                 <div className="md:hidden rounded-2xl border border-white/25 bg-white/10 backdrop-blur-md px-5 py-6 shadow-2xl">
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-white/75 mb-3">STUDIO <span className="font-centaur normal-case text-lg">5</span> ARCHITECTS | HARARE & ZIMBABWE</p>
+                    <p className="text-xs uppercase tracking-[0.22em] text-white/75 mb-3">STUDIO <span className="font-centaur normal-case text-lg">5</span> ARCHITECTS | HARARE & ZIMBABWE</p>
                     <h1 className="font-heading text-4xl leading-[0.92] uppercase tracking-tight mb-3">
                         Designing spaces where humanity can thrive
                     </h1>

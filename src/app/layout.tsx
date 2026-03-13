@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
-import { Montserrat, Cormorant_Garamond } from "next/font/google";
+import { DM_Sans, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import ChatWidget from "@/components/ChatWidget";
 import FloatingBackArrow from "@/components/navigation/FloatingBackArrow";
 
-const montserrat = Montserrat({ 
-    subsets: ["latin"], 
+const dmSans = DM_Sans({
+    subsets: ["latin"],
     variable: "--font-body-family",
-    weight: ["300", "400", "500", "600", "700", "800", "900"]
+    weight: ["300", "400", "500", "600", "700"],
+    display: "swap",
 });
 
 const cormorant = Cormorant_Garamond({
     subsets: ["latin"],
     variable: "--font-logo-serif",
-    weight: ["400", "700"]
+    weight: ["300", "400", "500", "600", "700"]
 });
 
 export const metadata: Metadata = {
@@ -80,7 +81,7 @@ export default function RootLayout({
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
             </head>
-            <body className={`${montserrat.variable} ${cormorant.variable} antialiased`}>
+            <body className={`${dmSans.variable} ${cormorant.variable} antialiased`}>
                 <SmoothScroll>{children}</SmoothScroll>
                  <FloatingBackArrow />
                 <ChatWidget />

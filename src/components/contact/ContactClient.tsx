@@ -56,7 +56,7 @@ export default function ContactClient() {
 
                             <Reveal delay={0.5} width={`100%`}>
                                 <MagneticButton>
-                                    <button className="w-full sm:w-auto px-10 md:px-12 py-4 bg-verdant-black text-verdant-white rounded-full uppercase text-sm font-bold tracking-widest hover:scale-105 transition-transform">
+                                    <button className="w-full sm:w-auto px-10 md:px-12 py-4 bg-verdant-black text-verdant-white rounded-sm uppercase text-sm font-medium tracking-widest hover:scale-105 transition-transform">
                                         Send Message
                                     </button>
                                 </MagneticButton>
@@ -68,7 +68,7 @@ export default function ContactClient() {
                     <div className="md:w-1/2 flex flex-col justify-between">
                         <div>
                             <Reveal delay={0.3}>
-                                <h2 className="text-2xl font-heading uppercase mb-8">Details</h2>
+                                <h2 className="text-2xl font-heading mb-8">Details</h2>
                                 <div className="space-y-8 opacity-70">
                                     <div>
                                         <span className="block text-xs uppercase tracking-widest opacity-50 mb-2">Address</span>
@@ -86,7 +86,7 @@ export default function ContactClient() {
                             </Reveal>
                         </div>
 
-                        <div className="mt-12 h-[300px] md:h-[550px] relative overflow-hidden bg-gray-100 rounded-3xl border border-black/5 shadow-inner grayscale group pointer-events-auto">
+                        <div className="mt-12 h-[300px] md:h-[550px] relative overflow-hidden bg-gray-100 rounded border border-black/5 shadow-inner grayscale group pointer-events-auto">
                             <Map
                                 center={officeCoords}
                                 zoom={14}
@@ -98,18 +98,18 @@ export default function ContactClient() {
                                             <div className="bg-verdant-black w-8 h-8 rounded-full border-4 border-white shadow-xl flex items-center justify-center animate-bounce">
                                                 <div className="w-2 h-2 bg-white rounded-full" />
                                             </div>
-                                            <div className="mt-2 bg-white/90 backdrop-blur-md px-2 py-1 rounded text-[8px] font-bold uppercase tracking-widest shadow-sm">
+                                            <div className="mt-2 bg-white/90 backdrop-blur-md px-2 py-1 rounded text-xs font-bold uppercase tracking-widest shadow-sm">
                                                 Get Directions
                                             </div>
                                         </div>
                                     </MarkerContent>
                                     <MarkerPopup closeButton={true}>
                                         <div className="p-2 min-w-[220px]">
-                                            <h3 className="font-heading uppercase text-sm mb-2 text-verdant-black">Studio 5 Architects</h3>
-                                            <p className="text-[10px] text-black/60 mb-3 uppercase tracking-wider leading-relaxed">
+                                            <h3 className="font-heading text-sm mb-2 text-verdant-black">Studio 5 Architects</h3>
+                                            <p className="text-xs text-black/60 mb-3 uppercase tracking-wider leading-relaxed">
                                                 5 Chaifont Road,<br />Greencroft, Harare
                                             </p>
-                                            <div className="flex flex-col gap-1 text-[9px] uppercase tracking-widest text-black/40 mb-4 border-t pt-2">
+                                            <div className="flex flex-col gap-1 text-xs uppercase tracking-widest text-black/40 mb-4 border-t pt-2">
                                                 <span>Mon - Fri: 8 AM - 5 PM</span>
                                                 <span>Sat - Sun: Closed</span>
                                             </div>
@@ -117,14 +117,14 @@ export default function ContactClient() {
                                                 href={`https://www.google.com/maps/dir/?api=1&destination=${officeCoords[1]},${officeCoords[0]}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="block w-full bg-verdant-black text-white text-[9px] font-bold text-center py-2.5 rounded-full hover:bg-black/80 transition-colors uppercase tracking-[0.2em]"
+                                                className="block w-full bg-verdant-black text-white text-xs font-medium text-center py-2.5 rounded-sm hover:bg-black/80 transition-colors uppercase tracking-[0.2em]"
                                             >
                                                 Get Directions
                                             </a>
                                         </div>
                                     </MarkerPopup>
                                     <MarkerTooltip>
-                                        <div className="px-2 py-1 text-[10px] font-bold uppercase tracking-widest">
+                                        <div className="px-2 py-1 text-xs font-bold uppercase tracking-widest">
                                             Get Directions
                                         </div>
                                     </MarkerTooltip>

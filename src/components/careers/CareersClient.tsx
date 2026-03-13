@@ -84,7 +84,7 @@ export default function CareersClient() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="text-3xl md:text-5xl font-heading uppercase text-verdant-black mb-8 leading-tight"
+                            className="text-3xl md:text-5xl font-heading text-verdant-black mb-8 leading-tight"
                         >
                             Grow Your Career at the Intersection of Design and Impact.
                         </motion.h2>
@@ -104,7 +104,7 @@ export default function CareersClient() {
                             ))}
                         </div>
                     </div>
-                    <div className="relative aspect-square rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                    <div className="relative aspect-square rounded-none overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
                         <img
                             src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?fm=jpg&q=80&w=1200&auto=format&fit=crop"
                             alt="The Studio 5 Team"
@@ -119,7 +119,7 @@ export default function CareersClient() {
                 <div className="max-w-5xl mx-auto">
                     <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
                         <div>
-                            <h2 className="text-3xl font-heading uppercase text-verdant-black mb-4">Current Openings</h2>
+                            <h2 className="text-3xl font-heading text-verdant-black mb-4">Current Openings</h2>
                             <p className="text-black/60 max-w-xl">We are always looking for passionate individuals to join our team. Explore our current opportunities below.</p>
                         </div>
                         <div className="flex gap-4">
@@ -139,14 +139,14 @@ export default function CareersClient() {
                             >
                                 <Link
                                     href="/contact"
-                                    className="flex flex-col md:flex-row md:items-center justify-between p-8 bg-verdant-bg border border-black/5 rounded-2xl group-hover:border-black transition-all duration-300"
+                                    className="flex flex-col md:flex-row md:items-center justify-between p-8 bg-verdant-bg border border-black/5 rounded-sm group-hover:border-black transition-all duration-300"
                                 >
                                     <div className="mb-4 md:mb-0">
                                         <div className="flex items-center gap-3 mb-2">
-                                            <span className="text-[10px] font-bold uppercase tracking-widest bg-black/5 px-2 py-1 rounded text-black/60">{job.department}</span>
-                                            <span className="text-[10px] font-bold uppercase tracking-widest text-black/40">{job.type}</span>
+                                            <span className="text-xs font-bold uppercase tracking-widest bg-black/5 px-2 py-1 rounded text-black/60">{job.department}</span>
+                                            <span className="text-xs font-bold uppercase tracking-widest text-black/40">{job.type}</span>
                                         </div>
-                                        <h3 className="text-xl font-heading uppercase text-verdant-black">{job.title}</h3>
+                                        <h3 className="text-xl font-heading text-verdant-black">{job.title}</h3>
                                         <p className="text-xs text-black/40 mt-1 uppercase tracking-widest">{job.location}</p>
                                     </div>
                                     <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest group-hover:translate-x-2 transition-transform duration-300">
@@ -158,11 +158,11 @@ export default function CareersClient() {
                     </div>
 
                     <div className="mt-24 text-center">
-                        <h3 className="text-xl font-heading uppercase mb-4">Don't see a role that fits?</h3>
+                        <h3 className="text-xl font-heading mb-4">Don't see a role that fits?</h3>
                         <p className="text-black/60 mb-8 max-w-lg mx-auto">We're always open to meeting talented people. Send us your portfolio and CV, and we'll keep you in mind for future openings.</p>
                         <Link
                             href="/contact"
-                            className="inline-flex items-center gap-2 bg-verdant-black text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform"
+                            className="inline-flex items-center gap-2 bg-verdant-black text-white px-8 py-4 rounded-sm text-xs font-medium uppercase tracking-widest hover:scale-105 transition-transform"
                         >
                             General Application <ArrowRight size={16} />
                         </Link>

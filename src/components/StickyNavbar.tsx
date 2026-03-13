@@ -109,7 +109,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                             <div key={link.name} className="relative group py-2">
                                 <Link
                                     href={link.href}
-                                    className="text-[11px] font-bold uppercase tracking-[0.2em] hover:opacity-100 transition-all flex items-center gap-1 group-hover:text-black/60"
+                                    className="text-xs font-medium uppercase tracking-[0.2em] hover:opacity-100 transition-all flex items-center gap-1 group-hover:text-black/60"
                                     data-cursor="hover"
                                 >
                                     {link.name}
@@ -118,12 +118,12 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
 
                                 {/* Hover Bridge and Dropdown */}
                                 <div className="absolute left-1/2 top-full -translate-x-1/2 pt-4 opacity-0 translate-y-2 pointer-events-none transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
-                                    <div className="w-64 rounded-2xl border border-black/5 bg-white/95 backdrop-blur-xl p-2 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+                                    <div className="w-64 rounded-sm border border-black/5 bg-white/95 backdrop-blur-xl p-2 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="block rounded-xl px-4 py-3 text-[10px] font-bold uppercase tracking-widest text-black/60 hover:text-black hover:bg-black/[0.03] transition-all"
+                                                className="block rounded-sm px-4 py-3 text-xs font-medium uppercase tracking-widest text-black/60 hover:text-black hover:bg-black/[0.03] transition-all"
                                                 data-cursor="hover"
                                             >
                                                 {child.name}
@@ -136,7 +136,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-[11px] font-bold uppercase tracking-[0.2em] hover:opacity-100 opacity-100 transition-all hover:text-black/60"
+                                className="text-xs font-medium uppercase tracking-[0.2em] hover:opacity-100 opacity-100 transition-all hover:text-black/60"
                                 data-cursor="hover"
                             >
                                 {link.name}
@@ -150,7 +150,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                         <Link
                             href="/contact"
                             className={clsx(
-                                "px-8 py-3.5 rounded-full text-[10px] font-bold uppercase tracking-[0.15em] transition-all",
+                                "px-8 py-3.5 rounded-sm text-xs font-medium uppercase tracking-[0.15em] transition-all",
                                 isScrolled
                                     ? "bg-black text-white hover:bg-black/80"
                                     : "bg-black text-white hover:shadow-lg"
@@ -213,7 +213,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                                         <>
                                             <button
                                                 onClick={() => toggleMobileDropdown(link.name)}
-                                                className="w-full flex items-center justify-between text-left text-2xl font-heading uppercase"
+                                                className="w-full flex items-center justify-between text-left text-2xl font-heading"
                                             >
                                                 <span>{link.name}</span>
                                                 <ChevronDown className={clsx("transition-transform duration-300", openMobileDropdown === link.name && "rotate-180")} />
@@ -251,7 +251,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                                         <Link
                                             href={link.href}
                                             onClick={closeMobileMenu}
-                                            className="text-2xl font-heading uppercase block"
+                                            className="text-2xl font-heading block"
                                         >
                                             {link.name}
                                         </Link>
@@ -268,7 +268,7 @@ export default function StickyNavbar({ isDarkBackground = false }: { isDarkBackg
                                 <Link
                                     href="/contact"
                                     onClick={closeMobileMenu}
-                                    className="w-full inline-flex justify-center rounded-full bg-black px-10 py-5 text-sm font-bold uppercase tracking-widest text-white shadow-xl"
+                                    className="w-full inline-flex justify-center rounded-sm bg-black px-10 py-5 text-sm font-medium uppercase tracking-widest text-white shadow-xl"
                                 >
                                     Request Consultation
                                 </Link>

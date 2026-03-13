@@ -47,7 +47,7 @@ export default function BentoGallery({ images }: BentoGalleryProps) {
                             className="object-cover transition-transform duration-700 group-hover:scale-110  group-hover:grayscale-0"
                         />
                         <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <span className="text-white text-[10px] uppercase font-bold tracking-widest border border-white/40 px-4 py-2 backdrop-blur-sm">
+                            <span className="text-white text-xs uppercase font-bold tracking-widest border border-white/40 px-4 py-2 backdrop-blur-sm">
                                 View Detail
                             </span>
                         </div>

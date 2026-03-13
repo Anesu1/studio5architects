@@ -32,7 +32,7 @@ export default function FloatingBackArrow() {
                     <ArrowLeft size={20} className="transition-transform duration-500 group-hover:-translate-x-1" />
                 </div>
                 
-                <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-black opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-black opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
                     Previous Page
                 </span>
             </motion.button>

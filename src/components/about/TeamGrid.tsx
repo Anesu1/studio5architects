@@ -87,7 +87,7 @@ export default function TeamGrid() {
     return (
         <section className="py-24 bg-verdant-white">
             <div className="container mx-auto px-6 md:px-12 mb-12">
-                <h2 className="text-4xl md:text-6xl font-heading uppercase">Meet Our Team</h2>
+                <h2 className="text-4xl md:text-6xl font-heading">Meet Our Team</h2>
             </div>
 
             <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -145,7 +145,7 @@ function TeamCard({ member, isOpen, onToggle }: { member: TeamMember, isOpen: bo
                         exit={{ opacity: 0 }}
                         className="absolute bottom-0 left-0 p-6 w-full bg-gradient-to-t from-black/80 to-transparent text-white"
                     >
-                        <h3 className="text-xl font-heading uppercase">{member.name}</h3>
+                        <h3 className="text-xl font-heading">{member.name}</h3>
                         <p className="text-xs font-body tracking-widest opacity-80">{member.role}</p>
                     </motion.div>
                 )}
@@ -176,8 +176,8 @@ function TeamCard({ member, isOpen, onToggle }: { member: TeamMember, isOpen: bo
                         transition={{ delay: 0.2 }}
                         className="pt-1 overflow-y-auto max-h-[280px] scrollbar-hide"
                     >
-                        <h3 className="text-xl font-heading uppercase mb-0.5">{member.name}</h3>
-                        <p className="text-[10px] font-bold tracking-widest text-gray-400 mb-4">{member.role}</p>
+                        <h3 className="text-xl font-heading mb-0.5">{member.name}</h3>
+                        <p className="text-xs font-bold tracking-widest text-gray-400 mb-4">{member.role}</p>
                         <p className="text-sm leading-relaxed text-gray-600">
                             {member.bio}
                         </p>

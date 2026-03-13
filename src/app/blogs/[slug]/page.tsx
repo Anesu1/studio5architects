@@ -56,7 +56,7 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
                     
                     <div className="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
                         <div className="lg:col-span-8">
-                            <div className="flex flex-wrap items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-black/40 mb-6">
+                            <div className="flex flex-wrap items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-black/40 mb-6">
                                 <span>{post.category}</span>
                                 <div className="w-1 h-1 rounded-full bg-black/10" />
                                 <span>{post.publishedAt}</span>
@@ -85,7 +85,7 @@ export default async function BlogDetailPage({ params }: BlogDetailProps) {
 
                     {post.gallery && (
                         <div className="mt-16">
-                            <div className="flex items-center gap-4 mb-8 text-[10px] font-bold uppercase tracking-widest text-black/40">
+                            <div className="flex items-center gap-4 mb-8 text-xs font-bold uppercase tracking-widest text-black/40">
                                 <span>Project Gallery</span>
                                 <div className="h-px w-20 bg-black/10" />
                             </div>

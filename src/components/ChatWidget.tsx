@@ -207,7 +207,7 @@ export default function ChatWidget() {
                                                         </span>
                                                     )}
                                                 </div>
-                                                <span className="text-[10px] text-white/20 px-1">{msg.timestamp}</span>
+                                                <span className="text-xs text-white/20 px-1">{msg.timestamp}</span>
                                             </div>
                                         ))}
                                         <div ref={messagesEndRef} />

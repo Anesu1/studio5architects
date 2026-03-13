@@ -36,7 +36,7 @@ export default function PageHero({ title, description, kicker, dark = false, com
                         {kicker}
                     </p>
                 )}
-                <h1 className="font-heading uppercase leading-[0.92] tracking-tight text-4xl sm:text-5xl md:text-8xl">
+                <h1 className="font-heading leading-[0.92] tracking-normal text-4xl sm:text-5xl md:text-8xl">
                     {title}
                 </h1>
                 {description && (

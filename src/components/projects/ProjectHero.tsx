@@ -19,8 +19,8 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 md:mb-16">
                     <BackButton label="Back to Projects" />
                     <div className="flex items-center gap-2">
-                        <span className="text-[11px] font-medium text-black/30">Sector:</span>
-                        <span className="text-[11px] font-bold text-black/60">{project.category}</span>
+                        <span className="text-xs font-medium text-black/30">Sector:</span>
+                        <span className="text-xs font-bold text-black/60">{project.category}</span>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease }}
-                        className="text-4xl sm:text-5xl md:text-6xl font-heading leading-[1.1] tracking-tight mb-8 text-black/90"
+                        className="text-4xl sm:text-5xl md:text-6xl font-heading leading-[1.1] tracking-normal mb-8 text-black/90"
                     >
                         {project.title}
                     </motion.h1>
@@ -59,7 +59,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 + (i * 0.1) }}
                         >
-                            <span className="text-[10px] font-bold tracking-wider text-black/20 block mb-2">{stat.label}</span>
+                            <span className="text-xs font-bold tracking-wider text-black/20 block mb-2">{stat.label}</span>
                             <span className="text-sm font-medium text-black/70 block">{stat.value}</span>
                         </motion.div>
                     ))}

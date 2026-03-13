@@ -83,7 +83,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
                     />
                 </div>
                 <div className="relative z-10 max-w-7xl mx-auto flex flex-col items-center text-center">
-                    <span className="text-[10px] font-bold uppercase tracking-[0.4em] opacity-40 mb-10">Continue Exploring</span>
+                    <span className="text-xs font-bold uppercase tracking-[0.4em] opacity-40 mb-10">Continue Exploring</span>
                     <Link href={`/projects/${nextProject.slug}`} className="group inline-flex flex-col items-center">
                         <div className="overflow-hidden mb-12">
                             <h2 className="text-4xl md:text-6xl lg:text-7xl font-heading leading-tight tracking-tight  transition-all duration-1000">
@@ -91,7 +91,7 @@ export default async function ProjectDetailPage({ params }: ProjectDetailProps) 
                             </h2>
                         </div>
                         <div className="flex items-center gap-6 bg-white/5 backdrop-blur-xl px-12 py-6 rounded-full border border-white/10 group-hover:bg-white group-hover:text-black transition-all duration-700">
-                            <span className="text-[10px] font-bold tracking-[0.2em]">VIEW PROJECT</span>
+                            <span className="text-xs font-bold tracking-[0.2em]">VIEW PROJECT</span>
                             <ArrowRight size={18} className="translate-x-0 group-hover:translate-x-3 transition-transform duration-700" />
                         </div>
                     </Link>

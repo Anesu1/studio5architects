@@ -11,26 +11,26 @@ export default function NewsPreview() {
     const featuredPosts = blogPosts.slice(0, 3);
 
     return (
-        <section className="py-24 px-6 md:px-12 bg-white">
+        <section className="py-24 px-6 md:px-12 bg-verdant-black text-white">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <div className="max-w-2xl">
                         <Reveal>
-                            <span className="text-xs font-bold uppercase tracking-widest text-black/40 mb-4 block">Research & Updates</span>
+                            <span className="text-xs font-medium uppercase tracking-widest text-white/40 mb-4 block">Research & Updates</span>
                         </Reveal>
                         <Reveal delay={0.1}>
-                            <h2 className="text-4xl md:text-6xl font-heading uppercase text-verdant-black leading-tight">
+                            <h2 className="text-4xl md:text-6xl font-heading text-white leading-tight">
                                 Latest News & <br /> Architectural Insights
                             </h2>
                         </Reveal>
                     </div>
                     <Reveal delay={0.2}>
-                        <Link 
-                            href="/blogs" 
-                            className="group flex items-center gap-3 text-sm font-bold uppercase tracking-widest hover:text-black/60 transition-colors"
+                        <Link
+                            href="/blogs"
+                            className="group flex items-center gap-3 text-sm font-medium uppercase tracking-widest text-white hover:text-white/60 transition-colors"
                         >
                             View All Articles
-                            <div className="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-300">
+                            <div className="w-10 h-10 rounded-sm border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-300">
                                 <ArrowUpRight size={18} />
                             </div>
                         </Link>
@@ -48,7 +48,7 @@ export default function NewsPreview() {
                             className="group"
                         >
                             <Link href={`/blogs/${post.slug}`} className="block">
-                                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl mb-6 bg-gray-100 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:shadow-black/5">
+                                <div className="relative aspect-[16/10] overflow-hidden rounded-none mb-6 bg-gray-800 shadow-sm transition-all duration-500 group-hover:shadow-xl group-hover:shadow-black/30">
                                     <Image
                                         src={post.image}
                                         alt={post.title}
@@ -56,21 +56,21 @@ export default function NewsPreview() {
                                         className="object-cover transition-transform duration-1000 group-hover:scale-105"
                                     />
                                     <div className="absolute top-4 left-4">
-                                        <span className="bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest text-black shadow-sm">
+                                        <span className="bg-white/90 backdrop-blur-md px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-black shadow-sm">
                                             {post.category}
                                         </span>
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-widest text-black/40">
+                                    <div className="flex items-center gap-3 text-xs font-medium uppercase tracking-widest text-white/40">
                                         <span>{post.publishedAt}</span>
-                                        <span className="w-1 h-1 rounded-full bg-black/10" />
+                                        <span className="w-1 h-1 rounded-full bg-white/20" />
                                         <span>{post.readTime}</span>
                                     </div>
-                                    <h3 className="text-xl font-heading uppercase leading-snug group-hover:tracking-tight transition-all duration-300">
+                                    <h3 className="text-xl font-heading leading-snug text-white">
                                         {post.title}
                                     </h3>
-                                    <p className="text-sm text-black/60 leading-relaxed line-clamp-2">
+                                    <p className="text-sm text-white/60 leading-relaxed line-clamp-2">
                                         {post.excerpt}
                                     </p>
                                 </div>

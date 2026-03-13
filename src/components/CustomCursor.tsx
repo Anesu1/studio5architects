@@ -130,7 +130,7 @@ export default function CustomCursor() {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.8 }}
                             className={clsx(
-                                "text-[10px] leading-tight text-center",
+                                "text-xs leading-tight text-center",
                                 cursorType === "pill" ? "text-white" : "text-black mix-blend-difference" // Invert color logic if needed
                             )}
                         >

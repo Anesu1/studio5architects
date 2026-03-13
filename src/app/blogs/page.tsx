@@ -35,7 +35,7 @@ export default function BlogsPage() {
                                             />
                                         </div>
                                         <div className="p-6">
-                                            <div className="flex items-center justify-between gap-4 text-[10px] font-bold uppercase tracking-widest text-black/50">
+                                            <div className="flex items-center justify-between gap-4 text-xs font-bold uppercase tracking-widest text-black/50">
                                                 <span>{post.readTime}</span>
                                                 <span>{post.publishedAt}</span>
                                             </div>

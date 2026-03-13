@@ -136,7 +136,7 @@ export default function ProjectScrollSequence({
                         >
                             <Loader2 size={40} strokeWidth={1.5} />
                         </motion.div>
-                        <div className="text-white text-center text-[10px] uppercase tracking-[0.3em] font-bold opacity-40">
+                        <div className="text-white text-center text-xs uppercase tracking-[0.3em] font-bold opacity-40">
                             initiating experience
                         </div>
                     </div>
