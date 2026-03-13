@@ -73,6 +73,7 @@ const team = [
         bio:"National Diploma in Architectural Technology (Harare Polytechnic)",
         image:"/about/team/mare.webp"
     },
+    
      {
         name: "Rumbidzai Njani",
         role: "Architectural Technician",
