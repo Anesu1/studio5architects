@@ -41,6 +41,7 @@ const navLinks = [
         href: "/services",
         children: serviceDropdownLinks
     },
+    { name: "CSR", href: "/csr" },
     { name: "Contact", href: "/contact" },
 ];
 
