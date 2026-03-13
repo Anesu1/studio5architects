@@ -56,7 +56,7 @@ export default function SustainabilityClient() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-3xl md:text-5xl font-heading uppercase text-verdant-black mb-8"
+                        className="text-3xl md:text-5xl font-heading text-verdant-black mb-8"
                     >
                         Building for a Better Tomorrow
                     </motion.h2>
@@ -85,7 +85,7 @@ export default function SustainabilityClient() {
                             className="bg-verdant-bg p-8 border border-black/5 rounded-2xl"
                         >
                             <div className="mb-6">{value.icon}</div>
-                            <h3 className="text-xl font-heading uppercase text-verdant-black mb-4">{value.title}</h3>
+                            <h3 className="text-xl font-heading text-verdant-black mb-4">{value.title}</h3>
                             <p className="text-sm text-black/60 leading-relaxed">{value.description}</p>
                         </motion.div>
                     ))}
@@ -100,7 +100,7 @@ export default function SustainabilityClient() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="text-3xl md:text-4xl font-heading uppercase text-verdant-black mb-8"
+                            className="text-3xl md:text-4xl font-heading text-verdant-black mb-8"
                         >
                             Our Climate Journey
                         </motion.h2>

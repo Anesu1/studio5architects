@@ -32,7 +32,7 @@ export default function CorePrinciples() {
     return (
         <section className="py-24 bg-white text-verdant-black">
             <div className="container mx-auto px-6 md:px-12">
-                <h2 className="text-4xl md:text-6xl font-heading uppercase mb-12">Core Principles</h2>
+                <h2 className="text-4xl md:text-6xl font-heading mb-12">Core Principles</h2>
 
                 <div className="flex flex-col md:flex-row gap-12">
                     {/* Tabs / Navigation */}
@@ -47,7 +47,7 @@ export default function CorePrinciples() {
                                 )}
                             >
                                 <span className="text-sm font-bold tracking-widest block mb-1">0{p.id}</span>
-                                <span className="text-2xl md:text-4xl font-heading uppercase">{p.title}</span>
+                                <span className="text-2xl md:text-4xl font-heading">{p.title}</span>
 
                                 {activeTab.id === p.id && (
                                     <motion.div

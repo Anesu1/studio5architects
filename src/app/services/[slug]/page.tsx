@@ -55,7 +55,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
                     <span className="block text-sm font-bold tracking-widest text-white/50 uppercase mb-4">Expertise Detail</span>
                 </Reveal>
                 <Reveal delay={0.1}>
-                    <h1 className="text-4xl sm:text-5xl md:text-9xl font-heading uppercase leading-none">
+                    <h1 className="text-4xl sm:text-5xl md:text-9xl font-heading leading-none">
                         {service.title}
                     </h1>
                 </Reveal>
@@ -68,7 +68,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
                         <div>
                             <Reveal>
                                 <span className="text-xs font-bold uppercase tracking-widest text-black/40 mb-4 block">Our Approach</span>
-                                <h2 className="text-3xl md:text-5xl font-heading uppercase text-verdant-black mb-8">Value Delivered</h2>
+                                <h2 className="text-3xl md:text-5xl font-heading text-verdant-black mb-8">Value Delivered</h2>
                                 <p className="text-lg text-black/70 leading-relaxed mb-8">
                                     {service.longDescription || service.description}
                                 </p>
@@ -109,7 +109,7 @@ export default async function ServiceDetail({ params }: ServiceDetailProps) {
             <FAQ />
 
             <div className="py-24 px-6 md:px-12 bg-white text-center">
-                <h2 className="text-4xl md:text-6xl font-heading uppercase mb-8">Ready to Start?</h2>
+                <h2 className="text-4xl md:text-6xl font-heading mb-8">Ready to Start?</h2>
                 <p className="text-xl mb-12 max-w-2xl mx-auto">Contact Studio 5 Architects to discuss your project goals, timeline, and budget.</p>
                 {/* Contact form could go here, or link to contact page */}
             </div>

@@ -61,7 +61,7 @@ export default function SubServices() {
 
                 {/* Accordion Right */}
                 <div className="flex flex-col justify-center">
-                    <h2 className="text-4xl font-heading uppercase mb-12">Sub Services</h2>
+                    <h2 className="text-4xl font-heading mb-12">Sub Services</h2>
                     <div className="border-t border-black/10">
                         {subServices.map((service, index) => (
                             <div key={index} className="border-b border-black/10">
@@ -69,7 +69,7 @@ export default function SubServices() {
                                     onClick={() => setActiveIndex(activeIndex === index ? null : index)}
                                     className="w-full py-8 flex items-center justify-between group hover:pl-4 transition-all duration-300"
                                 >
-                                    <h3 className="text-2xl font-heading uppercase">{service.title}</h3>
+                                    <h3 className="text-2xl font-heading">{service.title}</h3>
                                     <div className={clsx(
                                         "w-8 h-8 rounded-full border border-black/20 flex items-center justify-center transition-colors",
                                         activeIndex === index ? "bg-black text-white" : "group-hover:bg-black group-hover:text-white"

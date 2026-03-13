@@ -17,7 +17,7 @@ export default function AboutHero() {
         <>
             <section className="md:hidden bg-verdant-black text-white px-6 pt-28 pb-14">
                 <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-4">About Studio 5</p>
-                <h1 className="text-5xl font-heading uppercase leading-[0.9] mb-5">About</h1>
+                <h1 className="text-5xl font-heading leading-[0.9] mb-5">About</h1>
                 <p className="text-white/80 leading-relaxed max-w-xl">
                     We design buildings that enhance the built and natural environment and deliver world-class results tailored to each client&apos;s taste.
                 </p>
@@ -30,7 +30,7 @@ export default function AboutHero() {
                 <motion.div style={{ y, opacity }} className="relative z-10 h-full px-10 lg:px-16 xl:px-24 py-24 grid grid-cols-12 items-end">
                     <div className="col-span-6">
                         <p className="text-xs uppercase tracking-[0.2em] text-white/60 mb-6">About Studio 5</p>
-                        <h1 className="text-[10vw] lg:text-[8vw] leading-[0.85] font-heading font-bold text-white uppercase tracking-tighter">
+                        <h1 className="text-[10vw] lg:text-[8vw] leading-[0.85] font-heading font-bold text-white tracking-tighter">
                             About
                         </h1>
                     </div>

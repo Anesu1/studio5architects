@@ -19,7 +19,7 @@ export default function BlogsPage() {
                 {Array.from(new Set(blogPosts.map(p => p.category))).map((category) => (
                     <div key={category} className="mb-20">
                         <div className="flex items-center gap-4 mb-10">
-                            <h2 className="text-2xl md:text-3xl font-heading uppercase tracking-widest">{category}</h2>
+                            <h2 className="text-2xl md:text-3xl font-heading">{category}</h2>
                             <div className="h-px flex-1 bg-black/10" />
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -39,7 +39,7 @@ export default function BlogsPage() {
                                                 <span>{post.readTime}</span>
                                                 <span>{post.publishedAt}</span>
                                             </div>
-                                            <h3 className="mt-3 text-xl font-heading uppercase leading-tight group-hover:text-black/60 transition-colors">{post.title}</h3>
+                                            <h3 className="mt-3 text-xl font-heading leading-tight group-hover:text-black/60 transition-colors">{post.title}</h3>
                                             <p className="mt-4 text-xs text-black/70 leading-relaxed line-clamp-3">{post.excerpt}</p>
                                         </div>
                                     </article>

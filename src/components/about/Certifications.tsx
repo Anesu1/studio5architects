@@ -13,7 +13,7 @@ export default function Certifications() {
     return (
         <section className="py-24 bg-verdant-bg">
             <div className="container mx-auto px-6 md:px-12">
-                <h2 className="text-4xl md:text-6xl font-heading uppercase mb-12">Credentials & Milestones</h2>
+                <h2 className="text-4xl md:text-6xl font-heading mb-12">Credentials & Milestones</h2>
 
                 <div className="flex flex-col">
                     {awards.map((award, i) => (
@@ -22,7 +22,7 @@ export default function Certifications() {
                                 <Reveal x={i % 2 === 0 ? -50 : 50}>
                                     <div className="flex items-baseline gap-4 md:gap-12">
                                         <span className="text-sm font-bold tracking-widest opacity-50">{award.year}</span>
-                                        <h3 className="text-2xl md:text-4xl font-heading uppercase group-hover:ml-4 transition-all duration-300">
+                                        <h3 className="text-2xl md:text-4xl font-heading group-hover:ml-4 transition-all duration-300">
                                             {award.title}
                                         </h3>
                                     </div>
