@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio5 Architects — Designing Spaces Where Humanity Can Thrive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="#hero" class="flex-shrink-0">
+        <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-400 font-medium">
+          <li><a href="#hero"     class="nav-link hover:text-white transition-colors duration-200">Home</a></li>
+          <li><a href="about.html" class="nav-link hover:text-white transition-colors duration-200">About</a></li>
+          <li><a href="#services" class="nav-link hover:text-white transition-colors duration-200">Services</a></li>
+          <li><a href="#sectors"  class="nav-link hover:text-white transition-colors duration-200">Sectors</a></li>
+          <li><a href="#approach" class="nav-link hover:text-white transition-colors duration-200">Our Approach</a></li>
+          <li><a href="csr.html"  class="nav-link hover:text-white transition-colors duration-200">CSR</a></li>
+        </ul>
+        <a href="contact.html"
+           class="ml-4 text-white text-[11px] tracking-widest uppercase font-semibold px-6 py-2.5 transition-opacity hover:opacity-80"
+           style="background:var(--blue);">
+          Get In Touch
+        </a>
+      </nav>
+
+      <!-- Hamburger -->
+      <button id="menu-btn" class="lg:hidden text-gray-300 p-1" aria-label="Toggle menu">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-menu" style="background:var(--dark);border-top:1px solid rgba(255,255,255,0.07);" class="lg:hidden px-6 py-7 space-y-5">
+      <a href="#hero"     class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-1.5">Home</a>
+      <a href="#about"    class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-1.5">About</a>
+      <a href="#services" class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-1.5">Services</a>
+      <a href="#sectors"  class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-1.5">Sectors</a>
+      <a href="#approach" class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-1.5">Our Approach</a>
+      <a href="csr.html"  class="block text-[11px] tracking-widest uppercase text-blue-400 py-1.5">CSR</a>
+      <a href="#contact"  class="inline-block text-white text-[11px] tracking-widest uppercase px-6 py-3 mt-2" style="background:var(--blue);">Get In Touch</a>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section id="hero" style="background:var(--black);padding-top:72px;" class="min-h-screen flex items-center">
+    <div class="max-w-7xl mx-auto px-6 py-20 w-full">
+      <div class="grid lg:grid-cols-2 gap-12 xl:gap-20 items-center">
+
+        <!-- Left: content -->
+        <div>
+          <div class="flex items-center gap-3 mb-7">
+            <span class="rule"></span>
+            <span class="label">Harare, Zimbabwe · Est. 2000</span>
+          </div>
+
+          <h1 class="font-serif text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.04] text-white mb-8">
+            Designing<br/>Spaces Where<br/>
+            <em style="color:var(--blue-light);">Humanity<br/>Can Thrive.</em>
+          </h1>
+
+          <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-lg mb-10">
+            Studio5 Architects is a registered architectural practice delivering design excellence across residential, commercial, civic, and heritage projects throughout Zimbabwe.
+          </p>
+
+          <!-- CTA row -->
+          <div class="flex flex-wrap gap-4 mb-14">
+            <a href="#services"
+               style="background:var(--blue);"
+               class="text-white text-[11px] tracking-widest uppercase font-semibold px-8 py-4 hover:opacity-90 transition-opacity">
+              Our Services
+            </a>
+            <a href="#about"
+               class="text-white text-[11px] tracking-widest uppercase font-medium px-8 py-4 hover:bg-white/5 transition-colors"
+               style="border:1px solid rgba(255,255,255,0.15);">
+              About the Practice
+            </a>
+          </div>
+
+          <!-- Trust bar -->
+          <div class="flex flex-wrap gap-6 pt-8 border-t" style="border-color:rgba(255,255,255,0.07);">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              <span class="text-gray-400 text-xs">Registered — Architects Council of Zimbabwe</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              <span class="text-gray-400 text-xs">AIAZ Member Practice</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 shrink-0" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              <span class="text-gray-400 text-xs">ISO 9001 Quality Management</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: image with geometric clip + stat overlay -->
+        <div class="relative hidden lg:block">
+          <!-- Clipped architectural photo -->
+          <div class="hero-img-wrap overflow-hidden" style="height:580px;">
+            <img
+              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85"
+              alt="Architecture by Studio5"
+              class="w-full h-full object-cover"
+              style="filter:brightness(0.85) contrast(1.05);"
+            />
+            <!-- Blue tint overlay -->
+            <div class="absolute inset-0" style="background:linear-gradient(200deg,rgba(27,79,138,0.25) 0%,transparent 60%);"></div>
+          </div>
+
+          <!-- Blue corner accent -->
+          <div class="absolute -bottom-5 left-0 w-16 h-16" style="border-bottom:3px solid var(--blue);border-left:3px solid var(--blue);"></div>
+
+          <!-- Floating stats card -->
+          <div class="absolute bottom-10 -left-10 shadow-2xl"
+               style="background:var(--dark);border:1px solid rgba(255,255,255,0.08);padding:1.5rem 2rem;">
+            <div class="grid grid-cols-3 gap-8">
+              <div>
+                <p class="font-serif text-4xl font-bold text-white leading-none">20<span style="color:var(--blue-light);">+</span></p>
+                <p class="text-gray-400 text-[10px] tracking-widest uppercase mt-1.5">Years</p>
+              </div>
+              <div>
+                <p class="font-serif text-4xl font-bold text-white leading-none">180<span style="color:var(--blue-light);">+</span></p>
+                <p class="text-gray-400 text-[10px] tracking-widest uppercase mt-1.5">Projects</p>
+              </div>
+              <div>
+                <p class="font-serif text-4xl font-bold text-white leading-none">12</p>
+                <p class="text-gray-400 text-[10px] tracking-widest uppercase mt-1.5">Awards</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       ABOUT — white section
+  ══════════════════════════════════════ -->
+  <section id="about" style="background:var(--white);color:var(--black);" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Header row -->
+      <div class="grid lg:grid-cols-12 gap-8 mb-16 items-end">
+        <div class="lg:col-span-5">
+          <span class="rule" style="background:var(--blue);"></span>
+          <span class="label" style="color:var(--blue);">About the Practice</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold leading-tight mt-4" style="color:var(--black);">
+            Architecture That<br/>Expresses Purpose.
+          </h2>
+        </div>
+        <div class="lg:col-span-7 lg:pl-8">
+          <p class="text-gray-500 text-base leading-relaxed mb-5">
+            Studio5 Architects is a full-service practice built on the conviction that buildings are best when they express their purpose and interact sympathetically with their surroundings. Founded in Harare, we bring together registered architects, designers, and project managers united by a singular commitment — design that serves people.
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            From individual private residences to large-scale commercial and civic commissions, every project receives rigorous design thinking, precise technical execution, and close collaboration with the client at every stage. We are not just architects. We are custodians of Zimbabwe's built future.
+          </p>
+        </div>
+      </div>
+
+      <!-- Four pillars -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-gray-200">
+        <div class="p-8 border-r border-gray-200 group hover:bg-gray-50 transition-colors">
+          <div class="w-10 h-10 flex items-center justify-center mb-5" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:var(--black);">Attention to Detail</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Every material, junction, and proportion is considered. We believe precision at the small scale defines the quality of the whole.</p>
+        </div>
+        <div class="p-8 border-r border-gray-200 group hover:bg-gray-50 transition-colors">
+          <div class="w-10 h-10 flex items-center justify-center mb-5" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:var(--black);">Client-Centred</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">We listen before we design. Collaboration with our clients is not a formality — it is the foundation of everything we produce.</p>
+        </div>
+        <div class="p-8 border-r border-gray-200 group hover:bg-gray-50 transition-colors">
+          <div class="w-10 h-10 flex items-center justify-center mb-5" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 0 1 3 12c0-1.605.42-3.113 1.157-4.418"/></svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:var(--black);">Environmentally Responsible</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Passive design strategies, local materials, and reduced construction waste are integrated into every project from the outset.</p>
+        </div>
+        <div class="p-8 group hover:bg-gray-50 transition-colors">
+          <div class="w-10 h-10 flex items-center justify-center mb-5" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.589-1.202L18.75 4.97Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.589-1.202L5.25 5.49Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-sm mb-2" style="color:var(--black);">Socially Responsible</h3>
+          <p class="text-gray-500 text-xs leading-relaxed">Architecture that uplifts communities. We give back through pro-bono work, scholarships, and active participation in Zimbabwe's built future.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STATS BAND
+  ══════════════════════════════════════ -->
+  <div style="background:var(--blue);" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 text-center">
+        <div>
+          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">20+</p>
+          <p class="text-blue-200 text-xs tracking-widest uppercase">Years of Practice</p>
+          <p class="text-blue-300/60 text-xs mt-1">Est. Harare, 2000</p>
+        </div>
+        <div>
+          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">180+</p>
+          <p class="text-blue-200 text-xs tracking-widest uppercase">Projects Completed</p>
+          <p class="text-blue-300/60 text-xs mt-1">Across all sectors</p>
+        </div>
+        <div>
+          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">12</p>
+          <p class="text-blue-200 text-xs tracking-widest uppercase">Industry Awards</p>
+          <p class="text-blue-300/60 text-xs mt-1">National &amp; regional</p>
+        </div>
+        <div>
+          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">18</p>
+          <p class="text-blue-200 text-xs tracking-widest uppercase">Professional Staff</p>
+          <p class="text-blue-300/60 text-xs mt-1">Architects, designers, PMs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       SERVICES
+  ══════════════════════════════════════ -->
+  <section id="services" style="background:var(--dark);" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-16 items-end">
+        <div class="lg:col-span-5">
+          <span class="rule"></span>
+          <span class="label">What We Offer</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mt-4">
+            Integrated<br/>Design Services
+          </h2>
+        </div>
+        <div class="lg:col-span-7 lg:pl-6">
+          <p class="text-gray-400 text-sm leading-relaxed">
+            We offer a complete suite of architectural, design, and project management services — structured to give clients a single point of accountability from the earliest brief to occupation and beyond.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+
+        <!-- 1 -->
+        <div class="service-card p-8">
+          <div class="card-icon w-12 h-12 flex items-center justify-center mb-6" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-white mb-3">Architectural Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Full-service architecture from brief and concept through to tender and construction documentation, for all building types and scales.</p>
+          <ul class="space-y-1.5">
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Residential, commercial &amp; civic</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Concept to construction drawings</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Regulatory submissions &amp; approvals</li>
+          </ul>
+        </div>
+
+        <!-- 2 -->
+        <div class="service-card p-8">
+          <div class="card-icon w-12 h-12 flex items-center justify-center mb-6" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-18M2.25 9l4.5-1.636M18.75 3l-1.5.545m0 6.205 3 1m1.5.5-1.5-.5M6.75 7.364V3h-3v18m3-13.636 10.5-3.819"/></svg>
+          </div>
+          <h3 class="font-semibold text-white mb-3">Interior Architecture</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Thoughtful interiors that integrate spatial planning, materiality, and lighting to shape how people experience the spaces they inhabit.</p>
+          <ul class="space-y-1.5">
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Corporate &amp; hospitality fitout</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Private residential interiors</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> FF&amp;E specification &amp; sourcing</li>
+          </ul>
+        </div>
+
+        <!-- 3 -->
+        <div class="service-card p-8">
+          <div class="card-icon w-12 h-12 flex items-center justify-center mb-6" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-white mb-3">Heritage &amp; Conservation</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Sensitive restoration and adaptive reuse of historically significant structures, balancing preservation with the demands of contemporary use.</p>
+          <ul class="space-y-1.5">
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Conservation management plans</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Adaptive reuse design</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> NMMZ approvals liaison</li>
+          </ul>
+        </div>
+
+        <!-- 4 -->
+        <div class="service-card p-8">
+          <div class="card-icon w-12 h-12 flex items-center justify-center mb-6" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 0 0-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0Z"/></svg>
+          </div>
+          <h3 class="font-semibold text-white mb-3">Urban &amp; Landscape Design</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Master planning, public realm design, and landscape architecture that roots buildings meaningfully in their urban and natural context.</p>
+          <ul class="space-y-1.5">
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Site master planning</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Public space &amp; streetscape</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Environmental impact assessment</li>
+          </ul>
+        </div>
+
+        <!-- 5 -->
+        <div class="service-card p-8">
+          <div class="card-icon w-12 h-12 flex items-center justify-center mb-6" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605"/></svg>
+          </div>
+          <h3 class="font-semibold text-white mb-3">Feasibility &amp; Advisory</h3>
+          <p class="text-gray-400 text-sm leading-relaxed mb-5">Pre-project advisory that de-risks development decisions before capital is committed — site appraisal, zoning review, and preliminary cost modelling.</p>
+          <ul class="space-y-1.5">
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Development potential assessment</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Zoning &amp; planning compliance</li>
+            <li class="text-xs text-gray-400 flex gap-2"><span style="color:var(--blue);">—</span> Preliminary cost estimates</li>
+          </ul>
+        </div>
+
+        <!-- 6 — P&CM highlight card -->
+        <div class="p-8 relative overflow-hidden" style="background:var(--blue);">
+          <div class="absolute inset-0 opacity-5" style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:30px 30px;"></div>
+          <div class="relative z-10">
+            <div class="w-12 h-12 flex items-center justify-center mb-6 bg-white/10 border border-white/20">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>
+            </div>
+            <h3 class="font-semibold text-white mb-3">Project &amp; Construction Management</h3>
+            <p class="text-blue-100 text-sm leading-relaxed mb-6">End-to-end project delivery — from procurement and tender through contract administration, cost control, and final handover. One team, one contract, no gaps.</p>
+            <a href="#approach" class="inline-flex items-center gap-2 text-white text-[11px] tracking-widest uppercase font-semibold border-b border-white/40 pb-0.5 hover:border-white transition-colors">
+              See Our Process
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SECTORS — light grey bg
+  ══════════════════════════════════════ -->
+  <section id="sectors" style="background:var(--grey-bg);color:var(--black);" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-14">
+        <div class="lg:col-span-5">
+          <span class="rule" style="background:var(--blue);"></span>
+          <span class="label" style="color:var(--blue);">Where We Work</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold leading-tight mt-4" style="color:var(--black);">
+            Sectors &amp;<br/>Project Types
+          </h2>
+        </div>
+        <div class="lg:col-span-7 lg:pl-6 flex items-end">
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Studio5 operates across the full range of building typologies in Zimbabwe. Our depth of experience across diverse sectors means we bring genuinely applicable precedent knowledge to every commission.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+
+        <!-- Sector cards -->
+        <div class="sector-card bg-white p-7 cursor-default">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+              <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm mb-1" style="color:var(--black);">Residential</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Private homes, cluster developments, townhouses, and high-density residential complexes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card bg-white p-7 cursor-default">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+              <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm mb-1" style="color:var(--black);">Commercial &amp; Office</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Grade-A offices, business parks, mixed-use retail-office, and corporate headquarters.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card bg-white p-7 cursor-default">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+              <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm mb-1" style="color:var(--black);">Civic &amp; Institutional</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Government buildings, civic centres, embassies, courts, and public administration facilities.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card bg-white p-7 cursor-default">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+              <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm mb-1" style="color:var(--black);">Education</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Schools, university facilities, polytechnic campuses, libraries, and early childhood development centres.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card bg-white p-7 cursor-default">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+              <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm mb-1" style="color:var(--black);">Healthcare</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Hospitals, clinics, rural health centres, specialist medical facilities, and rehabilitation centres.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="sector-card bg-white p-7 cursor-default">
+          <div class="flex items-start gap-5">
+            <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:var(--blue-dim);border:1px solid rgba(27,79,138,0.2);">
+              <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-semibold text-sm mb-1" style="color:var(--black);">Heritage &amp; Hospitality</h3>
+              <p class="text-gray-500 text-xs leading-relaxed">Hotels, lodges, tourism facilities, historic restorations, and conservation of culturally significant structures.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       OUR APPROACH
+  ══════════════════════════════════════ -->
+  <section id="approach" style="background:var(--black);" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid lg:grid-cols-12 gap-8 mb-16">
+        <div class="lg:col-span-5">
+          <span class="rule"></span>
+          <span class="label">How We Work</span>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mt-4">
+            Our Approach to<br/>Every Commission
+          </h2>
+        </div>
+        <div class="lg:col-span-7 lg:pl-6 flex items-end">
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Our process is structured, transparent, and deeply collaborative. From first contact to final handover, clients know exactly where their project stands and what comes next.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style="background:rgba(255,255,255,0.06);">
+
+        <div style="background:var(--dark);" class="p-10 hover:bg-gray-900 transition-colors group">
+          <p class="step-num mb-4">01</p>
+          <h3 class="font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">Listen &amp; Understand</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">Every engagement begins with a thorough briefing process. We invest time in understanding not just the programme and budget, but the aspiration behind the project.</p>
+        </div>
+
+        <div style="background:var(--dark);" class="p-10 hover:bg-gray-900 transition-colors group">
+          <p class="step-num mb-4">02</p>
+          <h3 class="font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">Explore &amp; Concept</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We develop multiple design directions before converging on a concept. Ideas are tested against context, budget, and function before any direction is pursued in depth.</p>
+        </div>
+
+        <div style="background:var(--dark);" class="p-10 hover:bg-gray-900 transition-colors group">
+          <p class="step-num mb-4">03</p>
+          <h3 class="font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">Develop &amp; Document</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">The approved concept is refined into technical design. All consultant disciplines are coordinated. Documentation is produced to a standard that minimises ambiguity on site.</p>
+        </div>
+
+        <div style="background:var(--dark);" class="p-10 hover:bg-gray-900 transition-colors group">
+          <p class="step-num mb-4">04</p>
+          <h3 class="font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">Procure &amp; Appoint</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">We manage the full tender process — from pre-qualification to contractor appointment — protecting the client's commercial interests and ensuring the right team for each project.</p>
+        </div>
+
+        <div style="background:var(--dark);" class="p-10 hover:bg-gray-900 transition-colors group">
+          <p class="step-num mb-4">05</p>
+          <h3 class="font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors">Build &amp; Administer</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">On-site presence, rigorous quality control, and proactive cost and programme management ensure design intent is faithfully realised within the agreed parameters.</p>
+        </div>
+
+        <div style="background:var(--blue);" class="p-10 group relative overflow-hidden">
+          <div class="absolute inset-0 opacity-[0.04]" style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:30px 30px;"></div>
+          <div class="relative z-10">
+            <p class="step-num mb-4" style="color:rgba(255,255,255,0.2);">06</p>
+            <h3 class="font-semibold text-white mb-3">Complete &amp; Sustain</h3>
+            <p class="text-blue-100 text-sm leading-relaxed">Handover is not the end. We conduct post-occupation reviews, manage defects liability, and remain available to our clients for the long term.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       CSR BAND
+  ══════════════════════════════════════ -->
+  <div style="background:var(--dark2);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);" class="py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-wrap items-center justify-between gap-8">
+        <div class="max-w-xl">
+          <span class="label">Corporate Social Responsibility</span>
+          <h3 class="font-serif text-3xl font-bold text-white mt-3 mb-3">We Build Beyond Buildings.</h3>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Studio5 is committed to community development, architectural education, environmental stewardship, and social impact design across Zimbabwe. Our CSR programme is not peripheral to our practice — it is central to who we are.
+          </p>
+        </div>
+        <div class="flex flex-wrap gap-6">
+          <div class="text-center">
+            <p class="font-serif text-4xl font-bold mb-1" style="color:var(--blue-light);">12+</p>
+            <p class="text-gray-400 text-xs tracking-widest uppercase">CSR Initiatives</p>
+          </div>
+          <div class="text-center">
+            <p class="font-serif text-4xl font-bold text-white mb-1">4</p>
+            <p class="text-gray-400 text-xs tracking-widest uppercase">University Partners</p>
+          </div>
+          <div class="text-center">
+            <p class="font-serif text-4xl font-bold mb-1" style="color:var(--blue-light);">100%</p>
+            <p class="text-gray-400 text-xs tracking-widest uppercase">Local Procurement</p>
+          </div>
+          <div class="flex items-center">
+            <a href="csr.html"
+               style="background:var(--blue);"
+               class="text-white text-[11px] tracking-widest uppercase font-semibold px-7 py-3.5 hover:opacity-90 transition-opacity flex items-center gap-2">
+              Read Our CSR Report
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════ -->
+  <section id="contact" style="background:var(--dark);" class="py-28">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-5 gap-16">
+
+        <!-- Info -->
+        <div class="lg:col-span-2">
+          <span class="rule"></span>
+          <span class="label">Start a Conversation</span>
+          <h2 class="font-serif text-4xl font-bold text-white leading-tight mt-4 mb-6">
+            Let's Build<br/><em class="text-gray-400">Something Great.</em>
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10">
+            Whether you have a brief ready or are still at the idea stage, we are happy to talk. Initial consultations are free of charge and without obligation.
+          </p>
+
+          <div class="space-y-7">
+            <div>
+              <p class="text-[10px] tracking-widest uppercase text-gray-400 mb-1.5">Studio Address</p>
+              <p class="text-white text-sm">5 Chaifont Road</p>
+              <p class="text-gray-400 text-sm">Greencroft, Harare, Zimbabwe</p>
+            </div>
+            <div>
+              <p class="text-[10px] tracking-widest uppercase text-gray-400 mb-1.5">Contact</p>
+              <p class="text-white text-sm">0783 934 290</p>
+              <p class="text-gray-400 text-sm">0719 690 587</p>
+            </div>
+            <div>
+              <p class="text-[10px] tracking-widest uppercase text-gray-400 mb-1.5">Email</p>
+              <p class="text-white text-sm">info@studio5architects.com</p>
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div class="flex gap-3 mt-10">
+            <a href="#" aria-label="LinkedIn"
+               class="w-9 h-9 flex items-center justify-center text-gray-500 transition-colors"
+               style="border:1px solid rgba(255,255,255,0.1);"
+               onmouseover="this.style.borderColor='var(--blue-light)';this.style.color='var(--blue-light)'"
+               onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#6B7280'">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram"
+               class="w-9 h-9 flex items-center justify-center text-gray-500 transition-colors"
+               style="border:1px solid rgba(255,255,255,0.1);"
+               onmouseover="this.style.borderColor='var(--blue-light)';this.style.color='var(--blue-light)'"
+               onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#6B7280'">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="#" aria-label="Facebook"
+               class="w-9 h-9 flex items-center justify-center text-gray-500 transition-colors"
+               style="border:1px solid rgba(255,255,255,0.1);"
+               onmouseover="this.style.borderColor='var(--blue-light)';this.style.color='var(--blue-light)'"
+               onmouseout="this.style.borderColor='rgba(255,255,255,0.1)';this.style.color='#6B7280'">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="lg:col-span-3">
+          <form class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-[10px] tracking-widest uppercase text-gray-400 mb-2">First Name *</label>
+                <input type="text" required placeholder="John"
+                  class="w-full text-white text-sm px-4 py-3.5 placeholder-gray-500 outline-none transition-all"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"
+                  onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'" />
+              </div>
+              <div>
+                <label class="block text-[10px] tracking-widest uppercase text-gray-400 mb-2">Last Name *</label>
+                <input type="text" required placeholder="Doe"
+                  class="w-full text-white text-sm px-4 py-3.5 placeholder-gray-500 outline-none transition-all"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"
+                  onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'" />
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-[10px] tracking-widest uppercase text-gray-400 mb-2">Email *</label>
+                <input type="email" required placeholder="john@company.com"
+                  class="w-full text-white text-sm px-4 py-3.5 placeholder-gray-500 outline-none"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"
+                  onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'" />
+              </div>
+              <div>
+                <label class="block text-[10px] tracking-widest uppercase text-gray-400 mb-2">Phone</label>
+                <input type="tel" placeholder="+263 77 000 0000"
+                  class="w-full text-white text-sm px-4 py-3.5 placeholder-gray-500 outline-none"
+                  style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"
+                  onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-[10px] tracking-widest uppercase text-gray-400 mb-2">Service Required</label>
+              <select class="w-full text-gray-400 text-sm px-4 py-3.5 outline-none appearance-none"
+                style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"
+                onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'">
+                <option value="">Select a service…</option>
+                <option>Architectural Design</option>
+                <option>Interior Architecture</option>
+                <option>Project &amp; Construction Management</option>
+                <option>Urban &amp; Landscape Design</option>
+                <option>Heritage &amp; Conservation</option>
+                <option>Feasibility &amp; Advisory</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-[10px] tracking-widest uppercase text-gray-400 mb-2">Project Brief</label>
+              <textarea rows="5" placeholder="Describe your project — type, location, approximate budget, and timescale…"
+                class="w-full text-white text-sm px-4 py-3.5 placeholder-gray-500 outline-none resize-none"
+                style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);"
+                onfocus="this.style.borderColor='var(--blue-light)'" onblur="this.style.borderColor='rgba(255,255,255,0.09)'"></textarea>
+            </div>
+            <button type="submit"
+              class="w-full text-white py-4 text-[11px] tracking-widest uppercase font-semibold transition-opacity hover:opacity-90"
+              style="background:var(--blue);">
+              Submit Enquiry
+            </button>
+            <p class="text-gray-400 text-xs text-center">We respond to all enquiries within one business day.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;border-top:1px solid rgba(255,255,255,0.06);" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand -->
+        <div class="md:col-span-2">
+          <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-9 w-auto mb-5" />
+          <p class="text-gray-500 text-xs leading-relaxed max-w-sm">
+            A registered architectural practice delivering design excellence across Zimbabwe. Architecture that expresses purpose and interacts sympathetically with its surroundings.
+          </p>
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-500 transition-colors" style="border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.color='var(--blue-light)'" onmouseout="this.style.color='#6B7280'">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="#" class="w-8 h-8 flex items-center justify-center text-gray-500 transition-colors" style="border:1px solid rgba(255,255,255,0.08);" onmouseover="this.style.color='var(--blue-light)'" onmouseout="this.style.color='#6B7280'">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Navigation</p>
+          <ul class="space-y-3 text-xs text-gray-500">
+            <li><a href="#hero"     class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="#about"    class="hover:text-white transition-colors">About the Practice</a></li>
+            <li><a href="#services" class="hover:text-white transition-colors">Our Services</a></li>
+            <li><a href="#sectors"  class="hover:text-white transition-colors">Sectors</a></li>
+            <li><a href="#approach" class="hover:text-white transition-colors">Our Approach</a></li>
+            <li><a href="csr.html"  class="hover:text-white transition-colors">CSR</a></li>
+            <li><a href="#contact"  class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Contact</p>
+          <div class="space-y-4 text-xs text-gray-500">
+            <p>5 Chaifont Road<br/>Greencroft, Harare<br/>Zimbabwe</p>
+            <p>0783 934 290<br/>0719 690 587</p>
+            <p>info@studio5architects.com</p>
+            <p class="pt-2 border-t text-gray-500" style="border-color:rgba(255,255,255,0.06);">
+              Registered — Architects Council of Zimbabwe
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="flex flex-wrap justify-between items-center gap-4 pt-8" style="border-top:1px solid rgba(255,255,255,0.06);">
+        <p class="text-gray-500 text-xs">© <span class="js-year"></span> Studio5 Architects. All rights reserved.</p>
+        <p class="text-gray-500 text-xs"> Zimbabwe</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+    // Sticky nav
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+        navbar.style.paddingTop = '0.75rem';
+        navbar.style.paddingBottom = '0.75rem';
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.paddingTop = '1rem';
+        navbar.style.paddingBottom = '1rem';
+      }
+    });
+
+    // Mobile menu
+    const menuBtn    = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen   = document.getElementById('icon-open');
+    const iconClose  = document.getElementById('icon-close');
+
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+  </script>
+
+  <!-- ── Floating back-to-top ── -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75 12 8.25l7.5 7.5"/>
+    </svg>
+  </button>
+
+  <script>
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      btn.classList.toggle('visible', window.scrollY > 400);
+    });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+  <script src="js/chat.js"></script>
+</body>
+</html>

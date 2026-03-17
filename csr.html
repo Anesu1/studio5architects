@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSR — Studio5 Architects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── CSR-specific overrides ──────────────────────────── */
+    body { background: var(--black); color: #e5e7eb; }
+
+    /* Hero bottom stats strip */
+    .hero-stat-strip {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media (max-width: 640px) { .hero-stat-strip { grid-template-columns: repeat(2, 1fr); } }
+    .hero-stat-item {
+      padding: 2rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat-item:last-child { border-right: none; }
+
+    /* Pillar cards */
+    .pillar-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .pillar-card:hover { border-color: rgba(27,79,138,0.4); transform: translateY(-4px); }
+    .pillar-card:hover::before { transform: scaleX(1); }
+    .pillar-card.featured {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+    .pillar-card.featured::before { background: #fff; }
+
+    /* Icon box */
+    .icon-box {
+      width: 3rem; height: 3rem;
+      background: rgba(27,79,138,0.15);
+      border: 1px solid rgba(27,79,138,0.3);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: background 0.3s, border-color 0.3s;
+    }
+    .pillar-card:hover .icon-box { background: rgba(27,79,138,0.3); border-color: rgba(27,79,138,0.6); }
+    .pillar-card.featured .icon-box { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.25); }
+
+    /* Timeline */
+    .timeline-track {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 8px; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue), rgba(27,79,138,0.1));
+    }
+    .timeline-entry { position: relative; padding-bottom: 2.5rem; }
+    .timeline-entry:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 6px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid var(--black);
+      box-shadow: 0 0 0 3px rgba(27,79,138,0.35);
+    }
+    .timeline-card {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 1.75rem 2rem;
+      transition: border-color 0.25s;
+    }
+    .timeline-card:hover { border-color: rgba(27,79,138,0.4); }
+    .timeline-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: rgba(27,79,138,0.7);
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tag pill */
+    .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 3px 10px;
+      background: rgba(27,79,138,0.18);
+      color: #93c5fd;
+      border: 1px solid rgba(27,79,138,0.35);
+    }
+    .tag.white { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.2); }
+
+    /* Impact band */
+    .impact-band { background: var(--blue); }
+
+    /* Partner form */
+    .csr-input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 0.875rem;
+      padding: 0.875rem 1rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .csr-input:focus { border-color: rgba(27,79,138,0.7); }
+    .csr-input::placeholder { color: #4b5563; }
+    .csr-label {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6b7280;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Quote section */
+    .quote-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 8rem;
+      line-height: 0.8;
+      color: rgba(27,79,138,0.2);
+      font-style: italic;
+      user-select: none;
+    }
+
+    /* Mobile menu hidden by default */
+    #csr-mobile-menu { display: none; }
+    #csr-mobile-menu.open { display: block; }
+
+    /* Counter animation */
+    .counter { display: inline-block; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+
+      <a href="index.html" class="flex-shrink-0">
+        <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-400 font-medium">
+          <li><a href="index.html"     class="nav-link hover:text-white transition-colors">Home</a></li>
+          <li><a href="about.html"     class="nav-link hover:text-white transition-colors">About</a></li>
+          <li><a href="index.html#services" class="nav-link hover:text-white transition-colors">Services</a></li>
+          <li><a href="index.html#sectors"  class="nav-link hover:text-white transition-colors">Sectors</a></li>
+          <li><a href="csr.html"       class="nav-link text-white">CSR</a></li>
+          <li><a href="contact.html"   class="nav-link hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="menu-btn" class="lg:hidden text-gray-400 hover:text-white transition-colors" aria-label="Menu">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div id="csr-mobile-menu" style="background:var(--black);border-top:1px solid rgba(255,255,255,0.06);" class="lg:hidden px-6 py-6 space-y-4">
+      <a href="index.html"          class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Home</a>
+      <a href="about.html"          class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">About</a>
+      <a href="index.html#services" class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Services</a>
+      <a href="index.html#sectors"  class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Sectors</a>
+      <a href="csr.html"            class="block text-[11px] tracking-widest uppercase text-white py-2">CSR</a>
+      <a href="contact.html"        class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Contact</a>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section style="background:var(--dark);padding-top:96px;" class="relative overflow-hidden">
+
+    <!-- Background grid texture -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+         style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:72px 72px;"></div>
+
+    <!-- Blue corner glow -->
+    <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
+         style="background:radial-gradient(circle at top right, rgba(27,79,138,0.18) 0%, transparent 65%);"></div>
+
+    <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-0">
+
+      <!-- Breadcrumb -->
+      <div class="flex items-center gap-2 text-[10px] tracking-widest uppercase text-gray-600 mb-10">
+        <a href="index.html" class="hover:text-gray-400 transition-colors">Home</a>
+        <span>/</span>
+        <span style="color:var(--blue-light);">Corporate Social Responsibility</span>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-12 items-end pb-20">
+        <!-- Headline -->
+        <div>
+          <span class="rule mb-6"></span>
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-8">
+            Building More<br/>
+            Than<br/>
+            <em style="color:var(--blue-light);">Structures.</em>
+          </h1>
+          <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-lg">
+            Architecture shapes lives. Studio5 Architects takes seriously our responsibility to the communities, environments, and people our work touches across Zimbabwe.
+          </p>
+        </div>
+
+        <!-- Right column statement -->
+        <div class="lg:pl-12 lg:border-l" style="border-color:rgba(255,255,255,0.07);">
+          <p class="text-gray-300 text-xl md:text-2xl font-light leading-relaxed font-serif italic mb-8">
+            "Great architecture must be socially responsible, environmentally conscious, and economically inclusive."
+          </p>
+          <a href="#commitment" class="inline-flex items-center gap-3 text-[11px] tracking-widest uppercase font-semibold hover:gap-5 transition-all duration-200" style="color:var(--blue-light);">
+            Our Commitment
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="hero-stat-strip -mx-6">
+        <div class="hero-stat-item">
+          <p class="font-serif text-4xl font-bold text-white mb-1"><span class="counter" data-target="20">0</span>+</p>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500">Years in Practice</p>
+        </div>
+        <div class="hero-stat-item">
+          <p class="font-serif text-4xl font-bold text-white mb-1"><span class="counter" data-target="12">0</span>+</p>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500">CSR Initiatives</p>
+        </div>
+        <div class="hero-stat-item">
+          <p class="font-serif text-4xl font-bold text-white mb-1"><span class="counter" data-target="4">0</span></p>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500">University Partnerships</p>
+        </div>
+        <div class="hero-stat-item">
+          <p class="font-serif text-4xl font-bold text-white mb-1">100%</p>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500">Local Procurement Priority</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       OUR COMMITMENT
+  ══════════════════════════════════════ -->
+  <section id="commitment" class="py-28" style="background:var(--black);">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-5 gap-16 items-center">
+
+        <!-- Large quote -->
+        <div class="lg:col-span-3">
+          <span class="rule mb-6"></span>
+          <p class="label mb-4">Our Commitment</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+            An Active Participant<br/>in Zimbabwe's Development
+          </h2>
+          <p class="text-gray-400 leading-relaxed text-sm mb-6">
+            Studio5 Architects is not just a design practice. We are an active participant in the development of Zimbabwe — committed to leaving every project, every community, and every partnership better than we found it.
+          </p>
+          <p class="text-gray-400 leading-relaxed text-sm">
+            Our CSR programme is structured around six pillars that guide how we engage with society, the environment, and the profession. These are not aspirational targets — they are embedded in how we work every day.
+          </p>
+        </div>
+
+        <!-- Commitment tiles -->
+        <div class="lg:col-span-2 grid grid-cols-2 gap-3">
+          <div class="p-6" style="background:var(--blue);border:1px solid var(--blue);">
+            <svg class="w-6 h-6 text-white mb-4 opacity-70" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12"/></svg>
+            <p class="text-white font-semibold text-sm leading-snug">Community Infrastructure</p>
+          </div>
+          <div class="p-6" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);">
+            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489"/></svg>
+            <p class="text-white font-semibold text-sm leading-snug">Education &amp; Mentorship</p>
+          </div>
+          <div class="p-6" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);">
+            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3"/></svg>
+            <p class="text-white font-semibold text-sm leading-snug">Environmental Stewardship</p>
+          </div>
+          <div class="p-6" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);">
+            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584"/></svg>
+            <p class="text-white font-semibold text-sm leading-snug">Workplace Equity</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       SIX PILLARS
+  ══════════════════════════════════════ -->
+  <section id="pillars" class="py-28" style="background:var(--dark);">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="mb-16">
+        <span class="rule mb-6"></span>
+        <p class="label mb-4">Our Framework</p>
+        <div class="flex flex-wrap justify-between items-end gap-6">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Six Areas of Responsibility</h2>
+          <p class="text-gray-500 text-sm max-w-md leading-relaxed">Each pillar represents a concrete commitment — embedded in our practice, not printed on a wall.</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <!-- 01 Community Development -->
+        <div class="pillar-card">
+          <div class="icon-box">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12"/>
+            </svg>
+          </div>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">01</p>
+          <h3 class="font-semibold text-white text-lg mb-3">Community Development</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">We invest in the communities where we build, partnering with local organisations to improve infrastructure, access to housing, and public spaces across Zimbabwe.</p>
+        </div>
+
+        <!-- 02 Education & Mentorship -->
+        <div class="pillar-card">
+          <div class="icon-box">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/>
+            </svg>
+          </div>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">02</p>
+          <h3 class="font-semibold text-white text-lg mb-3">Education &amp; Mentorship</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Through partnerships with NUST and Harare Polytechnic, we host interns, fund architectural scholarships, and mentor the next generation of Zimbabwean designers.</p>
+        </div>
+
+        <!-- 03 Environmental Stewardship (featured) -->
+        <div class="pillar-card featured">
+          <div class="icon-box">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253"/>
+            </svg>
+          </div>
+          <p class="text-[10px] tracking-widest uppercase text-blue-200 mb-3">03</p>
+          <h3 class="font-semibold text-white text-lg mb-3">Environmental Stewardship</h3>
+          <p class="text-blue-200 text-sm leading-relaxed">Our projects minimise ecological impact — from material selection and passive climate strategies to waste reduction on every construction site.</p>
+        </div>
+
+        <!-- 04 Social Impact Design -->
+        <div class="pillar-card">
+          <div class="icon-box">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/>
+            </svg>
+          </div>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">04</p>
+          <h3 class="font-semibold text-white text-lg mb-3">Social Impact Design</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">We dedicate a portion of our capacity to pro-bono and reduced-fee work for schools, clinics, and community centres in underserved areas.</p>
+        </div>
+
+        <!-- 05 Local Procurement -->
+        <div class="pillar-card">
+          <div class="icon-box">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/>
+            </svg>
+          </div>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">05</p>
+          <h3 class="font-semibold text-white text-lg mb-3">Local Procurement</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">We prioritise local suppliers, contractors, and craftspeople, circulating economic benefit within Zimbabwe and reducing imported carbon footprint.</p>
+        </div>
+
+        <!-- 06 Workplace Equity -->
+        <div class="pillar-card">
+          <div class="icon-box">
+            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
+            </svg>
+          </div>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">06</p>
+          <h3 class="font-semibold text-white text-lg mb-3">Workplace Equity</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Studio5 is committed to a diverse and inclusive workplace — in hiring, promotion, and studio culture — reflecting the communities we serve.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       INITIATIVES TIMELINE
+  ══════════════════════════════════════ -->
+  <section id="initiatives" class="py-28" style="background:var(--black);">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <div class="grid lg:grid-cols-3 gap-16">
+
+        <!-- Section header (sticky on desktop) -->
+        <div class="lg:col-span-1">
+          <div class="lg:sticky lg:top-32">
+            <span class="rule mb-6"></span>
+            <p class="label mb-4">Recent Work</p>
+            <h2 class="font-serif text-4xl font-bold text-white leading-tight mb-6">
+              CSR<br/>Initiatives
+            </h2>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8">
+              A selection of the community, education, and environmental projects we have delivered or supported in recent years.
+            </p>
+            <a href="contact.html" class="btn-primary text-[11px]">Propose an Initiative</a>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="lg:col-span-2">
+          <div class="timeline-track">
+
+            <!-- Entry 1 -->
+            <div class="timeline-entry">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <p class="timeline-year">2024</p>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                  <span class="tag">Community</span>
+                </div>
+                <h3 class="font-semibold text-white text-xl mb-3">Mbare Community Centre Pro-Bono Design</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Provided full architectural services at no cost for a community gathering and skills-training facility in Mbare, Harare. The project created a flexible multi-use space serving over 500 residents.</p>
+              </div>
+            </div>
+
+            <!-- Entry 2 -->
+            <div class="timeline-entry">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <p class="timeline-year">2024</p>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                  <span class="tag">Education</span>
+                </div>
+                <h3 class="font-semibold text-white text-xl mb-3">NUST Architecture Scholarship Programme</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Funded two full-year scholarships for students from low-income backgrounds pursuing architecture at NUST Bulawayo, alongside a structured internship programme at our Harare studio.</p>
+              </div>
+            </div>
+
+            <!-- Entry 3 -->
+            <div class="timeline-entry">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <p class="timeline-year">2023</p>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                  <span class="tag">Social Impact</span>
+                </div>
+                <h3 class="font-semibold text-white text-xl mb-3">Rural Clinic Design — Mashonaland East</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Designed a low-cost, climate-responsive rural health clinic in partnership with a local NGO. The facility serves a catchment area of over 3,000 people and was completed under budget.</p>
+              </div>
+            </div>
+
+            <!-- Entry 4 -->
+            <div class="timeline-entry">
+              <div class="timeline-dot"></div>
+              <div class="timeline-card">
+                <p class="timeline-year">2023</p>
+                <div class="flex flex-wrap items-center gap-3 mb-4">
+                  <span class="tag">Environment</span>
+                </div>
+                <h3 class="font-semibold text-white text-xl mb-3">Construction Waste Reduction Initiative</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Partnered with contractors on three sites to pilot a zero-landfill construction waste programme, diverting over 12 tonnes of material from landfill through reuse and recycling partnerships.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       IMPACT BAND
+  ══════════════════════════════════════ -->
+  <section class="impact-band py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-white text-center">
+        <div>
+          <p class="font-serif text-5xl font-bold mb-2"><span class="counter" data-target="500">0</span>+</p>
+          <p class="text-[10px] tracking-widest uppercase text-blue-200">Community members reached</p>
+        </div>
+        <div>
+          <p class="font-serif text-5xl font-bold mb-2"><span class="counter" data-target="12">0</span></p>
+          <p class="text-[10px] tracking-widest uppercase text-blue-200">Tonnes waste diverted</p>
+        </div>
+        <div>
+          <p class="font-serif text-5xl font-bold mb-2"><span class="counter" data-target="6">0</span></p>
+          <p class="text-[10px] tracking-widest uppercase text-blue-200">Student scholarships funded</p>
+        </div>
+        <div>
+          <p class="font-serif text-5xl font-bold mb-2"><span class="counter" data-target="3">0</span></p>
+          <p class="text-[10px] tracking-widest uppercase text-blue-200">Pro-bono projects completed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       PARTNER CTA
+  ══════════════════════════════════════ -->
+  <section id="partner" class="py-28 relative overflow-hidden" style="background:var(--dark);">
+
+    <!-- Subtle grid -->
+    <div class="absolute inset-0 opacity-[0.025] pointer-events-none"
+         style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:72px 72px;"></div>
+    <!-- Top accent -->
+    <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(to right, var(--blue), rgba(27,79,138,0.2), transparent);"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20 items-start">
+
+        <!-- Left: text -->
+        <div>
+          <span class="rule mb-6"></span>
+          <p class="label mb-4">Get Involved</p>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+            Partner With Us<br/>on a CSR Initiative
+          </h2>
+          <p class="text-gray-400 text-sm leading-relaxed mb-10">
+            If you represent an NGO, government body, educational institution, or corporation looking to collaborate on socially responsible design, we want to hear from you.
+          </p>
+
+          <!-- Who we work with -->
+          <div class="space-y-4">
+            <p class="text-[10px] tracking-widest uppercase text-gray-600 mb-3">Who we partner with</p>
+            <div class="flex flex-wrap gap-3">
+              <span class="tag">NGOs</span>
+              <span class="tag">Government Bodies</span>
+              <span class="tag">Educational Institutions</span>
+              <span class="tag">Corporations</span>
+              <span class="tag">Community Groups</span>
+            </div>
+          </div>
+
+          <!-- Contact strip -->
+          <div class="mt-12 pt-8" style="border-top:1px solid rgba(255,255,255,0.06);">
+            <p class="text-[10px] tracking-widests uppercase text-gray-600 mb-3">Prefer to reach us directly?</p>
+            <a href="mailto:info@studio5architects.com" class="text-gray-300 hover:text-white text-sm transition-colors">info@studio5architects.com</a>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);padding:2.5rem;">
+          <p class="text-[10px] tracking-widests uppercase text-gray-500 mb-8">Partnership Enquiry Form</p>
+          <form class="space-y-5">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="csr-label">Name</label>
+                <input type="text" placeholder="Your name" class="csr-input" />
+              </div>
+              <div>
+                <label class="csr-label">Organisation</label>
+                <input type="text" placeholder="Your organisation" class="csr-input" />
+              </div>
+            </div>
+            <div>
+              <label class="csr-label">Email Address</label>
+              <input type="email" placeholder="email@organisation.org" class="csr-input" />
+            </div>
+            <div>
+              <label class="csr-label">Type of Partnership</label>
+              <select class="csr-input" style="color:#6b7280;">
+                <option value="">Select…</option>
+                <option style="color:#111;background:#fff;">Pro-bono / Reduced-Fee Design</option>
+                <option style="color:#111;background:#fff;">Scholarship / Education Sponsorship</option>
+                <option style="color:#111;background:#fff;">Environmental Initiative</option>
+                <option style="color:#111;background:#fff;">Community Infrastructure</option>
+                <option style="color:#111;background:#fff;">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="csr-label">Tell us about the initiative</label>
+              <textarea rows="4" placeholder="Describe your project or initiative…" class="csr-input" style="resize:none;"></textarea>
+            </div>
+            <button type="submit" class="btn-primary w-full justify-center text-[11px] py-4">
+              Submit Partnership Enquiry
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;border-top:1px solid rgba(255,255,255,0.06);" class="py-12">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-10 pb-10" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+
+        <!-- Brand -->
+        <div>
+          <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-9 w-auto mb-4" />
+          <p class="text-gray-600 text-xs leading-relaxed">
+            An architectural practice committed to design excellence and social responsibility across Zimbabwe.
+          </p>
+        </div>
+
+        <!-- Nav -->
+        <div>
+          <p class="text-[10px] tracking-widests uppercase text-gray-700 mb-4">Navigation</p>
+          <ul class="space-y-2 text-[11px] tracking-widests uppercase text-gray-500">
+            <li><a href="index.html"          class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="about.html"          class="hover:text-white transition-colors">About</a></li>
+            <li><a href="index.html#services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="csr.html"            class="text-white">CSR</a></li>
+            <li><a href="contact.html"        class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-[10px] tracking-widests uppercase text-gray-700 mb-4">Contact</p>
+          <ul class="space-y-2 text-xs text-gray-500">
+            <li>5 Chaifont Road, Greencroft, Harare</li>
+            <li><a href="tel:+2630783934290" class="hover:text-white transition-colors">0783 934 290</a></li>
+            <li><a href="tel:+2630719690587" class="hover:text-white transition-colors">0719 690 587</a></li>
+            <li><a href="mailto:info@studio5architects.com" class="hover:text-white transition-colors">info@studio5architects.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-wrap justify-between items-center gap-4">
+        <p class="text-gray-600 text-xs">© <span class="js-year"></span> Studio5 Architects. All rights reserved.</p>
+        <div class="flex gap-3">
+          <a href="#" aria-label="LinkedIn" class="social-icon">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="social-icon">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ── Back-to-top ── -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75 12 8.25l7.5 7.5"/>
+    </svg>
+  </button>
+
+
+  <script>
+    /* ── Navbar scroll ──────────────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+        navbar.style.paddingTop    = '0.75rem';
+        navbar.style.paddingBottom = '0.75rem';
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.paddingTop    = '1rem';
+        navbar.style.paddingBottom = '1rem';
+      }
+    });
+
+    /* ── Mobile menu ────────────────────────────────── */
+    const menuBtn   = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('csr-mobile-menu');
+    const iconOpen  = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      iconOpen.classList.toggle('hidden', isOpen);
+      iconClose.classList.toggle('hidden', !isOpen);
+    });
+
+    /* ── Back-to-top ────────────────────────────────── */
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => { btn.classList.toggle('visible', window.scrollY > 400); });
+    btn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+    /* ── Animated counters ──────────────────────────── */
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const duration = 1400;
+      const step = target / (duration / 16);
+      let current = 0;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        el.textContent = Math.floor(current);
+        if (current >= target) clearInterval(timer);
+      }, 16);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.counter').forEach(el => observer.observe(el));
+  </script>
+
+  <script src="js/chat.js"></script>
+</body>
+</html>

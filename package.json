@@ -1,0 +1,17 @@
+{
+  "name": "studio5-architects-site",
+  "version": "1.0.0",
+  "description": "Studio5 Architects website with AI chat",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "resend": "^3.2.0"
+  }
+}

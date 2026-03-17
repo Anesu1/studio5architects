@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Profile — Studio5 Architects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .photo-placeholder {
+      background: var(--dark2);
+      border: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 420px;
+    }
+    .detail-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .detail-row:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-400 font-medium">
+          <li><a href="index.html#hero"     class="nav-link hover:text-white transition-colors duration-200">Home</a></li>
+          <li><a href="about.html"          class="nav-link text-white">About</a></li>
+          <li><a href="index.html#services" class="nav-link hover:text-white transition-colors duration-200">Services</a></li>
+          <li><a href="index.html#sectors"  class="nav-link hover:text-white transition-colors duration-200">Sectors</a></li>
+          <li><a href="csr.html"            class="nav-link hover:text-white transition-colors duration-200">CSR</a></li>
+          <li><a href="contact.html"        class="nav-link hover:text-white transition-colors duration-200">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="menu-btn" class="lg:hidden text-gray-400 hover:text-white transition-colors" aria-label="Menu">
+        <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" style="background:var(--black);border-top:1px solid rgba(255,255,255,0.06);" class="lg:hidden px-6 py-6 space-y-4 hidden">
+      <a href="index.html#hero"     class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">Home</a>
+      <a href="about.html"          class="block text-[11px] tracking-widest uppercase text-white py-2">About</a>
+      <a href="index.html#services" class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">Services</a>
+      <a href="csr.html"            class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">CSR</a>
+      <a href="contact.html"        class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">Contact</a>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════
+       PROFILE CONTENT
+  ══════════════════════════════════════ -->
+  <main style="background:var(--black);padding-top:96px;" class="min-h-screen pb-24">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+
+      <!-- Back button -->
+      <button onclick="history.back()"
+        class="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-12 group">
+        <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"/></svg>
+        <span class="text-[11px] tracking-widest uppercase font-medium">Back to Team</span>
+      </button>
+
+      <!-- Profile layout -->
+      <div id="profile-content" class="grid lg:grid-cols-5 gap-12">
+
+        <!-- Photo column -->
+        <div class="lg:col-span-2">
+          <div id="photo-wrap" class="photo-placeholder">
+            <!-- Filled by JS -->
+          </div>
+          <!-- Quick contact strip -->
+          <div style="background:var(--dark);border:1px solid rgba(255,255,255,0.07);border-top:none;" class="p-6">
+            <p class="text-[10px] tracking-widest uppercase text-gray-500 mb-3">Part of the Studio5 Team</p>
+            <a href="contact.html" class="btn-primary w-full justify-center text-[11px]">Send an Enquiry</a>
+            <a href="about.html#team" class="btn-outline w-full justify-center text-[11px] mt-3">View Full Team</a>
+          </div>
+        </div>
+
+        <!-- Bio column -->
+        <div class="lg:col-span-3">
+          <span class="rule"></span>
+          <p id="profile-role" class="label mb-3"></p>
+          <h1 id="profile-name" class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6"></h1>
+          <p id="profile-bio"  class="text-gray-400 text-base leading-relaxed mb-10"></p>
+
+          <!-- Detail rows -->
+          <div id="profile-details" style="border-top:1px solid rgba(255,255,255,0.06);"></div>
+        </div>
+
+      </div>
+
+      <!-- Not found state (hidden by default) -->
+      <div id="not-found" class="hidden text-center py-24">
+        <p class="text-gray-500 text-sm mb-6">Profile not found.</p>
+        <a href="about.html" class="btn-primary">Back to About</a>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;border-top:1px solid rgba(255,255,255,0.06);" class="py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-between items-center gap-6">
+      <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-8 w-auto" />
+      <p class="text-gray-500 text-xs">© <span class="js-year"></span> Studio5 Architects. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- ══════════════════════════════════════
+       BACK-TO-TOP
+  ══════════════════════════════════════ -->
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75 12 8.25l7.5 7.5"/>
+    </svg>
+  </button>
+
+
+  <!-- ══════════════════════════════════════
+       SCRIPTS
+  ══════════════════════════════════════ -->
+  <script>
+    /* ── Team data ─────────────────────────────────── */
+    const team = {
+      'tichaona-gondo': {
+        name: 'Tichaona Gondo',
+        role: 'Candidate Architect',
+        photo: 'img/team/tichaona-gondo.jpg',
+        bio: 'Tichaona is a Candidate Architect at Studio5 working towards full registration with the Architects Council of Zimbabwe. He contributes to design development, technical documentation, and project coordination across a range of residential and commercial projects, bringing careful attention to detail and a strong commitment to design quality.',
+        details: [
+          { label: 'Role',           value: 'Candidate Architect' },
+          { label: 'Registration',   value: 'Candidate — Architects Council of Zimbabwe' },
+          { label: 'Specialisation', value: 'Architectural Design &amp; Documentation' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'bernice-murape': {
+        name: 'Bernice Murape',
+        role: 'Candidate Architect',
+        photo: 'img/team/bernice-murape.jpg',
+        bio: 'Bernice is a Candidate Architect whose work spans design, documentation, and client engagement. She brings a thoughtful and collaborative approach to every project, contributing to Studio5\'s commitment to design excellence across the residential, civic, and commercial sectors.',
+        details: [
+          { label: 'Role',           value: 'Candidate Architect' },
+          { label: 'Registration',   value: 'Candidate — Architects Council of Zimbabwe' },
+          { label: 'Specialisation', value: 'Design &amp; Project Documentation' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'kelvin-mukucha': {
+        name: 'Kelvin Mukucha',
+        role: 'Candidate Architect',
+        photo: 'img/team/kelvin-mukucha.jpg',
+        bio: 'Kelvin is a Candidate Architect with a strong foundation in spatial design and technical drawing. He plays an active role in project delivery at Studio5, supporting design teams from concept through to construction documentation.',
+        details: [
+          { label: 'Role',           value: 'Candidate Architect' },
+          { label: 'Registration',   value: 'Candidate — Architects Council of Zimbabwe' },
+          { label: 'Specialisation', value: 'Spatial Design &amp; Technical Drawing' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'augustine-jewure': {
+        name: 'Augustine Jewure',
+        role: 'Candidate Architect',
+        photo: 'img/team/augustine-jewure.jpg',
+        bio: 'Augustine is a Candidate Architect at Studio5 who supports design and documentation across multiple project types. He is working towards full professional registration and brings energy and precision to every commission he is involved in.',
+        details: [
+          { label: 'Role',           value: 'Candidate Architect' },
+          { label: 'Registration',   value: 'Candidate — Architects Council of Zimbabwe' },
+          { label: 'Specialisation', value: 'Design Development &amp; Documentation' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'evans-mbizi': {
+        name: 'Evans Mbizi',
+        role: 'Graduate Architect',
+        photo: 'img/team/evans-mbizi.jpg',
+        bio: 'Evans is a Graduate Architect who brings fresh perspectives and technical competence to the Studio5 team. He is involved in design development and project documentation, contributing to the practice\'s broad portfolio of residential, commercial, and civic projects.',
+        details: [
+          { label: 'Role',           value: 'Graduate Architect' },
+          { label: 'Specialisation', value: 'Design Development &amp; Documentation' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'paddington': {
+        name: 'Paddington',
+        role: 'Architectural Technician',
+        photo: 'img/team/paddington.jpg',
+        bio: 'Paddington is an Architectural Technician at Studio5, responsible for the production of accurate technical drawings, working details, and construction documents. His precision and technical knowledge are essential to the quality of output the practice delivers on every project.',
+        details: [
+          { label: 'Role',           value: 'Architectural Technician' },
+          { label: 'Specialisation', value: 'Technical Drawing &amp; Construction Documentation' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'thelma-mare': {
+        name: 'Thelma Mare',
+        role: 'Architectural Technician',
+        photo: 'img/team/thelma-mare.jpg',
+        bio: 'Thelma is an Architectural Technician whose expertise in technical production and drawing standards contributes directly to the quality and consistency of Studio5\'s project deliverables. She is a reliable and detail-oriented member of the delivery team.',
+        details: [
+          { label: 'Role',           value: 'Architectural Technician' },
+          { label: 'Specialisation', value: 'Technical Documentation &amp; Drawing Production' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+      'rumbidzai-njani': {
+        name: 'Rumbidzai Njani',
+        role: 'Architectural Technician',
+        photo: 'img/team/rumbidzai-njani.jpg',
+        bio: 'Rumbidzai is an Architectural Technician at Studio5, contributing to the technical documentation and drawing production that underpins every project. Her methodical approach and technical acuity ensure that design intent is accurately translated into construction-ready documents.',
+        details: [
+          { label: 'Role',           value: 'Architectural Technician' },
+          { label: 'Specialisation', value: 'Technical Drawing &amp; Documentation' },
+          { label: 'Practice',       value: 'Studio5 Architects, Harare' },
+        ]
+      },
+    };
+
+    /* ── Render profile ────────────────────────────── */
+    const params  = new URLSearchParams(window.location.search);
+    const id      = params.get('id');
+    const person  = team[id];
+
+    if (!person) {
+      document.getElementById('profile-content').classList.add('hidden');
+      document.getElementById('not-found').classList.remove('hidden');
+      document.title = 'Profile Not Found — Studio5 Architects';
+    } else {
+      document.title = person.name + ' — Studio5 Architects';
+
+      // Name & role
+      document.getElementById('profile-name').textContent = person.name;
+      document.getElementById('profile-role').textContent = person.role;
+      document.getElementById('profile-bio').textContent  = person.bio;
+
+      // Photo
+      const photoWrap = document.getElementById('photo-wrap');
+      const img = new Image();
+      img.src = person.photo;
+      img.alt = person.name;
+      img.className = 'w-full h-full object-cover object-top';
+      img.style.minHeight = '420px';
+      img.onload = () => {
+        photoWrap.classList.remove('photo-placeholder');
+        photoWrap.style.minHeight = '';
+        photoWrap.innerHTML = '';
+        photoWrap.style.overflow = 'hidden';
+        photoWrap.style.border = '1px solid rgba(255,255,255,0.07)';
+        photoWrap.appendChild(img);
+      };
+      img.onerror = () => {
+        // Keep placeholder, show initials
+        const initials = person.name.split(' ').map(w => w[0]).join('').toUpperCase();
+        photoWrap.innerHTML = `
+          <svg class="w-20 h-20 mb-3" style="color:rgba(59,130,196,0.25);" fill="none" stroke="currentColor" stroke-width="0.75" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/>
+          </svg>
+          <p style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:rgba(59,130,196,0.35);">${initials}</p>
+          <p class="text-[10px] tracking-widest uppercase text-gray-600 mt-2">Photo Coming Soon</p>
+        `;
+      };
+
+      // Detail rows
+      const detailsEl = document.getElementById('profile-details');
+      person.details.forEach(d => {
+        const row = document.createElement('div');
+        row.className = 'detail-row';
+        row.innerHTML = `
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 w-32 shrink-0 pt-0.5">${d.label}</p>
+          <p class="text-gray-300 text-sm">${d.value}</p>
+        `;
+        detailsEl.appendChild(row);
+      });
+    }
+
+    /* ── Navbar scroll ─────────────────────────────── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+        navbar.style.paddingTop    = '0.75rem';
+        navbar.style.paddingBottom = '0.75rem';
+      } else {
+        navbar.classList.remove('scrolled');
+        navbar.style.paddingTop    = '1rem';
+        navbar.style.paddingBottom = '1rem';
+      }
+    });
+
+    /* ── Mobile menu ───────────────────────────────── */
+    const menuBtn   = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-menu');
+    const iconOpen  = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+    menuBtn.addEventListener('click', () => {
+      const isHidden = mobileNav.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden',  !isHidden);
+      iconClose.classList.toggle('hidden',  isHidden);
+    });
+
+    /* ── Back-to-top ───────────────────────────────── */
+    const btn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => { btn.classList.toggle('visible', window.scrollY > 400); });
+    btn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  </script>
+
+  <script src="js/chat.js"></script>
+</body>
+</html>
