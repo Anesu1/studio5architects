@@ -48,7 +48,7 @@ const team = [
    
      {
         name: "Augustine Jewure",
-        role: "Graduate Architect",
+        role: "Candidate Architect",
         bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
         image: "/about/team/jewure.webp"
     },
@@ -57,7 +57,7 @@ const team = [
 
     {
         name: "Paddington",
-        role: "Graduate Architect",
+        role: "Architectural Technician",
         bio: "Aspiring architectural designer focusing on innovative spatial solutions and technical precision.",
         image: "/about/team/placeholder.svg"
     },
