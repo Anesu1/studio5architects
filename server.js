@@ -4,6 +4,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { Resend } from 'resend';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import path from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -14,7 +15,7 @@ const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 const resend    = new Resend(process.env.RESEND_API_KEY);
 
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* ─── System prompt ───────────────────────────────────────────────────────── */
 const SYSTEM_PROMPT = `You are the Studio5 Architects virtual assistant — a helpful, professional, and knowledgeable representative of Studio5 Architects. You answer enquiries exclusively based on the information below. Never invent facts, prices, timelines, or project details not listed here.

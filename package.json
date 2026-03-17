@@ -6,7 +6,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js"
+    "dev": "node --watch server.js",
+    "build": "echo 'Static HTML site with Node backend ready.'"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
