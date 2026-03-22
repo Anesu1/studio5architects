@@ -33,6 +33,7 @@
           <li><a href="#sectors"  class="nav-link hover:text-white transition-colors duration-200">Sectors</a></li>
           <li><a href="#approach" class="nav-link hover:text-white transition-colors duration-200">Our Approach</a></li>
           <li><a href="csr.html"  class="nav-link hover:text-white transition-colors duration-200">CSR</a></li>
+          <li><a href="contact.html" class="nav-link hover:text-white transition-colors duration-200">Contact</a></li>
         </ul>
         <a href="contact.html"
            class="ml-4 text-white text-[11px] tracking-widest uppercase font-semibold px-6 py-2.5 transition-opacity hover:opacity-80"
@@ -115,18 +116,43 @@
           </div>
         </div>
 
-        <!-- Right: image with geometric clip + stat overlay -->
+        <!-- Right: image slider with geometric clip + stat overlay -->
         <div class="relative hidden lg:block">
-          <!-- Clipped architectural photo -->
-          <div class="hero-img-wrap overflow-hidden" style="height:580px;">
-            <img
-              src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=85"
-              alt="Architecture by Studio5"
-              class="w-full h-full object-cover"
-              style="filter:brightness(0.85) contrast(1.05);"
-            />
+          <!-- Clipped architectural photo slider -->
+          <div class="hero-img-wrap overflow-hidden" style="height:580px;position:relative;" id="heroSlider">
+            <!-- Slides -->
+            <div class="hero-slide" style="position:absolute;inset:0;opacity:1;transition:opacity 0.8s ease;">
+              <img
+                src="img/banner3.png"
+                alt="Architecture by Studio5"
+                class="w-full h-full object-cover"
+                style="filter:brightness(0.85) contrast(1.05);"
+              />
+            </div>
+            <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 0.8s ease;">
+              <img
+                src="img/banner1.png"
+                alt="Architecture by Studio5"
+                class="w-full h-full object-cover"
+                style="filter:brightness(0.85) contrast(1.05);"
+              />
+            </div>
+            <div class="hero-slide" style="position:absolute;inset:0;opacity:0;transition:opacity 0.8s ease;">
+              <img
+                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=900&q=85"
+                alt="Architecture by Studio5"
+                class="w-full h-full object-cover"
+                style="filter:brightness(0.85) contrast(1.05);"
+              />
+            </div>
             <!-- Blue tint overlay -->
-            <div class="absolute inset-0" style="background:linear-gradient(200deg,rgba(27,79,138,0.25) 0%,transparent 60%);"></div>
+            <div class="absolute inset-0" style="background:linear-gradient(200deg,rgba(27,79,138,0.25) 0%,transparent 60%);z-index:1;"></div>
+            <!-- Slide dots -->
+            <div style="position:absolute;bottom:16px;right:20px;z-index:2;display:flex;gap:8px;" id="heroSliderDots">
+              <button onclick="heroGoTo(0)" class="hero-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.9);border:none;cursor:pointer;padding:0;transition:background 0.3s,transform 0.3s;"></button>
+              <button onclick="heroGoTo(1)" class="hero-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.35);border:none;cursor:pointer;padding:0;transition:background 0.3s,transform 0.3s;"></button>
+              <button onclick="heroGoTo(2)" class="hero-dot" style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.35);border:none;cursor:pointer;padding:0;transition:background 0.3s,transform 0.3s;"></button>
+            </div>
           </div>
 
           <!-- Blue corner accent -->
@@ -821,5 +847,24 @@
   </script>
 
   <script src="js/chat.js"></script>
+
+  <script>
+    // Hero image slider
+    let heroIndex = 0;
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    const heroDots = document.querySelectorAll('.hero-dot');
+
+    function heroGoTo(n) {
+      heroSlides[heroIndex].style.opacity = '0';
+      heroDots[heroIndex].style.background = 'rgba(255,255,255,0.35)';
+      heroIndex = n;
+      heroSlides[heroIndex].style.opacity = '1';
+      heroDots[heroIndex].style.background = 'rgba(255,255,255,0.9)';
+    }
+
+    setInterval(() => {
+      heroGoTo((heroIndex + 1) % heroSlides.length);
+    }, 4500);
+  </script>
 </body>
 </html>
