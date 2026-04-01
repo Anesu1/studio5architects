@@ -11,16 +11,92 @@
   <style>
     /* ── About-page additions ─────────────────────── */
 
-    /* Team card */
+    /* Team card — photo-first design */
     .team-card {
-      border: 1px solid rgba(0,0,0,0.09);
-      background: #FFFFFF;
-      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      background: #1a1a1a;
+      cursor: default;
     }
-    .team-card:hover {
-      border-color: var(--blue);
-      background: rgba(27,79,138,0.04);
-      transform: translateY(-3px);
+    .team-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.5s ease;
+      filter: grayscale(20%);
+    }
+    .team-card:hover img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    /* Always-visible bottom gradient + name */
+    .team-card-info {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(5,15,30,0.88) 0%, rgba(5,15,30,0.3) 55%, transparent 100%);
+      transition: background 0.4s ease;
+    }
+    .team-card:hover .team-card-info {
+      background: linear-gradient(to top, rgba(5,15,30,0.96) 0%, rgba(5,15,30,0.65) 55%, rgba(5,15,30,0.1) 100%);
+    }
+
+    /* Name + role — always visible */
+    .team-card-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+    .team-card-role {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(147,197,253,0.9);
+      margin-bottom: 0;
+      transition: margin-bottom 0.35s ease;
+    }
+    .team-card:hover .team-card-role {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Qualifications — hidden, slide up on hover */
+    .team-card-quals {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.35s ease;
+      opacity: 0;
+    }
+    .team-card:hover .team-card-quals {
+      max-height: 120px;
+      opacity: 1;
+    }
+    .team-card-quals p {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* Blue top accent bar on hover */
+    .team-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .team-card:hover::after {
+      transform: scaleX(1);
     }
 
     /* Value card hover */
@@ -126,7 +202,7 @@
             <em style="color:var(--blue);">Purpose.</em>
           </h1>
           <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
-            Studio5 Architects is a registered architectural practice based in Harare, Zimbabwe. For over two decades we have delivered buildings that are intelligent in their use of climate, honest in their use of materials, and deeply considered in how they serve the people who inhabit them.
+            Studio5 Architects is a registered architectural practice based in Harare, Zimbabwe. For over a decade we have delivered buildings that are intelligent in their use of climate, honest in their use of materials, and deeply considered in how they serve the people who inhabit them.
           </p>
 
           <!-- Trust badges -->
@@ -182,7 +258,7 @@
         <!-- Content column -->
         <div class="lg:col-span-8 space-y-8">
           <p class="text-gray-500 text-base leading-relaxed">
-            Founded in Harare in 2000, Studio5 Architects has grown into one of Zimbabwe's most respected architectural practices. Our team of registered architects, graduate designers, and technical specialists works across the full spectrum of building design — from carefully crafted private residences to large-scale civic, commercial, and institutional infrastructure.
+            Founded in Harare in 2014, Studio5 Architects has grown into one of Zimbabwe's most respected architectural practices. Our team of registered architects, graduate designers, and technical specialists works across the full spectrum of building design — from carefully crafted private residences to large-scale civic, commercial, and institutional infrastructure.
           </p>
           <p class="text-gray-500 text-base leading-relaxed">
             We believe that good architecture is not a luxury — it is a fundamental act of care. A well-designed building improves the daily lives of the people who use it, contributes positively to its street and neighbourhood, and maintains its quality over time. These are not abstract ideals; they are the practical standards we hold ourselves to on every commission.
@@ -194,7 +270,7 @@
           <!-- Key facts grid -->
           <div class="grid sm:grid-cols-3 gap-px mt-6" style="background:rgba(0,0,0,0.08);">
             <div class="p-7" style="background:#FFFFFF;">
-              <p class="font-serif text-4xl font-bold text-[#0A0A0A] leading-none mb-1.5">20<span style="color:var(--blue);">+</span></p>
+              <p class="font-serif text-4xl font-bold text-[#0A0A0A] leading-none mb-1.5">10<span style="color:var(--blue);">+</span></p>
               <p class="text-gray-500 text-[10px] tracking-widest uppercase">Years of Practice</p>
             </div>
             <div class="p-7" style="background:#FFFFFF;">
@@ -311,7 +387,7 @@
     <div class="relative max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <div>
-          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">20<span class="text-blue-200">+</span></p>
+          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">10<span class="text-blue-200">+</span></p>
           <p class="text-blue-200 text-[10px] tracking-widest uppercase">Years of Practice</p>
         </div>
         <div>
@@ -352,147 +428,126 @@
         </div>
       </div>
 
-      <!-- Director cards -->
-      <div class="grid md:grid-cols-3 gap-3 mb-16">
+      <!-- Team grid — ordered by rank -->
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
 
-        <!-- Brighton Madondo -->
-        <div class="team-card overflow-hidden">
-          <!-- Photo placeholder — replace src when image is ready -->
-          <div class="w-full relative overflow-hidden" style="aspect-ratio:4/3;background:#E9ECEF;">
-            <img src="img/team/brighton-madondo.jpg" alt="Brighton Madondo"
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
-              <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-2" style="color:rgba(59,130,196,0.3);" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <p class="text-[10px] tracking-widest uppercase text-gray-600">Photo Coming Soon</p>
-              </div>
+        <!-- 1 — Brighton Madondo, Principal Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/brighton-madondo.jpg" alt="Brighton Madondo" onerror="teamAvatar(this,'BM')" />
+          <div class="team-card-info">
+            <div class="team-card-quals">
+              <p>M.Arch (NUST)</p>
+              <p>B.Arch Studies (Hons)</p>
+              <p>ACZ Board Member</p>
+              <p>AIAZ Board Member</p>
             </div>
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.6) 100%);"></div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-semibold text-[#0A0A0A] text-lg mb-1">Brighton Madondo</h3>
-            <p class="text-[10px] tracking-widest uppercase mb-4" style="color:var(--blue);">Principal Architect</p>
-            <div class="space-y-1.5">
-              <p class="text-gray-500 text-xs">M.Arch (NUST)</p>
-              <p class="text-gray-500 text-xs">B.Arch Studies (Hons)</p>
-              <p class="text-gray-500 text-xs">ACZ Board Member</p>
-              <p class="text-gray-500 text-xs">AIAZ Board Member</p>
-            </div>
+            <p class="team-card-name">Brighton Madondo</p>
+            <p class="team-card-role">Principal Architect</p>
           </div>
         </div>
 
-        <!-- Tapiwa Manditsera -->
-        <div class="team-card overflow-hidden">
-          <div class="w-full relative overflow-hidden" style="aspect-ratio:4/3;background:#E9ECEF;">
-            <img src="img/team/tapiwa-manditsera.jpg" alt="Tapiwa Manditsera"
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
-              <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-2" style="color:rgba(59,130,196,0.3);" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <p class="text-[10px] tracking-widest uppercase text-gray-600">Photo Coming Soon</p>
-              </div>
+        <!-- 2 — Tapiwa Manditsera, Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/tapiwa-manditsera.jpg" alt="Tapiwa Manditsera" onerror="teamAvatar(this,'TM')" />
+          <div class="team-card-info">
+            <div class="team-card-quals">
+              <p>M.Arch (NUST)</p>
+              <p>B.Arch Studies (Hons)</p>
+              <p>Former ACZ Board Member</p>
+              <p>Former AIAZ Board Member</p>
             </div>
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.6) 100%);"></div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-semibold text-[#0A0A0A] text-lg mb-1">Tapiwa Manditsera</h3>
-            <p class="text-[10px] tracking-widest uppercase mb-4" style="color:var(--blue);">Architect</p>
-            <div class="space-y-1.5">
-              <p class="text-gray-500 text-xs">M.Arch (NUST)</p>
-              <p class="text-gray-500 text-xs">B.Arch Studies (Hons)</p>
-              <p class="text-gray-500 text-xs">Former ACZ Board Member</p>
-              <p class="text-gray-500 text-xs">Former AIAZ Board Member</p>
-            </div>
+            <p class="team-card-name">Tapiwa Manditsera</p>
+            <p class="team-card-role">Architect</p>
           </div>
         </div>
 
-        <!-- Tinashe Honde -->
-        <div class="team-card overflow-hidden">
-          <div class="w-full relative overflow-hidden" style="aspect-ratio:4/3;background:#E9ECEF;">
-            <img src="img/team/tinashe-honde.jpg" alt="Tinashe Honde"
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
-              <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-2" style="color:rgba(59,130,196,0.3);" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <p class="text-[10px] tracking-widest uppercase text-gray-600">Photo Coming Soon</p>
-              </div>
+        <!-- 3 — Tinashe Honde, Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/tinashe-honde.jpg" alt="Tinashe Honde" onerror="teamAvatar(this,'TH')" />
+          <div class="team-card-info">
+            <div class="team-card-quals">
+              <p>M.Arch Professional (Cyprus)</p>
+              <p>B.Arch Studies (Hons)</p>
+              <p>MRICS Associate</p>
+              <p>Registered Architect, ACZ</p>
             </div>
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.6) 100%);"></div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-semibold text-[#0A0A0A] text-lg mb-1">Tinashe Honde</h3>
-            <p class="text-[10px] tracking-widest uppercase mb-4" style="color:var(--blue);">Architect</p>
-            <div class="space-y-1.5">
-              <p class="text-gray-500 text-xs">M.Arch Professional (Cyprus)</p>
-              <p class="text-gray-500 text-xs">B.Arch Studies (Hons)</p>
-              <p class="text-gray-500 text-xs">MRICS Associate</p>
-              <p class="text-gray-500 text-xs">Registered Architect, ACZ</p>
-            </div>
+            <p class="team-card-name">Tinashe Honde</p>
+            <p class="team-card-role">Architect</p>
           </div>
         </div>
 
-      </div>
-
-      <!-- Supporting team -->
-      <div style="background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);" class="p-10">
-        <div class="grid lg:grid-cols-12 gap-10 items-start">
-          <div class="lg:col-span-4">
-            <span class="label">Supporting Team</span>
-            <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mt-3 mb-3">Graduate Architects<br/>&amp; Technicians</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Our delivery team of graduate architects, architectural technicians, and administrative professionals ensures every project is executed to the highest standard.</p>
-          </div>
-          <div class="lg:col-span-8">
-            <div class="grid sm:grid-cols-2 gap-x-12">
-              <ul>
-                <li class="staff-item"><a href="team-profile.html?id=tichaona-gondo" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Tichaona Gondo <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=bernice-murape" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Bernice Murape <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=kelvin-mukucha" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Kelvin Mukucha <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=augustine-jewure" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Augustine Jewure <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=evans-mbizi" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Evans Mbizi <span class="text-gray-600">— Graduate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-              </ul>
-              <ul>
-                <li class="staff-item"><a href="team-profile.html?id=paddington" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Paddington <span class="text-gray-600">— Architectural Technician</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=thelma-mare" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Thelma Mare <span class="text-gray-600">— Architectural Technician</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=rumbidzai-njani" class="py-3 text-gray-500 text-sm flex items-center gap-3 hover:text-[#0A0A0A] transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue);"></span>
-                  <span class="flex-1">Rumbidzai Njani <span class="text-gray-600">— Architectural Technician</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-              </ul>
-            </div>
+        <!-- 4 — Tichaona Gondo, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/tichaona-gondo.jpg" alt="Tichaona Gondo" onerror="teamAvatar(this,'TG')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Tichaona Gondo</p>
+            <p class="team-card-role">Candidate Architect</p>
           </div>
         </div>
+
+        <!-- 5 — Bernice Murape, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/bernice-murape.jpg" alt="Bernice Murape" onerror="teamAvatar(this,'BM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Bernice Murape</p>
+            <p class="team-card-role">Candidate Architect</p>
+          </div>
+        </div>
+
+        <!-- 6 — Kelvin Mukucha, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/kelvin-mukucha.jpg" alt="Kelvin Mukucha" onerror="teamAvatar(this,'KM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Kelvin Mukucha</p>
+            <p class="team-card-role">Candidate Architect</p>
+          </div>
+        </div>
+
+        <!-- 7 — Augustine Jewure, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/augustine-jewure.jpg" alt="Augustine Jewure" onerror="teamAvatar(this,'AJ')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Augustine Jewure</p>
+            <p class="team-card-role">Candidate Architect</p>
+          </div>
+        </div>
+
+        <!-- 8 — Evans Mbizi, Graduate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/evans-mbizi.jpg" alt="Evans Mbizi" onerror="teamAvatar(this,'EM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Evans Mbizi</p>
+            <p class="team-card-role">Graduate Architect</p>
+          </div>
+        </div>
+
+        <!-- 9 — Paddington, Architectural Technician -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/paddington.jpg" alt="Paddington" onerror="teamAvatar(this,'PA')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Paddington</p>
+            <p class="team-card-role">Architectural Technician</p>
+          </div>
+        </div>
+
+        <!-- 10 — Thelma Mare, Architectural Technician -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/thelma-mare.jpg" alt="Thelma Mare" onerror="teamAvatar(this,'TM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Thelma Mare</p>
+            <p class="team-card-role">Architectural Technician</p>
+          </div>
+        </div>
+
+        <!-- 11 — Rumbidzai Njani, Architectural Technician -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/rumbidzai-njani.jpg" alt="Rumbidzai Njani" onerror="teamAvatar(this,'RN')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Rumbidzai Njani</p>
+            <p class="team-card-role">Architectural Technician</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -626,6 +681,13 @@
     btn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   </script>
 
+  <script>
+    function teamAvatar(img, initials) {
+      img.onerror = null;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="533"><rect width="400" height="533" fill="#EEF2FF"/><text x="200" y="267" font-family="Inter,sans-serif" font-size="130" font-weight="600" fill="#1B4F8A" text-anchor="middle" dominant-baseline="middle">${initials}</text></svg>`;
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+  </script>
   <script src="js/chat.js"></script>
 </body>
 </html>
