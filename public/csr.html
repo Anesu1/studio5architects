@@ -10,25 +10,25 @@
   <script defer src="js/main.js"></script>
   <style>
     /* ── CSR-specific overrides ──────────────────────────── */
-    body { background: var(--black); color: #e5e7eb; }
+    body { background: #FFFFFF; color: #0A0A0A; }
 
     /* Hero bottom stats strip */
     .hero-stat-strip {
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(0,0,0,0.09);
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
     @media (max-width: 640px) { .hero-stat-strip { grid-template-columns: repeat(2, 1fr); } }
     .hero-stat-item {
       padding: 2rem 1.5rem;
-      border-right: 1px solid rgba(255,255,255,0.08);
+      border-right: 1px solid rgba(0,0,0,0.09);
     }
     .hero-stat-item:last-child { border-right: none; }
 
     /* Pillar cards */
     .pillar-card {
-      background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.09);
       padding: 2.5rem 2rem;
       position: relative;
       overflow: hidden;
@@ -44,7 +44,7 @@
       transform-origin: left;
       transition: transform 0.35s ease;
     }
-    .pillar-card:hover { border-color: rgba(27,79,138,0.4); transform: translateY(-4px); }
+    .pillar-card:hover { border-color: var(--blue); transform: translateY(-4px); }
     .pillar-card:hover::before { transform: scaleX(1); }
     .pillar-card.featured {
       background: var(--blue);
@@ -85,16 +85,16 @@
       width: 16px; height: 16px;
       border-radius: 50%;
       background: var(--blue);
-      border: 3px solid var(--black);
+      border: 3px solid #FFFFFF;
       box-shadow: 0 0 0 3px rgba(27,79,138,0.35);
     }
     .timeline-card {
-      background: var(--dark2);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.09);
       padding: 1.75rem 2rem;
       transition: border-color 0.25s;
     }
-    .timeline-card:hover { border-color: rgba(27,79,138,0.4); }
+    .timeline-card:hover { border-color: var(--blue); }
     .timeline-year {
       font-family: 'Playfair Display', serif;
       font-size: 0.75rem;
@@ -113,9 +113,9 @@
       text-transform: uppercase;
       font-weight: 700;
       padding: 3px 10px;
-      background: rgba(27,79,138,0.18);
-      color: #93c5fd;
-      border: 1px solid rgba(27,79,138,0.35);
+      background: rgba(27,79,138,0.08);
+      color: var(--blue);
+      border: 1px solid rgba(27,79,138,0.2);
     }
     .tag.white { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.2); }
 
@@ -125,16 +125,17 @@
     /* Partner form */
     .csr-input {
       width: 100%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: #fff;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.12);
+      color: #0A0A0A;
       font-size: 0.875rem;
       padding: 0.875rem 1rem;
       outline: none;
       transition: border-color 0.2s;
+      font-family: 'Inter', sans-serif;
     }
-    .csr-input:focus { border-color: rgba(27,79,138,0.7); }
-    .csr-input::placeholder { color: #4b5563; }
+    .csr-input:focus { border-color: var(--blue-light); }
+    .csr-input::placeholder { color: #9CA3AF; }
     .csr-label {
       display: block;
       font-size: 0.6rem;
@@ -167,37 +168,39 @@
   <!-- ══════════════════════════════════════
        NAVBAR
   ══════════════════════════════════════ -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 transition-all duration-300" style="background:#FFFFFF;border-bottom:1px solid rgba(0,0,0,0.08);">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
       <a href="index.html" class="flex-shrink-0">
-        <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+        <img src="img/Studio-5-logo-wide-02.svg" alt="Studio5 Architects" class="h-10 w-auto" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-8">
-        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-400 font-medium">
-          <li><a href="index.html"     class="nav-link hover:text-white transition-colors">Home</a></li>
-          <li><a href="about.html"     class="nav-link hover:text-white transition-colors">About</a></li>
-          <li><a href="index.html#services" class="nav-link hover:text-white transition-colors">Services</a></li>
-          <li><a href="index.html#sectors"  class="nav-link hover:text-white transition-colors">Sectors</a></li>
-          <li><a href="csr.html"       class="nav-link text-white">CSR</a></li>
-          <li><a href="contact.html"   class="nav-link hover:text-white transition-colors">Contact</a></li>
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-500 font-medium">
+          <li><a href="index.html"          class="nav-link hover:text-[#0A0A0A] transition-colors">Home</a></li>
+          <li><a href="about.html"          class="nav-link hover:text-[#0A0A0A] transition-colors">About</a></li>
+          <li><a href="portfolio.html"      class="nav-link hover:text-[#0A0A0A] transition-colors">Portfolio</a></li>
+          <li><a href="index.html#services" class="nav-link hover:text-[#0A0A0A] transition-colors">Services</a></li>
+          <li><a href="index.html#sectors"  class="nav-link hover:text-[#0A0A0A] transition-colors">Sectors</a></li>
+          <li><a href="csr.html"            class="nav-link text-[#0A0A0A]">CSR</a></li>
+          <li><a href="contact.html"        class="nav-link hover:text-[#0A0A0A] transition-colors">Contact</a></li>
         </ul>
       </nav>
 
-      <button id="menu-btn" class="lg:hidden text-gray-400 hover:text-white transition-colors" aria-label="Menu">
+      <button id="menu-btn" class="lg:hidden text-gray-400 hover:text-[#0A0A0A] transition-colors" aria-label="Menu">
         <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
         <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
 
-    <div id="csr-mobile-menu" style="background:var(--black);border-top:1px solid rgba(255,255,255,0.06);" class="lg:hidden px-6 py-6 space-y-4">
-      <a href="index.html"          class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Home</a>
-      <a href="about.html"          class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">About</a>
-      <a href="index.html#services" class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Services</a>
-      <a href="index.html#sectors"  class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Sectors</a>
-      <a href="csr.html"            class="block text-[11px] tracking-widest uppercase text-white py-2">CSR</a>
-      <a href="contact.html"        class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2">Contact</a>
+    <div id="csr-mobile-menu" style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,0.08);" class="lg:hidden px-6 py-6 space-y-4">
+      <a href="index.html"          class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2">Home</a>
+      <a href="about.html"          class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2">About</a>
+      <a href="portfolio.html"      class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2">Portfolio</a>
+      <a href="index.html#services" class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2">Services</a>
+      <a href="index.html#sectors"  class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2">Sectors</a>
+      <a href="csr.html"            class="block text-[11px] tracking-widest uppercase text-[#0A0A0A] py-2">CSR</a>
+      <a href="contact.html"        class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2">Contact</a>
     </div>
   </header>
 
@@ -205,45 +208,45 @@
   <!-- ══════════════════════════════════════
        HERO
   ══════════════════════════════════════ -->
-  <section style="background:var(--dark);padding-top:96px;" class="relative overflow-hidden">
+  <section style="background:#F4F5F7;padding-top:96px;" class="relative overflow-hidden">
 
     <!-- Background grid texture -->
     <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
-         style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:72px 72px;"></div>
+         style="background-image:linear-gradient(rgba(0,0,0,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,1) 1px,transparent 1px);background-size:72px 72px;"></div>
 
     <!-- Blue corner glow -->
     <div class="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none"
-         style="background:radial-gradient(circle at top right, rgba(27,79,138,0.18) 0%, transparent 65%);"></div>
+         style="background:radial-gradient(circle at top right, rgba(27,79,138,0.1) 0%, transparent 65%);"></div>
 
     <div class="relative max-w-7xl mx-auto px-6 pt-20 pb-0">
 
       <!-- Breadcrumb -->
-      <div class="flex items-center gap-2 text-[10px] tracking-widest uppercase text-gray-600 mb-10">
-        <a href="index.html" class="hover:text-gray-400 transition-colors">Home</a>
+      <div class="flex items-center gap-2 text-[10px] tracking-widest uppercase text-gray-400 mb-10">
+        <a href="index.html" class="hover:text-[#0A0A0A] transition-colors">Home</a>
         <span>/</span>
-        <span style="color:var(--blue-light);">Corporate Social Responsibility</span>
+        <span style="color:var(--blue);">Corporate Social Responsibility</span>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-12 items-end pb-20">
         <!-- Headline -->
         <div>
           <span class="rule mb-6"></span>
-          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-8">
+          <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-[#0A0A0A] leading-[1.05] mb-8">
             Building More<br/>
             Than<br/>
-            <em style="color:var(--blue-light);">Structures.</em>
+            <em style="color:var(--blue);">Structures.</em>
           </h1>
-          <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-lg">
+          <p class="text-gray-500 text-base md:text-lg leading-relaxed max-w-lg">
             Architecture shapes lives. Studio5 Architects takes seriously our responsibility to the communities, environments, and people our work touches across Zimbabwe.
           </p>
         </div>
 
         <!-- Right column statement -->
-        <div class="lg:pl-12 lg:border-l" style="border-color:rgba(255,255,255,0.07);">
-          <p class="text-gray-300 text-xl md:text-2xl font-light leading-relaxed font-serif italic mb-8">
+        <div class="lg:pl-12 lg:border-l" style="border-color:rgba(0,0,0,0.1);">
+          <p class="text-gray-600 text-xl md:text-2xl font-light leading-relaxed font-serif italic mb-8">
             "Great architecture must be socially responsible, environmentally conscious, and economically inclusive."
           </p>
-          <a href="#commitment" class="inline-flex items-center gap-3 text-[11px] tracking-widest uppercase font-semibold hover:gap-5 transition-all duration-200" style="color:var(--blue-light);">
+          <a href="#commitment" class="inline-flex items-center gap-3 text-[11px] tracking-widest uppercase font-semibold hover:gap-5 transition-all duration-200" style="color:var(--blue);">
             Our Commitment
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"/></svg>
           </a>
@@ -253,19 +256,19 @@
       <!-- Stats strip -->
       <div class="hero-stat-strip -mx-6">
         <div class="hero-stat-item">
-          <p class="font-serif text-4xl font-bold text-white mb-1"><span class="counter" data-target="20">0</span>+</p>
+          <p class="font-serif text-4xl font-bold text-[#0A0A0A] mb-1"><span class="counter" data-target="20">0</span>+</p>
           <p class="text-[10px] tracking-widest uppercase text-gray-500">Years in Practice</p>
         </div>
         <div class="hero-stat-item">
-          <p class="font-serif text-4xl font-bold text-white mb-1"><span class="counter" data-target="12">0</span>+</p>
+          <p class="font-serif text-4xl font-bold text-[#0A0A0A] mb-1"><span class="counter" data-target="12">0</span>+</p>
           <p class="text-[10px] tracking-widest uppercase text-gray-500">CSR Initiatives</p>
         </div>
         <div class="hero-stat-item">
-          <p class="font-serif text-4xl font-bold text-white mb-1"><span class="counter" data-target="4">0</span></p>
+          <p class="font-serif text-4xl font-bold text-[#0A0A0A] mb-1"><span class="counter" data-target="4">0</span></p>
           <p class="text-[10px] tracking-widest uppercase text-gray-500">University Partnerships</p>
         </div>
         <div class="hero-stat-item">
-          <p class="font-serif text-4xl font-bold text-white mb-1">100%</p>
+          <p class="font-serif text-4xl font-bold text-[#0A0A0A] mb-1">100%</p>
           <p class="text-[10px] tracking-widest uppercase text-gray-500">Local Procurement Priority</p>
         </div>
       </div>
@@ -277,7 +280,7 @@
   <!-- ══════════════════════════════════════
        OUR COMMITMENT
   ══════════════════════════════════════ -->
-  <section id="commitment" class="py-28" style="background:var(--black);">
+  <section id="commitment" class="py-28" style="background:#FFFFFF;">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-5 gap-16 items-center">
 
@@ -285,13 +288,13 @@
         <div class="lg:col-span-3">
           <span class="rule mb-6"></span>
           <p class="label mb-4">Our Commitment</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-8">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight mb-8">
             An Active Participant<br/>in Zimbabwe's Development
           </h2>
-          <p class="text-gray-400 leading-relaxed text-sm mb-6">
+          <p class="text-gray-500 leading-relaxed text-sm mb-6">
             Studio5 Architects is not just a design practice. We are an active participant in the development of Zimbabwe — committed to leaving every project, every community, and every partnership better than we found it.
           </p>
-          <p class="text-gray-400 leading-relaxed text-sm">
+          <p class="text-gray-500 leading-relaxed text-sm">
             Our CSR programme is structured around six pillars that guide how we engage with society, the environment, and the profession. These are not aspirational targets — they are embedded in how we work every day.
           </p>
         </div>
@@ -302,17 +305,17 @@
             <svg class="w-6 h-6 text-white mb-4 opacity-70" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12"/></svg>
             <p class="text-white font-semibold text-sm leading-snug">Community Infrastructure</p>
           </div>
-          <div class="p-6" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);">
-            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489"/></svg>
-            <p class="text-white font-semibold text-sm leading-snug">Education &amp; Mentorship</p>
+          <div class="p-6" style="background:#F4F5F7;border:1px solid rgba(0,0,0,0.08);">
+            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489"/></svg>
+            <p class="text-[#0A0A0A] font-semibold text-sm leading-snug">Education &amp; Mentorship</p>
           </div>
-          <div class="p-6" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);">
-            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3"/></svg>
-            <p class="text-white font-semibold text-sm leading-snug">Environmental Stewardship</p>
+          <div class="p-6" style="background:#F4F5F7;border:1px solid rgba(0,0,0,0.08);">
+            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3"/></svg>
+            <p class="text-[#0A0A0A] font-semibold text-sm leading-snug">Environmental Stewardship</p>
           </div>
-          <div class="p-6" style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);">
-            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584"/></svg>
-            <p class="text-white font-semibold text-sm leading-snug">Workplace Equity</p>
+          <div class="p-6" style="background:#F4F5F7;border:1px solid rgba(0,0,0,0.08);">
+            <svg class="w-6 h-6 mb-4 opacity-70" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584"/></svg>
+            <p class="text-[#0A0A0A] font-semibold text-sm leading-snug">Workplace Equity</p>
           </div>
         </div>
 
@@ -324,14 +327,14 @@
   <!-- ══════════════════════════════════════
        SIX PILLARS
   ══════════════════════════════════════ -->
-  <section id="pillars" class="py-28" style="background:var(--dark);">
+  <section id="pillars" class="py-28" style="background:#F4F5F7;">
     <div class="max-w-7xl mx-auto px-6">
 
       <div class="mb-16">
         <span class="rule mb-6"></span>
         <p class="label mb-4">Our Framework</p>
         <div class="flex flex-wrap justify-between items-end gap-6">
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white">Six Areas of Responsibility</h2>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A]">Six Areas of Responsibility</h2>
           <p class="text-gray-500 text-sm max-w-md leading-relaxed">Each pillar represents a concrete commitment — embedded in our practice, not printed on a wall.</p>
         </div>
       </div>
@@ -341,24 +344,24 @@
         <!-- 01 Community Development -->
         <div class="pillar-card">
           <div class="icon-box">
-            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12"/>
             </svg>
           </div>
-          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">01</p>
-          <h3 class="font-semibold text-white text-lg mb-3">Community Development</h3>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue);">01</p>
+          <h3 class="font-semibold text-[#0A0A0A] text-lg mb-3">Community Development</h3>
           <p class="text-gray-500 text-sm leading-relaxed">We invest in the communities where we build, partnering with local organisations to improve infrastructure, access to housing, and public spaces across Zimbabwe.</p>
         </div>
 
         <!-- 02 Education & Mentorship -->
         <div class="pillar-card">
           <div class="icon-box">
-            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 3.741-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/>
             </svg>
           </div>
-          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">02</p>
-          <h3 class="font-semibold text-white text-lg mb-3">Education &amp; Mentorship</h3>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue);">02</p>
+          <h3 class="font-semibold text-[#0A0A0A] text-lg mb-3">Education &amp; Mentorship</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Through partnerships with NUST and Harare Polytechnic, we host interns, fund architectural scholarships, and mentor the next generation of Zimbabwean designers.</p>
         </div>
 
@@ -377,36 +380,36 @@
         <!-- 04 Social Impact Design -->
         <div class="pillar-card">
           <div class="icon-box">
-            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"/>
             </svg>
           </div>
-          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">04</p>
-          <h3 class="font-semibold text-white text-lg mb-3">Social Impact Design</h3>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue);">04</p>
+          <h3 class="font-semibold text-[#0A0A0A] text-lg mb-3">Social Impact Design</h3>
           <p class="text-gray-500 text-sm leading-relaxed">We dedicate a portion of our capacity to pro-bono and reduced-fee work for schools, clinics, and community centres in underserved areas.</p>
         </div>
 
         <!-- 05 Local Procurement -->
         <div class="pillar-card">
           <div class="icon-box">
-            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/>
             </svg>
           </div>
-          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">05</p>
-          <h3 class="font-semibold text-white text-lg mb-3">Local Procurement</h3>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue);">05</p>
+          <h3 class="font-semibold text-[#0A0A0A] text-lg mb-3">Local Procurement</h3>
           <p class="text-gray-500 text-sm leading-relaxed">We prioritise local suppliers, contractors, and craftspeople, circulating economic benefit within Zimbabwe and reducing imported carbon footprint.</p>
         </div>
 
         <!-- 06 Workplace Equity -->
         <div class="pillar-card">
           <div class="icon-box">
-            <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/>
             </svg>
           </div>
-          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue-light);">06</p>
-          <h3 class="font-semibold text-white text-lg mb-3">Workplace Equity</h3>
+          <p class="text-[10px] tracking-widest uppercase mb-3" style="color:var(--blue);">06</p>
+          <h3 class="font-semibold text-[#0A0A0A] text-lg mb-3">Workplace Equity</h3>
           <p class="text-gray-500 text-sm leading-relaxed">Studio5 is committed to a diverse and inclusive workplace — in hiring, promotion, and studio culture — reflecting the communities we serve.</p>
         </div>
 
@@ -418,7 +421,7 @@
   <!-- ══════════════════════════════════════
        INITIATIVES TIMELINE
   ══════════════════════════════════════ -->
-  <section id="initiatives" class="py-28" style="background:var(--black);">
+  <section id="initiatives" class="py-28" style="background:#FFFFFF;">
     <div class="max-w-7xl mx-auto px-6">
 
       <div class="grid lg:grid-cols-3 gap-16">
@@ -428,7 +431,7 @@
           <div class="lg:sticky lg:top-32">
             <span class="rule mb-6"></span>
             <p class="label mb-4">Recent Work</p>
-            <h2 class="font-serif text-4xl font-bold text-white leading-tight mb-6">
+            <h2 class="font-serif text-4xl font-bold text-[#0A0A0A] leading-tight mb-6">
               CSR<br/>Initiatives
             </h2>
             <p class="text-gray-500 text-sm leading-relaxed mb-8">
@@ -450,8 +453,8 @@
                 <div class="flex flex-wrap items-center gap-3 mb-4">
                   <span class="tag">Community</span>
                 </div>
-                <h3 class="font-semibold text-white text-xl mb-3">Mbare Community Centre Pro-Bono Design</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Provided full architectural services at no cost for a community gathering and skills-training facility in Mbare, Harare. The project created a flexible multi-use space serving over 500 residents.</p>
+                <h3 class="font-semibold text-[#0A0A0A] text-xl mb-3">Mbare Community Centre Pro-Bono Design</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Provided full architectural services at no cost for a community gathering and skills-training facility in Mbare, Harare. The project created a flexible multi-use space serving over 500 residents.</p>
               </div>
             </div>
 
@@ -463,8 +466,8 @@
                 <div class="flex flex-wrap items-center gap-3 mb-4">
                   <span class="tag">Education</span>
                 </div>
-                <h3 class="font-semibold text-white text-xl mb-3">NUST Architecture Scholarship Programme</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Funded two full-year scholarships for students from low-income backgrounds pursuing architecture at NUST Bulawayo, alongside a structured internship programme at our Harare studio.</p>
+                <h3 class="font-semibold text-[#0A0A0A] text-xl mb-3">NUST Architecture Scholarship Programme</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Funded two full-year scholarships for students from low-income backgrounds pursuing architecture at NUST Bulawayo, alongside a structured internship programme at our Harare studio.</p>
               </div>
             </div>
 
@@ -476,8 +479,8 @@
                 <div class="flex flex-wrap items-center gap-3 mb-4">
                   <span class="tag">Social Impact</span>
                 </div>
-                <h3 class="font-semibold text-white text-xl mb-3">Rural Clinic Design — Mashonaland East</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Designed a low-cost, climate-responsive rural health clinic in partnership with a local NGO. The facility serves a catchment area of over 3,000 people and was completed under budget.</p>
+                <h3 class="font-semibold text-[#0A0A0A] text-xl mb-3">Rural Clinic Design — Mashonaland East</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Designed a low-cost, climate-responsive rural health clinic in partnership with a local NGO. The facility serves a catchment area of over 3,000 people and was completed under budget.</p>
               </div>
             </div>
 
@@ -489,8 +492,8 @@
                 <div class="flex flex-wrap items-center gap-3 mb-4">
                   <span class="tag">Environment</span>
                 </div>
-                <h3 class="font-semibold text-white text-xl mb-3">Construction Waste Reduction Initiative</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Partnered with contractors on three sites to pilot a zero-landfill construction waste programme, diverting over 12 tonnes of material from landfill through reuse and recycling partnerships.</p>
+                <h3 class="font-semibold text-[#0A0A0A] text-xl mb-3">Construction Waste Reduction Initiative</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Partnered with contractors on three sites to pilot a zero-landfill construction waste programme, diverting over 12 tonnes of material from landfill through reuse and recycling partnerships.</p>
               </div>
             </div>
 
@@ -532,11 +535,11 @@
   <!-- ══════════════════════════════════════
        PARTNER CTA
   ══════════════════════════════════════ -->
-  <section id="partner" class="py-28 relative overflow-hidden" style="background:var(--dark);">
+  <section id="partner" class="py-28 relative overflow-hidden" style="background:#F4F5F7;">
 
     <!-- Subtle grid -->
-    <div class="absolute inset-0 opacity-[0.025] pointer-events-none"
-         style="background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);background-size:72px 72px;"></div>
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none"
+         style="background-image:linear-gradient(rgba(0,0,0,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,1) 1px,transparent 1px);background-size:72px 72px;"></div>
     <!-- Top accent -->
     <div class="absolute top-0 left-0 right-0 h-px" style="background:linear-gradient(to right, var(--blue), rgba(27,79,138,0.2), transparent);"></div>
 
@@ -547,16 +550,16 @@
         <div>
           <span class="rule mb-6"></span>
           <p class="label mb-4">Get Involved</p>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight mb-6">
             Partner With Us<br/>on a CSR Initiative
           </h2>
-          <p class="text-gray-400 text-sm leading-relaxed mb-10">
+          <p class="text-gray-500 text-sm leading-relaxed mb-10">
             If you represent an NGO, government body, educational institution, or corporation looking to collaborate on socially responsible design, we want to hear from you.
           </p>
 
           <!-- Who we work with -->
           <div class="space-y-4">
-            <p class="text-[10px] tracking-widest uppercase text-gray-600 mb-3">Who we partner with</p>
+            <p class="text-[10px] tracking-widest uppercase text-gray-500 mb-3">Who we partner with</p>
             <div class="flex flex-wrap gap-3">
               <span class="tag">NGOs</span>
               <span class="tag">Government Bodies</span>
@@ -567,14 +570,14 @@
           </div>
 
           <!-- Contact strip -->
-          <div class="mt-12 pt-8" style="border-top:1px solid rgba(255,255,255,0.06);">
-            <p class="text-[10px] tracking-widests uppercase text-gray-600 mb-3">Prefer to reach us directly?</p>
-            <a href="mailto:info@studio5architects.com" class="text-gray-300 hover:text-white text-sm transition-colors">info@studio5architects.com</a>
+          <div class="mt-12 pt-8" style="border-top:1px solid rgba(0,0,0,0.08);">
+            <p class="text-[10px] tracking-widests uppercase text-gray-500 mb-3">Prefer to reach us directly?</p>
+            <a href="mailto:info@studio5architects.com" class="text-gray-600 hover:text-[#0A0A0A] text-sm transition-colors">info@studio5architects.com</a>
           </div>
         </div>
 
         <!-- Right: form -->
-        <div style="background:var(--dark2);border:1px solid rgba(255,255,255,0.07);padding:2.5rem;">
+        <div style="background:#FFFFFF;border:1px solid rgba(0,0,0,0.09);padding:2.5rem;">
           <p class="text-[10px] tracking-widests uppercase text-gray-500 mb-8">Partnership Enquiry Form</p>
           <form class="space-y-5">
             <div class="grid sm:grid-cols-2 gap-4">
@@ -638,6 +641,7 @@
           <ul class="space-y-2 text-[11px] tracking-widests uppercase text-gray-500">
             <li><a href="index.html"          class="hover:text-white transition-colors">Home</a></li>
             <li><a href="about.html"          class="hover:text-white transition-colors">About</a></li>
+            <li><a href="portfolio.html"      class="hover:text-white transition-colors">Portfolio</a></li>
             <li><a href="index.html#services" class="hover:text-white transition-colors">Services</a></li>
             <li><a href="csr.html"            class="text-white">CSR</a></li>
             <li><a href="contact.html"        class="hover:text-white transition-colors">Contact</a></li>
