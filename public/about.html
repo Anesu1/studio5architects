@@ -11,16 +11,92 @@
   <style>
     /* ── About-page additions ─────────────────────── */
 
-    /* Team card */
+    /* Team card — photo-first design */
     .team-card {
-      border: 1px solid rgba(255,255,255,0.07);
-      background: var(--dark);
-      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      background: #1a1a1a;
+      cursor: default;
     }
-    .team-card:hover {
-      border-color: var(--blue-light);
-      background: rgba(27,79,138,0.07);
-      transform: translateY(-3px);
+    .team-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.5s ease;
+      filter: grayscale(20%);
+    }
+    .team-card:hover img {
+      transform: scale(1.04);
+      filter: grayscale(0%);
+    }
+
+    /* Always-visible bottom gradient + name */
+    .team-card-info {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      background: linear-gradient(to top, rgba(5,15,30,0.88) 0%, rgba(5,15,30,0.3) 55%, transparent 100%);
+      transition: background 0.4s ease;
+    }
+    .team-card:hover .team-card-info {
+      background: linear-gradient(to top, rgba(5,15,30,0.96) 0%, rgba(5,15,30,0.65) 55%, rgba(5,15,30,0.1) 100%);
+    }
+
+    /* Name + role — always visible */
+    .team-card-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 0.25rem;
+    }
+    .team-card-role {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(147,197,253,0.9);
+      margin-bottom: 0;
+      transition: margin-bottom 0.35s ease;
+    }
+    .team-card:hover .team-card-role {
+      margin-bottom: 0.75rem;
+    }
+
+    /* Qualifications — hidden, slide up on hover */
+    .team-card-quals {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.35s ease;
+      opacity: 0;
+    }
+    .team-card:hover .team-card-quals {
+      max-height: 120px;
+      opacity: 1;
+    }
+    .team-card-quals p {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* Blue top accent bar on hover */
+    .team-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .team-card:hover::after {
+      transform: scaleX(1);
     }
 
     /* Value card hover */
@@ -29,8 +105,8 @@
       transition: background 0.2s ease, border-color 0.2s ease;
     }
     .value-card:hover {
-      background: rgba(27,79,138,0.06);
-      border-left-color: var(--blue-light);
+      background: rgba(27,79,138,0.04);
+      border-left-color: var(--blue);
     }
 
     /* Principles image — subtle reveal overlay */
@@ -42,17 +118,17 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(10,10,10,0.5) 100%);
+      background: linear-gradient(to bottom, transparent 60%, rgba(255,255,255,0.3) 100%);
       pointer-events: none;
     }
 
     /* Staff name list */
     .staff-item {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
       transition: color 0.2s ease;
     }
     .staff-item:last-child { border-bottom: none; }
-    .staff-item:hover { color: #fff; }
+    .staff-item:hover { color: #0A0A0A; }
   </style>
 </head>
 <body>
@@ -60,42 +136,44 @@
   <!-- ══════════════════════════════════════
        NAVBAR
   ══════════════════════════════════════ -->
-  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="border-bottom:1px solid rgba(255,255,255,0.06);">
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="background:#FFFFFF;border-bottom:1px solid rgba(0,0,0,0.08);">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
       <!-- Logo -->
       <a href="index.html" class="flex-shrink-0">
-        <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+        <img src="img/Studio-5-logo-wide-02.svg" alt="Studio5 Architects" class="h-10 w-auto" />
       </a>
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-8">
-        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-400 font-medium">
-          <li><a href="index.html#hero"     class="nav-link hover:text-white transition-colors duration-200">Home</a></li>
-          <li><a href="about.html"          class="nav-link text-white">About</a></li>
-          <li><a href="index.html#services" class="nav-link hover:text-white transition-colors duration-200">Services</a></li>
-          <li><a href="index.html#sectors"  class="nav-link hover:text-white transition-colors duration-200">Sectors</a></li>
-          <li><a href="csr.html"            class="nav-link hover:text-white transition-colors duration-200">CSR</a></li>
-          <li><a href="contact.html"        class="nav-link hover:text-white transition-colors duration-200">Contact</a></li>
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-500 font-medium">
+          <li><a href="index.html#hero"     class="nav-link hover:text-[#0A0A0A] transition-colors duration-200">Home</a></li>
+          <li><a href="about.html"          class="nav-link text-[#0A0A0A]">About</a></li>
+          <li><a href="portfolio.html"      class="nav-link hover:text-[#0A0A0A] transition-colors duration-200">Portfolio</a></li>
+          <li><a href="index.html#services" class="nav-link hover:text-[#0A0A0A] transition-colors duration-200">Services</a></li>
+          <li><a href="index.html#sectors"  class="nav-link hover:text-[#0A0A0A] transition-colors duration-200">Sectors</a></li>
+          <li><a href="csr.html"            class="nav-link hover:text-[#0A0A0A] transition-colors duration-200">CSR</a></li>
+          <li><a href="contact.html"        class="nav-link hover:text-[#0A0A0A] transition-colors duration-200">Contact</a></li>
         </ul>
         <a href="contact.html" class="btn-primary text-[11px]">Get in Touch</a>
       </nav>
 
       <!-- Hamburger -->
-      <button id="menu-btn" class="lg:hidden text-gray-400 hover:text-white transition-colors" aria-label="Menu">
+      <button id="menu-btn" class="lg:hidden text-gray-400 hover:text-[#0A0A0A] transition-colors" aria-label="Menu">
         <svg id="icon-open"  class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
         <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
     </div>
 
     <!-- Mobile menu -->
-    <div id="mobile-menu" style="background:var(--black);border-top:1px solid rgba(255,255,255,0.06);" class="lg:hidden px-6 py-6 space-y-4 hidden">
-      <a href="index.html#hero"     class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">Home</a>
-      <a href="about.html"          class="block text-[11px] tracking-widest uppercase text-white py-2">About</a>
-      <a href="index.html#services" class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">Services</a>
-      <a href="index.html#sectors"  class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">Sectors</a>
-      <a href="csr.html"            class="block text-[11px] tracking-widest uppercase text-gray-400 hover:text-white py-2 transition-colors">CSR</a>
-      <a href="index.html#contact"  class="block text-[11px] tracking-widest uppercase text-white py-2" style="color:var(--blue-light);">Get in Touch</a>
+    <div id="mobile-menu" style="background:#FFFFFF;border-top:1px solid rgba(0,0,0,0.08);" class="lg:hidden px-6 py-6 space-y-4 hidden">
+      <a href="index.html#hero"     class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2 transition-colors">Home</a>
+      <a href="about.html"          class="block text-[11px] tracking-widest uppercase text-[#0A0A0A] py-2">About</a>
+      <a href="portfolio.html"      class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2 transition-colors">Portfolio</a>
+      <a href="index.html#services" class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2 transition-colors">Services</a>
+      <a href="index.html#sectors"  class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2 transition-colors">Sectors</a>
+      <a href="csr.html"            class="block text-[11px] tracking-widest uppercase text-gray-500 hover:text-[#0A0A0A] py-2 transition-colors">CSR</a>
+      <a href="index.html#contact"  class="block text-[11px] tracking-widest uppercase py-2" style="color:var(--blue);">Get in Touch</a>
     </div>
   </header>
 
@@ -103,49 +181,49 @@
   <!-- ══════════════════════════════════════
        HERO
   ══════════════════════════════════════ -->
-  <section id="hero" style="background:var(--black);padding-top:96px;" class="pb-0 overflow-hidden">
+  <section id="hero" style="background:#FFFFFF;padding-top:96px;" class="pb-0 overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 py-20 md:py-28">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
 
         <!-- Left: text -->
         <div>
           <!-- Breadcrumb -->
-          <div class="flex items-center gap-2 text-[10px] tracking-widest uppercase text-gray-500 mb-8">
-            <a href="index.html" class="hover:text-white transition-colors">Home</a>
-            <span class="text-gray-700">—</span>
-            <span style="color:var(--blue-light);">About the Practice</span>
+          <div class="flex items-center gap-2 text-[10px] tracking-widest uppercase text-gray-400 mb-8">
+            <a href="index.html" class="hover:text-[#0A0A0A] transition-colors">Home</a>
+            <span class="text-gray-300">—</span>
+            <span style="color:var(--blue);">About the Practice</span>
           </div>
 
           <span class="rule"></span>
           <span class="label">The Practice</span>
-          <h1 class="font-serif text-5xl md:text-6xl font-bold text-white leading-[1.05] mt-4 mb-6">
+          <h1 class="font-serif text-5xl md:text-6xl font-bold text-[#0A0A0A] leading-[1.05] mt-4 mb-6">
             Architecture<br/>
             With<br/>
-            <em style="color:var(--blue-light);">Purpose.</em>
+            <em style="color:var(--blue);">Purpose.</em>
           </h1>
-          <p class="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
-            Studio5 Architects is a registered architectural practice based in Harare, Zimbabwe. For over two decades we have delivered world-class design that enhances both the built and natural environment — rooted in our communities, guided by integrity.
+          <p class="text-gray-500 text-base leading-relaxed mb-8 max-w-lg">
+            Studio5 Architects is a registered architectural practice based in Harare, Zimbabwe. For over a decade we have delivered buildings that are intelligent in their use of climate, honest in their use of materials, and deeply considered in how they serve the people who inhabit them.
           </p>
 
           <!-- Trust badges -->
-          <div class="flex flex-wrap gap-5 pt-6" style="border-top:1px solid rgba(255,255,255,0.07);">
+          <div class="flex flex-wrap gap-5 pt-6" style="border-top:1px solid rgba(0,0,0,0.08);">
             <div class="flex items-center gap-2">
-              <svg class="w-4 h-4 shrink-0" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              <span class="text-gray-400 text-xs">Architects Council of Zimbabwe</span>
+              <svg class="w-4 h-4 shrink-0" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              <span class="text-gray-500 text-xs">Architects Council of Zimbabwe</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-4 h-4 shrink-0" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              <span class="text-gray-400 text-xs">AIAZ Member Practice</span>
+              <svg class="w-4 h-4 shrink-0" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              <span class="text-gray-500 text-xs">AIAZ Member Practice</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg class="w-4 h-4 shrink-0" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-              <span class="text-gray-400 text-xs">ISO 9001 Quality Management</span>
+              <svg class="w-4 h-4 shrink-0" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+              <span class="text-gray-500 text-xs">ISO 9001 Quality Management</span>
             </div>
           </div>
         </div>
 
         <!-- Right: mission image -->
-        <div class="principles-wrap rounded-none" style="border:1px solid rgba(255,255,255,0.08);">
+        <div class="principles-wrap rounded-none" style="border:1px solid rgba(0,0,0,0.09);">
           <img
             src="img/mission.webp"
             alt="Studio5 Mission"
@@ -164,7 +242,7 @@
   <!-- ══════════════════════════════════════
        WHO WE ARE
   ══════════════════════════════════════ -->
-  <section style="background:var(--dark);" class="py-28">
+  <section style="background:#F4F5F7;" class="py-28">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-12 gap-12 items-start">
 
@@ -172,36 +250,36 @@
         <div class="lg:col-span-4">
           <span class="rule"></span>
           <span class="label">Who We Are</span>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mt-4">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight mt-4">
             A Practice<br/>Built on<br/>Conviction.
           </h2>
         </div>
 
         <!-- Content column -->
         <div class="lg:col-span-8 space-y-8">
-          <p class="text-gray-400 text-base leading-relaxed">
-            Founded in Harare, Studio5 Architects has grown into one of Zimbabwe's most respected architectural practices. Our team of registered architects, graduate designers, and technical specialists operates across the full spectrum of building design — from intimate residential commissions to large-scale civic and commercial infrastructure.
+          <p class="text-gray-500 text-base leading-relaxed">
+            Founded in Harare in 2014, Studio5 Architects has grown into one of Zimbabwe's most respected architectural practices. Our team of registered architects, graduate designers, and technical specialists works across the full spectrum of building design — from carefully crafted private residences to large-scale civic, commercial, and institutional infrastructure.
           </p>
-          <p class="text-gray-400 text-base leading-relaxed">
-            We believe that great architecture is not a luxury — it is a responsibility. Every building we design is an opportunity to improve the quality of life of those who inhabit it, uplift the streetscapes of our cities, and leave a legacy our communities can be proud of.
+          <p class="text-gray-500 text-base leading-relaxed">
+            We believe that good architecture is not a luxury — it is a fundamental act of care. A well-designed building improves the daily lives of the people who use it, contributes positively to its street and neighbourhood, and maintains its quality over time. These are not abstract ideals; they are the practical standards we hold ourselves to on every commission.
           </p>
-          <p class="text-gray-400 text-base leading-relaxed">
-            Our approach is collaborative and transparent. We listen before we design, and we remain engaged with our clients from the first conversation through to handover and beyond. This long-term relationship is central to the quality of what we deliver.
+          <p class="text-gray-500 text-base leading-relaxed">
+            Our process is transparent and genuinely collaborative. Clients are partners — not just approvers. We share our thinking early, respond to feedback openly, and remain engaged long after construction is complete. That continuing relationship is something we value as much as the building itself.
           </p>
 
           <!-- Key facts grid -->
-          <div class="grid sm:grid-cols-3 gap-px mt-6" style="background:rgba(255,255,255,0.06);">
-            <div class="p-7" style="background:var(--dark2);">
-              <p class="font-serif text-4xl font-bold text-white leading-none mb-1.5">20<span style="color:var(--blue-light);">+</span></p>
-              <p class="text-gray-400 text-[10px] tracking-widest uppercase">Years of Practice</p>
+          <div class="grid sm:grid-cols-3 gap-px mt-6" style="background:rgba(0,0,0,0.08);">
+            <div class="p-7" style="background:#FFFFFF;">
+              <p class="font-serif text-4xl font-bold text-[#0A0A0A] leading-none mb-1.5">10<span style="color:var(--blue);">+</span></p>
+              <p class="text-gray-500 text-[10px] tracking-widest uppercase">Years of Practice</p>
             </div>
-            <div class="p-7" style="background:var(--dark2);">
-              <p class="font-serif text-4xl font-bold text-white leading-none mb-1.5">180<span style="color:var(--blue-light);">+</span></p>
-              <p class="text-gray-400 text-[10px] tracking-widest uppercase">Projects Delivered</p>
+            <div class="p-7" style="background:#FFFFFF;">
+              <p class="font-serif text-4xl font-bold text-[#0A0A0A] leading-none mb-1.5">180<span style="color:var(--blue);">+</span></p>
+              <p class="text-gray-500 text-[10px] tracking-widest uppercase">Projects Delivered</p>
             </div>
-            <div class="p-7" style="background:var(--dark2);">
-              <p class="font-serif text-4xl font-bold text-white leading-none mb-1.5">12</p>
-              <p class="text-gray-400 text-[10px] tracking-widest uppercase">Industry Awards</p>
+            <div class="p-7" style="background:#FFFFFF;">
+              <p class="font-serif text-4xl font-bold text-[#0A0A0A] leading-none mb-1.5">12</p>
+              <p class="text-gray-500 text-[10px] tracking-widest uppercase">Industry Awards</p>
             </div>
           </div>
         </div>
@@ -214,26 +292,26 @@
   <!-- ══════════════════════════════════════
        OUR PRINCIPLES (feature image)
   ══════════════════════════════════════ -->
-  <section style="background:var(--black);" class="py-28">
+  <section style="background:#FFFFFF;" class="py-28">
     <div class="max-w-7xl mx-auto px-6">
 
       <div class="grid lg:grid-cols-12 gap-8 mb-14">
         <div class="lg:col-span-5">
           <span class="rule"></span>
           <span class="label">What Guides Us</span>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mt-4">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight mt-4">
             Our Design<br/>Principles
           </h2>
         </div>
         <div class="lg:col-span-7 lg:pl-6 flex items-end">
-          <p class="text-gray-400 text-sm leading-relaxed">
+          <p class="text-gray-500 text-sm leading-relaxed">
             Every project we undertake is shaped by a set of core principles that define how we think, work, and deliver. These are not abstract ideals — they are the practical commitments we make to every client, every community, and every building we put our name to.
           </p>
         </div>
       </div>
 
       <!-- Image + principles side by side -->
-      <div class="grid lg:grid-cols-2 gap-px" style="background:rgba(255,255,255,0.06);">
+      <div class="grid lg:grid-cols-2 gap-px" style="background:rgba(0,0,0,0.08);">
 
         <!-- Full principles image -->
         <div class="principles-wrap" style="min-height:480px;">
@@ -246,51 +324,51 @@
         </div>
 
         <!-- Principle callouts -->
-        <div style="background:var(--dark);">
-          <div class="value-card p-10" style="background:var(--dark);border-left:none;border-bottom:1px solid rgba(255,255,255,0.06);">
+        <div style="background:#F4F5F7;">
+          <div class="value-card p-10" style="background:#F4F5F7;border-left:none;border-bottom:1px solid rgba(0,0,0,0.07);">
             <div class="flex items-start gap-5">
-              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
-                <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.1);border:1px solid rgba(27,79,138,0.2);">
+                <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09Z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-white mb-2">Design Excellence</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Every material selection, spatial proportion, and technical detail is deliberate. We believe precision at the small scale defines quality at the large scale.</p>
+                <h3 class="font-semibold text-[#0A0A0A] mb-2">Design Excellence</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Architecture is in the details. Every material, joint, threshold, and proportion is interrogated until it is exactly right — because the quality of a building is ultimately the sum of its smallest decisions.</p>
               </div>
             </div>
           </div>
 
-          <div class="p-10" style="background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div class="p-10" style="background:#F4F5F7;border-bottom:1px solid rgba(0,0,0,0.07);">
             <div class="flex items-start gap-5">
-              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
-                <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.1);border:1px solid rgba(27,79,138,0.2);">
+                <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-white mb-2">Client Collaboration</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">We listen before we design. Our clients are partners in the creative process — their aspirations, constraints, and feedback shape every decision we make.</p>
+                <h3 class="font-semibold text-[#0A0A0A] mb-2">Client Collaboration</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">A great brief produces a great building. We invest time in understanding not just what clients want to build, but why — and that understanding informs every design decision from concept through to construction.</p>
               </div>
             </div>
           </div>
 
-          <div class="p-10" style="background:var(--dark);border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div class="p-10" style="background:#F4F5F7;border-bottom:1px solid rgba(0,0,0,0.07);">
             <div class="flex items-start gap-5">
-              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
-                <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253M3 12a8.959 8.959 0 0 1 .284-2.253"/></svg>
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.1);border:1px solid rgba(27,79,138,0.2);">
+                <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253M3 12a8.959 8.959 0 0 1 .284-2.253"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-white mb-2">Environmental Responsibility</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Passive design, local materials, and reduced construction waste are embedded from the outset — not as afterthoughts, but as fundamental design drivers.</p>
+                <h3 class="font-semibold text-[#0A0A0A] mb-2">Environmental Responsibility</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Zimbabwe's climate is an asset, not an obstacle. We use orientation, natural ventilation, shading, and thermal mass as primary design tools — reducing energy dependence while creating more comfortable, enduring spaces.</p>
               </div>
             </div>
           </div>
 
-          <div class="p-10" style="background:var(--dark);">
+          <div class="p-10" style="background:#F4F5F7;">
             <div class="flex items-start gap-5">
-              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.15);border:1px solid rgba(59,130,196,0.25);">
-                <svg class="w-5 h-5" style="color:var(--blue-light);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
+              <div class="w-10 h-10 shrink-0 flex items-center justify-center" style="background:rgba(27,79,138,0.1);border:1px solid rgba(27,79,138,0.2);">
+                <svg class="w-5 h-5" style="color:var(--blue);" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z"/></svg>
               </div>
               <div>
-                <h3 class="font-semibold text-white mb-2">Social Impact</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Architecture that uplifts communities. We invest in pro-bono work, scholarships, and active participation in the development of Zimbabwe's built future.</p>
+                <h3 class="font-semibold text-[#0A0A0A] mb-2">Social Impact</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">We are active participants in Zimbabwe's development — not observers. Through pro-bono design work, university scholarships, and mentorship of emerging architects, we help build the profession as well as the buildings.</p>
               </div>
             </div>
           </div>
@@ -309,7 +387,7 @@
     <div class="relative max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         <div>
-          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">20<span class="text-blue-200">+</span></p>
+          <p class="font-serif text-5xl font-bold text-white leading-none mb-2">10<span class="text-blue-200">+</span></p>
           <p class="text-blue-200 text-[10px] tracking-widest uppercase">Years of Practice</p>
         </div>
         <div>
@@ -332,165 +410,144 @@
   <!-- ══════════════════════════════════════
        LEADERSHIP
   ══════════════════════════════════════ -->
-  <section style="background:var(--dark2);" class="py-28">
+  <section style="background:#F4F5F7;" class="py-28">
     <div class="max-w-7xl mx-auto px-6">
 
       <div class="grid lg:grid-cols-12 gap-8 mb-16">
         <div class="lg:col-span-5">
           <span class="rule"></span>
           <span class="label">Our People</span>
-          <h2 class="font-serif text-4xl md:text-5xl font-bold text-white leading-tight mt-4">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A] leading-tight mt-4">
             The Team<br/>Behind the Work.
           </h2>
         </div>
         <div class="lg:col-span-7 lg:pl-6 flex items-end">
-          <p class="text-gray-400 text-sm leading-relaxed">
-            Our practice is led by a team of experienced registered architects and project managers who bring deep technical expertise, professional accreditation, and genuine passion for design to every commission.
+          <p class="text-gray-500 text-sm leading-relaxed">
+            Our practice is led by architects with broad experience across Zimbabwe and internationally. Each brings a combination of technical rigour, design intelligence, and professional accreditation — alongside a commitment to mentoring the next generation of Zimbabwean architects.
           </p>
         </div>
       </div>
 
-      <!-- Director cards -->
-      <div class="grid md:grid-cols-3 gap-3 mb-16">
+      <!-- Team grid — ordered by rank -->
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
 
-        <!-- Brighton Madondo -->
-        <div class="team-card overflow-hidden">
-          <!-- Photo placeholder — replace src when image is ready -->
-          <div class="w-full relative overflow-hidden" style="aspect-ratio:4/3;background:var(--dark2);">
-            <img src="img/team/brighton-madondo.jpg" alt="Brighton Madondo"
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
-              <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-2" style="color:rgba(59,130,196,0.3);" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <p class="text-[10px] tracking-widest uppercase text-gray-600">Photo Coming Soon</p>
-              </div>
+        <!-- 1 — Brighton Madondo, Principal Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/brighton-madondo.jpg" alt="Brighton Madondo" onerror="teamAvatar(this,'BM')" />
+          <div class="team-card-info">
+            <div class="team-card-quals">
+              <p>M.Arch (NUST)</p>
+              <p>B.Arch Studies (Hons)</p>
+              <p>ACZ Board Member</p>
+              <p>AIAZ Board Member</p>
             </div>
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.6) 100%);"></div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-semibold text-white text-lg mb-1">Brighton Madondo</h3>
-            <p class="text-[10px] tracking-widest uppercase mb-4" style="color:var(--blue-light);">Principal Architect</p>
-            <div class="space-y-1.5">
-              <p class="text-gray-400 text-xs">M.Arch (NUST)</p>
-              <p class="text-gray-400 text-xs">B.Arch Studies (Hons)</p>
-              <p class="text-gray-400 text-xs">ACZ Board Member</p>
-              <p class="text-gray-400 text-xs">AIAZ Board Member</p>
-            </div>
+            <p class="team-card-name">Brighton Madondo</p>
+            <p class="team-card-role">Principal Architect</p>
           </div>
         </div>
 
-        <!-- Tapiwa Manditsera -->
-        <div class="team-card overflow-hidden">
-          <div class="w-full relative overflow-hidden" style="aspect-ratio:4/3;background:var(--dark2);">
-            <img src="img/team/tapiwa-manditsera.jpg" alt="Tapiwa Manditsera"
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
-              <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-2" style="color:rgba(59,130,196,0.3);" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <p class="text-[10px] tracking-widest uppercase text-gray-600">Photo Coming Soon</p>
-              </div>
+        <!-- 2 — Tapiwa Manditsera, Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/tapiwa-manditsera.jpg" alt="Tapiwa Manditsera" onerror="teamAvatar(this,'TM')" />
+          <div class="team-card-info">
+            <div class="team-card-quals">
+              <p>M.Arch (NUST)</p>
+              <p>B.Arch Studies (Hons)</p>
+              <p>Former ACZ Board Member</p>
+              <p>Former AIAZ Board Member</p>
             </div>
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.6) 100%);"></div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-semibold text-white text-lg mb-1">Tapiwa Manditsera</h3>
-            <p class="text-[10px] tracking-widest uppercase mb-4" style="color:var(--blue-light);">Architect</p>
-            <div class="space-y-1.5">
-              <p class="text-gray-400 text-xs">M.Arch (NUST)</p>
-              <p class="text-gray-400 text-xs">B.Arch Studies (Hons)</p>
-              <p class="text-gray-400 text-xs">Former ACZ Board Member</p>
-              <p class="text-gray-400 text-xs">Former AIAZ Board Member</p>
-            </div>
+            <p class="team-card-name">Tapiwa Manditsera</p>
+            <p class="team-card-role">Architect</p>
           </div>
         </div>
 
-        <!-- Tinashe Honde -->
-        <div class="team-card overflow-hidden">
-          <div class="w-full relative overflow-hidden" style="aspect-ratio:4/3;background:var(--dark2);">
-            <img src="img/team/tinashe-honde.jpg" alt="Tinashe Honde"
-                 class="w-full h-full object-cover object-top"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-            <div class="absolute inset-0 items-center justify-center hidden" style="display:none;">
-              <div class="text-center">
-                <svg class="w-16 h-16 mx-auto mb-2" style="color:rgba(59,130,196,0.3);" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
-                <p class="text-[10px] tracking-widest uppercase text-gray-600">Photo Coming Soon</p>
-              </div>
+        <!-- 3 — Tinashe Honde, Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/tinashe-honde.jpg" alt="Tinashe Honde" onerror="teamAvatar(this,'TH')" />
+          <div class="team-card-info">
+            <div class="team-card-quals">
+              <p>M.Arch Professional (Cyprus)</p>
+              <p>B.Arch Studies (Hons)</p>
+              <p>MRICS Associate</p>
+              <p>Registered Architect, ACZ</p>
             </div>
-            <div class="absolute inset-0" style="background:linear-gradient(to bottom,transparent 50%,rgba(10,10,10,0.6) 100%);"></div>
-          </div>
-          <div class="p-8">
-            <h3 class="font-semibold text-white text-lg mb-1">Tinashe Honde</h3>
-            <p class="text-[10px] tracking-widest uppercase mb-4" style="color:var(--blue-light);">Architect</p>
-            <div class="space-y-1.5">
-              <p class="text-gray-400 text-xs">M.Arch Professional (Cyprus)</p>
-              <p class="text-gray-400 text-xs">B.Arch Studies (Hons)</p>
-              <p class="text-gray-400 text-xs">MRICS Associate</p>
-              <p class="text-gray-400 text-xs">Registered Architect, ACZ</p>
-            </div>
+            <p class="team-card-name">Tinashe Honde</p>
+            <p class="team-card-role">Architect</p>
           </div>
         </div>
 
-      </div>
-
-      <!-- Supporting team -->
-      <div style="background:var(--dark);border:1px solid rgba(255,255,255,0.07);" class="p-10">
-        <div class="grid lg:grid-cols-12 gap-10 items-start">
-          <div class="lg:col-span-4">
-            <span class="label">Supporting Team</span>
-            <h3 class="font-serif text-2xl font-bold text-white mt-3 mb-3">Graduate Architects<br/>&amp; Technicians</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">Our delivery team of graduate architects, architectural technicians, and administrative professionals ensures every project is executed to the highest standard.</p>
-          </div>
-          <div class="lg:col-span-8">
-            <div class="grid sm:grid-cols-2 gap-x-12">
-              <ul>
-                <li class="staff-item"><a href="team-profile.html?id=tichaona-gondo" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Tichaona Gondo <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=bernice-murape" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Bernice Murape <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=kelvin-mukucha" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Kelvin Mukucha <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=augustine-jewure" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Augustine Jewure <span class="text-gray-600">— Candidate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=evans-mbizi" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Evans Mbizi <span class="text-gray-600">— Graduate Architect</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-              </ul>
-              <ul>
-                <li class="staff-item"><a href="team-profile.html?id=paddington" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Paddington <span class="text-gray-600">— Architectural Technician</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=thelma-mare" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Thelma Mare <span class="text-gray-600">— Architectural Technician</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-                <li class="staff-item"><a href="team-profile.html?id=rumbidzai-njani" class="py-3 text-gray-400 text-sm flex items-center gap-3 hover:text-white transition-colors group">
-                  <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background:var(--blue-light);"></span>
-                  <span class="flex-1">Rumbidzai Njani <span class="text-gray-600">— Architectural Technician</span></span>
-                  <svg class="w-3.5 h-3.5 text-gray-700 group-hover:text-blue-400 transition-colors shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
-                </a></li>
-              </ul>
-            </div>
+        <!-- 4 — Tichaona Gondo, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/tichaona-gondo.jpg" alt="Tichaona Gondo" onerror="teamAvatar(this,'TG')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Tichaona Gondo</p>
+            <p class="team-card-role">Candidate Architect</p>
           </div>
         </div>
+
+        <!-- 5 — Bernice Murape, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/bernice-murape.jpg" alt="Bernice Murape" onerror="teamAvatar(this,'BM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Bernice Murape</p>
+            <p class="team-card-role">Candidate Architect</p>
+          </div>
+        </div>
+
+        <!-- 6 — Kelvin Mukucha, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/kelvin-mukucha.jpg" alt="Kelvin Mukucha" onerror="teamAvatar(this,'KM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Kelvin Mukucha</p>
+            <p class="team-card-role">Candidate Architect</p>
+          </div>
+        </div>
+
+        <!-- 7 — Augustine Jewure, Candidate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/augustine-jewure.jpg" alt="Augustine Jewure" onerror="teamAvatar(this,'AJ')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Augustine Jewure</p>
+            <p class="team-card-role">Candidate Architect</p>
+          </div>
+        </div>
+
+        <!-- 8 — Evans Mbizi, Graduate Architect -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/evans-mbizi.jpg" alt="Evans Mbizi" onerror="teamAvatar(this,'EM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Evans Mbizi</p>
+            <p class="team-card-role">Graduate Architect</p>
+          </div>
+        </div>
+
+        <!-- 9 — Paddington, Architectural Technician -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/paddington.jpg" alt="Paddington" onerror="teamAvatar(this,'PA')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Paddington</p>
+            <p class="team-card-role">Architectural Technician</p>
+          </div>
+        </div>
+
+        <!-- 10 — Thelma Mare, Architectural Technician -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/thelma-mare.jpg" alt="Thelma Mare" onerror="teamAvatar(this,'TM')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Thelma Mare</p>
+            <p class="team-card-role">Architectural Technician</p>
+          </div>
+        </div>
+
+        <!-- 11 — Rumbidzai Njani, Architectural Technician -->
+        <div class="team-card" style="aspect-ratio:3/4;">
+          <img src="img/team/rumbidzai-njani.jpg" alt="Rumbidzai Njani" onerror="teamAvatar(this,'RN')" />
+          <div class="team-card-info">
+            <p class="team-card-name">Rumbidzai Njani</p>
+            <p class="team-card-role">Architectural Technician</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -546,6 +603,7 @@
           <ul class="space-y-3 text-xs text-gray-500">
             <li><a href="index.html#hero"     class="hover:text-white transition-colors">Home</a></li>
             <li><a href="about.html"          class="text-white">About the Practice</a></li>
+            <li><a href="portfolio.html"      class="hover:text-white transition-colors">Portfolio</a></li>
             <li><a href="index.html#services" class="hover:text-white transition-colors">Our Services</a></li>
             <li><a href="index.html#sectors"  class="hover:text-white transition-colors">Sectors</a></li>
             <li><a href="index.html#approach" class="hover:text-white transition-colors">Our Approach</a></li>
@@ -623,6 +681,13 @@
     btn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
   </script>
 
+  <script>
+    function teamAvatar(img, initials) {
+      img.onerror = null;
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="533"><rect width="400" height="533" fill="#EEF2FF"/><text x="200" y="267" font-family="Inter,sans-serif" font-size="130" font-weight="600" fill="#1B4F8A" text-anchor="middle" dominant-baseline="middle">${initials}</text></svg>`;
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+  </script>
   <script src="js/chat.js"></script>
 </body>
 </html>
