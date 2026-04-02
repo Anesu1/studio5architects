@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Inside the architectural practice of Studio5. Established in Harare in 2014, we deliver architecture that expresses purpose across Zimbabwe." />
+  <title>Practice — Studio5 Architects | Purposeful Architecture in Zimbabwe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── Practice page additions ─────────────────────── */
+    .philosophy-card {
+      background: #FFFFFF;
+      padding: 3rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1px;
+      background: rgba(0,0,0,0.06);
+    }
+    .history-dot {
+      width: 10px;
+      height: 10px;
+      background: var(--blue);
+      border-radius: 50%;
+      position: relative;
+      z-index: 2;
+    }
+    .history-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="background:#FFFFFF;border-bottom:1px solid rgba(0,0,0,0.08);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="img/Studio-5-logo-wide-02.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-500 font-medium">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="practice.html"   class="nav-link text-[#0A0A0A]">Practice</a></li>
+          <li><a href="portfolio.html"  class="nav-link">Portfolio</a></li>
+          <li><a href="people.html"     class="nav-link">People</a></li>
+          <li><a href="insights.html"   class="nav-link">Insights</a></li>
+          <li><a href="contact.html"    class="nav-link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary text-[11px]">Get in Touch</a>
+      </nav>
+      <button id="menu-btn" class="lg:hidden text-gray-400" aria-label="Menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="pt-40 pb-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal">
+        <span class="label mb-6 block">The Studio</span>
+        <h1 class="font-serif text-[clamp(2.5rem,7vw,4.5rem)] font-bold text-[#0A0A0A] leading-tight mb-8">
+          Architecture<br/>Built on<br/><em style="color:var(--blue);">Conviction.</em>
+        </h1>
+        <p class="text-gray-500 text-lg leading-relaxed max-w-2xl">
+          Studio5 Architects is an architectural practice established in Harare in 2014. We believe that good architecture is a fundamental act of care — a commitment to improving the daily lives of people and the health of our environment.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PHILOSOPHY
+  ══════════════════════════════════════ -->
+  <section class="py-32 bg-[#F9FAFB]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20 mb-20 items-center">
+        <div class="reveal">
+          <span class="label mb-6 block">Our Approach</span>
+          <h2 class="font-serif text-4xl font-bold text-[#0A0A0A] mb-8 leading-tight">Listening before designing.</h2>
+          <p class="text-gray-500 text-lg leading-relaxed mb-10">Our process starts with thorough listening. We seek to understand the motivation behind a project, the climate of the site, and the aspirations of the community it serves. A well-considered brief is the key to an intelligent building.</p>
+          <div class="flex gap-4">
+             <div class="p-8 bg-white shadow-soft transition-transform hover:-translate-y-1 flex-1">
+               <p class="font-serif text-3xl font-bold text-blue-600 mb-2">100%</p>
+               <p class="text-[10px] tracking-widest uppercase text-gray-400 font-bold">Client-Centred Focus</p>
+             </div>
+             <div class="p-8 bg-white shadow-soft transition-transform hover:-translate-y-1 flex-1">
+               <p class="font-serif text-3xl font-bold text-blue-600 mb-2">AIAZ</p>
+               <p class="text-[10px] tracking-widest uppercase text-gray-400 font-bold">Registered Practice</p>
+             </div>
+          </div>
+        </div>
+        <div class="reveal reveal--scale delay-200">
+           <img src="img/principles (1).webp" alt="Practice values" class="w-full h-full object-cover shadow-2xl" />
+        </div>
+      </div>
+
+      <div class="philosophy-grid">
+        <div class="philosophy-card border-r">
+          <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">Climate Responsiveness</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Passive cooling, natural ventilation, and honest materials are at the heart of our design response to the Zimbabwean plateau.</p>
+        </div>
+        <div class="philosophy-card border-r">
+          <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">Social Responsibility</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">We measure success by the positive impact on our communities — through pro-bono work and mentorship.</p>
+        </div>
+        <div class="philosophy-card">
+          <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">Design Intelligence</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Buildings that work intuitively and maintain their quality over decades of occupation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       HISTORY
+  ══════════════════════════════════════ -->
+  <section class="py-24 bg-white overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <span class="label text-center block mb-16">The Journey So Far</span>
+      <div class="relative py-12">
+        <div class="history-line"></div>
+        <div class="flex justify-between items-center relative">
+          <div class="text-center w-1/4 px-4 bg-white">
+            <div class="history-dot mx-auto mb-4"></div>
+            <p class="font-bold text-gray-900">2014</p>
+            <p class="text-gray-500 text-xs mt-1">Foundation in Harare</p>
+          </div>
+          <div class="text-center w-1/4 px-4 bg-white">
+            <div class="history-dot mx-auto mb-4"></div>
+            <p class="font-bold text-gray-900">2018</p>
+            <p class="text-gray-500 text-xs mt-1">First Institutional Commission</p>
+          </div>
+          <div class="text-center w-1/4 px-4 bg-white">
+            <div class="history-dot mx-auto mb-4"></div>
+            <p class="font-bold text-gray-900">2021</p>
+            <p class="text-gray-500 text-xs mt-1">Bulawayo Presence Established</p>
+          </div>
+          <div class="text-center w-1/4 px-4 bg-white">
+            <div class="history-dot mx-auto mb-4"></div>
+            <p class="font-bold text-gray-900">2026</p>
+            <p class="text-gray-500 text-xs mt-1">Leading Regional Practice</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-9 w-auto mb-5" />
+          <p class="text-gray-500 text-xs leading-relaxed max-w-sm">Architecture that expresses purpose across Zimbabwe.</p>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Navigation</p>
+          <ul class="space-y-3 text-xs text-gray-500">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="practice.html" class="text-white">Practice</a></li>
+            <li><a href="portfolio.html" class="hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="people.html" class="hover:text-white transition-colors">People</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Contact</p>
+          <div class="space-y-4 text-xs text-gray-500">
+            <p>5 Chaifont Road, Harare</p>
+            <p>info@studio5architects.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 flex justify-between">
+        <p class="text-gray-500 text-xs">© 2026 Studio5 Architects.</p>
+        <p class="text-gray-500 text-xs">Zimbabwe</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

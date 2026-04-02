@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harare Civic Centre — A landmark institutional project by Studio5 Architects. Urban design and architectural excellence in the heart of Zimbabwe." />
+  <title>Harare Civic Centre — Studio5 Architects | Institutional Architecture</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <script defer src="../js/main.js"></script>
+  <style>
+    /* ── Project Project styles ───────────────────── */
+    .project-hero {
+      height: 85vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .project-meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 2rem;
+    }
+    .project-meta-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9CA3AF;
+      margin-bottom: 0.25rem;
+      display: block;
+    }
+    .project-meta-value {
+      font-weight: 600;
+      color: #0A0A0A;
+      font-size: 0.875rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="background:rgba(255,255,255,0.95);border-bottom:1px solid rgba(0,0,0,0.08);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="../index.html" class="flex-shrink-0">
+        <img src="../img/Studio-5-logo-wide-02.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-500 font-medium">
+          <li><a href="../index.html"      class="nav-link">Home</a></li>
+          <li><a href="../practice.html"   class="nav-link">Practice</a></li>
+          <li><a href="../portfolio.html"  class="nav-link text-[#0A0A0A]">Portfolio</a></li>
+          <li><a href="../people.html"     class="nav-link">People</a></li>
+          <li><a href="../insights.html"   class="nav-link">Insights</a></li>
+          <li><a href="../contact.html"    class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="menu-btn" class="lg:hidden text-gray-400" aria-label="Menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       PROJECT HERO
+  ══════════════════════════════════════ -->
+  <section class="project-hero">
+    <img src="../img/banner1.png" alt="Harare Civic Centre" />
+    <div class="absolute inset-0 bg-black/20"></div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PROJECT HEADER
+  ══════════════════════════════════════ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-12 gap-16">
+        
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-3 mb-6">
+            <span class="rule"></span>
+            <span class="label">Civic & Institutional</span>
+          </div>
+          <h1 class="font-serif text-5xl md:text-6xl font-bold text-[#0A0A0A] leading-tight mb-10">Harare Civic <br/><em style="color:var(--blue);">Centre Expansion.</em></h1>
+          
+          <div class="prose prose-lg text-gray-500 max-w-none">
+            <p class="text-xl leading-relaxed mb-6">A civic architecture that prioritizes transparency and accessibility, creating a new interface between the government and the people of Harare.</p>
+            <p>The expansion of the Harare Civic Centre was conceived as an exercise in "porosity". We sought to break down the monolithic nature of typical institutional buildings, introducing open courtyards, shaded walkways, and a public atrium that invites the city in. The design responds to the local climate through high-performance glazing and a secondary veil of perforated screen-work that manages solar gain while allowing natural ventilation.</p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4">
+          <div class="bg-[#F4F5F7] p-10">
+            <div class="space-y-8">
+              <div>
+                <span class="text-[10px] tracking-widest uppercase text-gray-400 block mb-1">Location</span>
+                <p class="font-semibold text-[#0A0A0A]">Harare, Zimbabwe</p>
+              </div>
+              <div>
+                <span class="text-[10px] tracking-widest uppercase text-gray-400 block mb-1">Year</span>
+                <p class="font-semibold text-[#0A0A0A]">2022 — 2026</p>
+              </div>
+              <div>
+                <span class="text-[10px] tracking-widest uppercase text-gray-400 block mb-1">Status</span>
+                <p class="font-semibold text-[#0A0A0A]">Under Construction</p>
+              </div>
+              <div>
+                <span class="text-[10px] tracking-widest uppercase text-gray-400 block mb-1">Sector</span>
+                <p class="font-semibold text-[#0A0A0A]">Institutional</p>
+              </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-200">
+               <a href="../contact.html" class="btn-primary w-full justify-center">Enquire About Similar Projects</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GALLERY
+  ══════════════════════════════════════ -->
+  <section class="pb-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="gallery-grid">
+        <div class="col-span-12 md:col-span-8 aspect-[16/9]">
+           <img src="../img/banner2.png" alt="Interior Detail" class="w-full h-full object-cover" />
+        </div>
+        <div class="col-span-12 md:col-span-4 aspect-square">
+           <img src="../img/mission.webp" alt="Facade studies" class="w-full h-full object-cover" />
+        </div>
+        <div class="col-span-12 md:col-span-4 aspect-square">
+           <img src="../img/principles (1).webp" alt="Atrium View" class="w-full h-full object-cover" />
+        </div>
+        <div class="col-span-12 md:col-span-8 aspect-[16/9]">
+           <img src="../img/hero-image.jpg" alt="Nocturnal View" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <img src="../img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-9 w-auto" />
+        <div class="flex gap-10">
+          <a href="../portfolio.html" class="text-gray-500 text-xs tracking-widest uppercase hover:text-white transition-colors">Back to Portfolio</a>
+          <a href="../contact.html" class="text-gray-500 text-xs tracking-widest uppercase hover:text-white transition-colors">Next Project →</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

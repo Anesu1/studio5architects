@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Insights and architectural thinking from Studio5 Architects. Exploring the intersection of design, climate, and community in Zimbabwe." />
+  <title>Insights — Studio5 Architects | Architectural Thinking & Journal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── Insights page styles ─────────────────────── */
+    .insight-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .insight-card:hover {
+      border-color: var(--blue);
+      transform: translateY(-4px);
+    }
+    .insight-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+    }
+    .insight-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .insight-card:hover .insight-img-wrap img {
+      transform: scale(1.05);
+    }
+    .category-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--blue);
+      border-bottom: 2px solid var(--blue-dim);
+      padding-bottom: 2px;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="background:#FFFFFF;border-bottom:1px solid rgba(0,0,0,0.08);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="img/Studio-5-logo-wide-02.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-500 font-medium">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="practice.html"   class="nav-link">Practice</a></li>
+          <li><a href="portfolio.html"  class="nav-link">Portfolio</a></li>
+          <li><a href="people.html"     class="nav-link">People</a></li>
+          <li><a href="insights.html"   class="nav-link text-[#0A0A0A]">Insights</a></li>
+          <li><a href="contact.html"    class="nav-link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary text-[11px]">Get in Touch</a>
+      </nav>
+      <button id="menu-btn" class="lg:hidden text-gray-400" aria-label="Menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section style="background:#FFFFFF;padding-top:120px;" class="pb-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center gap-3 mb-7">
+        <span class="rule"></span>
+        <span class="label">Thinking & Journal</span>
+      </div>
+      <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#0A0A0A] leading-tight mb-8">
+        Insights into the<br/>Built <em style="color:var(--blue);">Environment.</em>
+      </h1>
+      <p class="text-gray-500 text-lg leading-relaxed max-w-2xl">
+        A collection of stories, research, and reflections from our studio. We explore the intersection of architectural practice, local materials, and the evolving urban landscape of Zimbabwe.
+      </p>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ══════════════════════════════════════
+       FEATURED ARTICLE
+  ══════════════════════════════════════ -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <div class="insight-img-wrap rounded-none shadow-sm">
+          <img src="img/banner1.png" alt="Featured Article" />
+        </div>
+        <div>
+          <span class="category-tag">Research & Materials</span>
+          <h2 class="font-serif text-4xl font-bold text-[#0A0A0A] mb-6 leading-tight">Thermal Mass & The Highveld: Rethinking Passive Cooling in Harare.</h2>
+          <p class="text-gray-500 text-base leading-relaxed mb-8">How traditional building methods can inform modern climate-responsive architecture. We investigate the performance of local brickwork and stone in managing the diurnal temperature swings of the Zimbabwean plateau.</p>
+          <a href="#" class="btn-outline">Read the Story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       GRID
+  ══════════════════════════════════════ -->
+  <section class="py-20 bg-[#F4F5F7]">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Article 1 -->
+        <article class="insight-card">
+          <div class="insight-img-wrap">
+            <img src="img/mission.webp" alt="Article 1" />
+          </div>
+          <div class="p-8">
+            <span class="category-tag">Studio Life</span>
+            <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">Architecture as a Fundamental Act of Care.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Reflecting on a decade of practice in Harare and the responsibility architects carry in shaping the public realm.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+              <span class="text-gray-400 text-[10px] tracking-widest uppercase">March 2026</span>
+              <a href="#" class="text-blue-600 text-xs font-semibold hover:underline">Read More</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="insight-card">
+          <div class="insight-img-wrap">
+            <img src="img/banner2.png" alt="Article 2" />
+          </div>
+          <div class="p-8">
+            <span class="category-tag">Urban Design</span>
+            <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">The Porous City: Pedestrian Connectivity in CBD.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">Exploring ways to reclaim the street level for people in high-density urban environments through mixed-use activation.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+              <span class="text-gray-400 text-[10px] tracking-widest uppercase">February 2026</span>
+              <a href="#" class="text-blue-600 text-xs font-semibold hover:underline">Read More</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="insight-card">
+          <div class="insight-img-wrap">
+            <img src="img/principles (1).webp" alt="Article 3" />
+          </div>
+          <div class="p-8">
+            <span class="category-tag">Heritage</span>
+            <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">Adaptive Reuse: Breathing Life into Historic Fabric.</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-6">The technical and ethical challenges of modern additions to colonial-era structures in Bulawayo.</p>
+            <div class="flex items-center justify-between pt-6 border-t border-gray-100">
+              <span class="text-gray-400 text-[10px] tracking-widest uppercase">January 2026</span>
+              <a href="#" class="text-blue-600 text-xs font-semibold hover:underline">Read More</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-9 w-auto mb-5" />
+          <p class="text-gray-500 text-xs leading-relaxed max-w-sm">Architecture that expresses purpose and interacts sympathetically with its surroundings.</p>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Navigation</p>
+          <ul class="space-y-3 text-xs text-gray-500">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="practice.html" class="hover:text-white transition-colors">Practice</a></li>
+            <li><a href="portfolio.html" class="hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="insights.html" class="text-white">Insights</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Contact</p>
+          <div class="space-y-4 text-xs text-gray-500">
+            <p>5 Chaifont Road, Greencroft, Harare</p>
+            <p>info@studio5architects.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 flex justify-between">
+        <p class="text-gray-500 text-xs">© 2026 Studio5 Architects.</p>
+        <p class="text-gray-500 text-xs">Zimbabwe</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meet the team behind Studio5 Architects. A multi-disciplinary collective of architects, designers, and project managers in Zimbabwe." />
+  <title>People — Studio5 Architects | Our Multi-Disciplinary Team</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script defer src="js/main.js"></script>
+  <style>
+    /* ── People page styles ─────────────────────── */
+    .team-card {
+      position: relative;
+      overflow: hidden;
+      background: #080808;
+      aspect-ratio: 4/5;
+    }
+    .team-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: grayscale(1) contrast(1.1);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .team-card:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0) contrast(1);
+    }
+    .team-card-info {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      opacity: 0.9;
+      transition: opacity 0.4s ease;
+    }
+    .team-card-name {
+      font-family: inherit; /* Handled by parent font-serif class in HTML */
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.25rem;
+    }
+    .team-card-role {
+      font-size: 10px;
+      letter-spacing: 0.2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #3B82F6;
+    }
+    .team-card-quals {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+      opacity: 0;
+    }
+    .team-card:hover .team-card-quals {
+      max-height: 150px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+    .team-card-quals p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════ -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4" style="background:#FFFFFF;border-bottom:1px solid rgba(0,0,0,0.08);">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" class="flex-shrink-0">
+        <img src="img/Studio-5-logo-wide-02.svg" alt="Studio5 Architects" class="h-10 w-auto" />
+      </a>
+      <nav class="hidden lg:flex items-center gap-8">
+        <ul class="flex items-center gap-7 text-[11px] tracking-widest uppercase text-gray-500 font-medium">
+          <li><a href="index.html"      class="nav-link">Home</a></li>
+          <li><a href="practice.html"   class="nav-link">Practice</a></li>
+          <li><a href="portfolio.html"  class="nav-link">Portfolio</a></li>
+          <li><a href="people.html"     class="nav-link text-[#0A0A0A]">People</a></li>
+          <li><a href="insights.html"   class="nav-link">Insights</a></li>
+          <li><a href="contact.html"    class="nav-link">Contact</a></li>
+        </ul>
+        <a href="contact.html" class="btn-primary text-[11px]">Get in Touch</a>
+      </nav>
+      <button id="menu-btn" class="lg:hidden text-gray-400" aria-label="Menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="pt-40 pb-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="reveal">
+        <span class="label mb-6 block">Our collective</span>
+        <h1 class="font-serif text-[clamp(2.5rem,7vw,4.5rem)] font-bold text-[#0A0A0A] leading-tight mb-8">
+          The Minds Behind<br/>the <em style="color:var(--blue);">Work.</em>
+        </h1>
+        <p class="text-gray-500 text-lg leading-relaxed max-w-2xl">
+          Studio5 is a collective of architects, designers, and project managers. We bring together diverse perspectives and technical expertise to solve complex architectural challenges.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ══════════════════════════════════════
+       TEAM GRID
+  ══════════════════════════════════════ -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        
+        <!-- 1 — Brighton Madondo -->
+        <div class="team-card reveal reveal--scale">
+          <img src="img/team/brighton-madondo.jpg" alt="Brighton Madondo" onerror="this.src='https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80'" />
+          <div class="team-card-info">
+            <p class="team-card-name underline-offset-4 decoration-blue-500/30">Brighton Madondo</p>
+            <p class="team-card-role">Principal Architect</p>
+            <div class="team-card-quals">
+              <p>M.Arch (NUST)</p>
+              <p>Member, Architect's Council Zimbabwe</p>
+              <p>Member, AIAZ</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 — Tapiwa Manditsera -->
+        <div class="team-card reveal reveal--scale delay-100">
+          <img src="img/team/tapiwa-manditsera.jpg" alt="Tapiwa Manditsera" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80'" />
+          <div class="team-card-info">
+            <p class="team-card-name">Tapiwa Manditsera</p>
+            <p class="team-card-role">Architect</p>
+            <div class="team-card-quals">
+              <p>M.Arch (NUST)</p>
+              <p>B.Arch Studies (Hons)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 — Tinashe Honde -->
+        <div class="team-card reveal reveal--scale delay-200">
+          <img src="img/team/tinashe-honde.jpg" alt="Tinashe Honde" onerror="this.src='https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80'" />
+          <div class="team-card-info">
+            <p class="team-card-name">Tinashe Honde</p>
+            <p class="team-card-role">Architect</p>
+            <div class="team-card-quals">
+              <p>M.Arch Professional (Cyprus)</p>
+              <p>Registered Architect, ACZ</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 — Bernice Murape -->
+        <div class="team-card reveal reveal--scale delay-300">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" alt="Bernice Murape" />
+          <div class="team-card-info">
+            <p class="team-card-name">Bernice Murape</p>
+            <p class="team-card-role">Architectural Lead</p>
+            <div class="team-card-quals">
+              <p>B.ArchStudies (Hons)</p>
+              <p>Senior Associate</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Join card -->
+        <div class="p-10 border border-gray-100 flex flex-col justify-center bg-[#F9FAFB] reveal delay-200">
+          <h3 class="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">Collaborative Spirit</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-8">We are always looking for talented architects and designers who share our design conviction.</p>
+          <a href="contact.html" class="btn-primary w-full justify-center">Join the Practice</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer style="background:#000;" class="py-14">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <img src="img/Studio-5-logo-wide-white.svg" alt="Studio5 Architects" class="h-9 w-auto mb-5" />
+          <p class="text-gray-500 text-xs leading-relaxed max-w-sm">A collective of architects delivering design excellence.</p>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Navigation</p>
+          <ul class="space-y-3 text-xs text-gray-500">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="practice.html" class="hover:text-white transition-colors">Practice</a></li>
+            <li><a href="portfolio.html" class="hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="people.html" class="text-white">People</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-[10px] tracking-widest uppercase text-gray-500 font-semibold mb-5">Contact</p>
+          <div class="space-y-4 text-xs text-gray-500">
+            <p>5 Chaifont Road, Harare</p>
+            <p>info@studio5architects.com</p>
+          </div>
+        </div>
+      </div>
+      <div class="pt-8 border-t border-white/10 flex justify-between">
+        <p class="text-gray-500 text-xs">© 2026 Studio5 Architects.</p>
+        <p class="text-gray-500 text-xs">Zimbabwe</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
