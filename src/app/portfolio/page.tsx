@@ -13,90 +13,8 @@ const FILTERS = [
   { key: 'masterplanning', label: 'Urban & Planning' },
 ];
 
-interface Project {
-  id: number;
-  sector: string;
-  title: string;
-  description: string;
-  location: string;
-  year: string;
-  badge?: string;
-  award?: boolean;
-  featured?: boolean;
-  img: string;
-  imgAlt: string;
-}
+import { PROJECTS, Project } from '@/lib/projects';
 
-const PROJECTS: Project[] = [
-  {
-    id: 1,
-    sector: 'commercial',
-    title: 'Gweru Mall Expansion',
-    description: 'A major retail expansion providing 12,000 m² of new retail space, anchor tenants, and a reimagined public food court that serves as a community hub.',
-    location: 'Gweru',
-    year: '2023',
-    badge: 'Retail',
-    featured: true,
-    img: '/images/gweru-mall (1).webp',
-    imgAlt: 'Gweru Mall Expansion Architecture',
-  },
-  {
-    id: 2,
-    sector: 'commercial',
-    title: 'Cell Insurance Headquarters',
-    description: 'A contemporary corporate office building designed with a high-performance glass facade and open-plan workspaces to foster collaboration.',
-    location: 'Harare',
-    year: '2022',
-    badge: 'Office',
-    award: true,
-    img: '/images/cell-insurance (1).webp',
-    imgAlt: 'Cell Insurance Headquarters Exterior',
-  },
-  {
-    id: 3,
-    sector: 'commercial',
-    title: 'Glow Petroleum Precinct',
-    description: 'Strategic retail and industrial hub designed for high-volume logistics and customer experience in Chitungwiza.',
-    location: 'Chitungwiza',
-    year: '2021',
-    badge: 'Industrial',
-    img: '/images/glow-petroleum (1).webp',
-    imgAlt: 'Glow Petroleum Precinct Chitungwiza',
-  },
-  {
-    id: 4,
-    sector: 'commercial',
-    title: 'Hyundai Showroom',
-    description: 'A minimalist, high-tech automotive showroom that emphasizes transparency and clean lines to showcase premium vehicles.',
-    location: 'Harare',
-    year: '2023',
-    badge: 'Retail',
-    img: '/images/projects/hyndai/ezgif-frame-001.webp',
-    imgAlt: 'Hyundai Showroom Harare',
-  },
-  {
-    id: 5,
-    sector: 'civic',
-    title: 'National Sports Stadium Upgrade',
-    description: 'Phased upgrade programme for spectator facilities and structural improvements.',
-    location: 'Harare',
-    year: '2019',
-    badge: 'Civic',
-    img: '/img/banner1.png',
-    imgAlt: 'National Sports Stadium Upgrade',
-  },
-  {
-    id: 6,
-    sector: 'masterplanning',
-    title: 'Ruwa Township Masterplan',
-    description: 'Urban design framework for a 250-hectare mixed-use township extension.',
-    location: 'Ruwa',
-    year: '2023',
-    badge: 'Masterplanning',
-    img: '/img/banner2.png',
-    imgAlt: 'Ruwa Township Masterplan',
-  }
-];
 
 function PortfolioContent() {
   const searchParams = useSearchParams();
@@ -168,8 +86,8 @@ function PortfolioContent() {
                 >
                   <div className="project-img-wrap aspect-[4/5] bg-gray-100 overflow-hidden relative">
                     <img 
-                       src={project.img} 
-                       alt={project.imgAlt} 
+                       src={project.image} 
+                       alt={project.title} 
                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
                     />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">

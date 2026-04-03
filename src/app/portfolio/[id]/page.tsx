@@ -1,19 +1,13 @@
 'use client';
 
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import CTASection from '@/components/CTASection';
 
-const PROJECTS = [
-  { id: '1', title: 'Gweru Mall Expansion', sector: 'Commercial', year: '2023', location: 'Gweru', img: '/images/gweru-mall (1).webp' },
-  { id: '2', title: 'Cell Insurance Headquarters', sector: 'Commercial', year: '2022', location: 'Harare', img: '/images/cell-insurance (1).webp'  },
-  { id: '3', title: 'Glow Petroleum Precinct', sector: 'Commercial', year: '2021', location: 'Chitungwiza', img: '/images/glow-petroleum (1).webp'  },
-  { id: '4', title: 'Hyundai Showroom', sector: 'Commercial', year: '2023', location: 'Harare', img: '/images/projects/hyndai/ezgif-frame-001.webp'  },
-  { id: '5', title: 'National Sports Stadium Upgrade', sector: 'Civic', year: '2019', location: 'Harare', img: '/img/banner1.png' },
-  { id: '6', title: 'Ruwa Township Masterplan', sector: 'Masterplanning', year: '2023', location: 'Ruwa', img: '/img/banner2.png' },
-];
+import { PROJECTS, Project } from '@/lib/projects';
+
 
 function ProjectContent({ id }: { id: string }) {
   const project = PROJECTS.find(p => p.id === id) || PROJECTS[0];
@@ -52,7 +46,7 @@ function ProjectContent({ id }: { id: string }) {
           </div>
 
           <div className="relative aspect-video bg-gray-100 overflow-hidden mb-20 shadow-2xl">
-             <Image src={project.img} alt={project.title} fill className="object-cover" priority />
+             <Image src={project.image} alt={project.title} fill className="object-cover" priority />
           </div>
 
           <div className="grid lg:grid-cols-12 gap-16">
@@ -72,7 +66,7 @@ function ProjectContent({ id }: { id: string }) {
                 
                 <div className="grid md:grid-cols-2 gap-12 reveal">
                    <div className="relative aspect-square bg-gray-50 overflow-hidden order-last md:order-first">
-                      <Image src={project.img} alt="Process Detail" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                      <Image src={project.image} alt="Process Detail" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
                    </div>
                    <div>
                       <h3 className="font-serif text-2xl font-bold mb-4">The Response</h3>
@@ -120,6 +114,26 @@ function ProjectContent({ id }: { id: string }) {
         </div>
       </section>
 
+      {project.gallery && project.gallery.length > 0 && (
+        <section className="pb-24 bg-white">
+          <div className="max-w-7xl mx-auto px-6">
+            <h2 className="font-serif text-3xl font-bold mb-12 text-[#0A0A0A]">Project Gallery</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {project.gallery.filter(img => img !== null).map((img, index) => (
+                <div key={index} className="relative aspect-[4/3] bg-gray-50 overflow-hidden group">
+                  <Image 
+                    src={img as string} 
+                    alt={`${project.title} - view ${index + 1}`} 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <CTASection
         title="Inspired by this Project?"
         subtitle="Let's discuss how we can bring same technical rigour and geographical sensitivity to your next project."
@@ -129,10 +143,12 @@ function ProjectContent({ id }: { id: string }) {
   );
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+export default function ProjectPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
   return (
     <Suspense fallback={<div className="pt-60 pb-40 text-center font-serif italic text-gray-400">Loading Project Details...</div>}>
-      <ProjectContent id={params.id} />
+      <ProjectContent id={id} />
     </Suspense>
   );
 }
+
