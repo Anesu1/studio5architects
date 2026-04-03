@@ -40,7 +40,7 @@ export default function HeroCarousel() {
           <div className="absolute inset-0 bg-black/30 pointer-events-none" />
           
           {/* Caption Overlay */}
-          <div className="absolute -bottom-10 -left-10 bg-black p-8 text-white hidden lg:block reveal">
+          <div className="absolute bottom-10 left-10 bg-black p-8 text-white hidden lg:block reveal">
             <p className="text-[10px] tracking-widest uppercase mb-2 text-blue-400 font-bold">{slide.label}</p>
             <p className="font-serif text-xl mb-1">{slide.title}</p>
             <p className="text-[10px] tracking-widest uppercase opacity-60">{slide.sub}</p>
