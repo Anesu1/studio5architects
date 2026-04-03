@@ -6,12 +6,11 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/',          label: 'Home' },
-  { href: '/practice',  label: 'Practice' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/people',    label: 'People' },
-  { href: '/insights',  label: 'Insights' },
-  { href: '/contact',   label: 'Contact' },
+  { href: '/practice',       label: 'Practice' },
+  { href: '/portfolio',      label: 'Portfolio' },
+  { href: '/services',       label: 'Services' },
+  { href: '/sectors',        label: 'Sectors' },
+  { href: '/insights',       label: 'Insights' },
 ];
 
 export default function Navbar() {
@@ -44,7 +43,7 @@ export default function Navbar() {
             alt="Studio5 Architects"
             width={160}
             height={40}
-            className="h-10 w-auto"
+            className="h-5 md:h-10 w-auto"
             priority
           />
         </Link>

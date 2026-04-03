@@ -2,13 +2,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const footerNav = [
-  { href: '/',          label: 'Home' },
-  { href: '/practice',  label: 'Practice' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/people',    label: 'People' },
-  { href: '/insights',  label: 'Insights' },
-  { href: '/csr',       label: 'CSR' },
-  { href: '/contact',   label: 'Contact' },
+  { href: '/',               label: 'Home' },
+  { href: '/practice',       label: 'Practice' },
+  { href: '/people',         label: 'People' },
+  { href: '/portfolio',      label: 'Portfolio' },
+  { href: '/services',       label: 'Services' },
+  { href: '/sectors',        label: 'Sectors' },
+  { href: '/sustainability', label: 'Sustainability' },
+  { href: '/csr',            label: 'CSR' },
+  { href: '/community',      label: 'Community' },
+  { href: '/insights',       label: 'Insights' },
+  { href: '/contact',        label: 'Contact' },
 ];
 
 export default function Footer() {

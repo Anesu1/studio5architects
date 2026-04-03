@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import HeroCarousel from '@/components/HeroCarousel';
 
 export const metadata: Metadata = {
-  title: 'Studio5 Architects — Designing Spaces Where Humanity Can Thrive',
+  title: 'Studio5 Architects — Architecture Expressing Purpose in Zimbabwe',
+  description: 'Studio5 Architects is an award-winning architectural practice in Harare, specializing in climate-responsive design, civic infrastructure, and sustainable residential architecture across Zimbabwe.',
 };
 
 const pillars = [
@@ -97,28 +99,29 @@ export default function HomePage() {
             <div>
               <span className="label mb-6 block tracking-[0.4em]">Practice • Est. 2014</span>
               <h1 className="font-serif text-[clamp(2.5rem,8vw,5.5rem)] font-bold text-[#0A0A0A] leading-[1.05] tracking-tight mb-10">
-                Architecture that<br />Expresses <em style={{ color: 'var(--blue)' }} className="italic">Purpose.</em>
+                Architecture that connects<br /><em style={{ color: 'var(--blue)' }} className="italic">people, place &amp; purpose.</em>
               </h1>
               <p className="text-[#4B5563] text-lg md:text-xl leading-relaxed max-w-xl mb-12">
-                Studio5 Architects creates spaces that interact sympathetically with their surroundings,
-                delivering design excellence through technical rigour and architectural conviction.
+                Rooted in the Zimbabwean plateau, Studio5 Architects delivers design excellence 
+                through technical rigour, climate intelligence, and architectural conviction.
               </p>
               <div className="flex flex-wrap gap-5">
-                <Link href="/portfolio" className="btn-primary">View Portfolio</Link>
-                <Link href="/practice" className="btn-outline border-none !px-0 flex items-center gap-3 group">
-                  Our Practice
-                  <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" /></svg>
+                <Link href="/portfolio" className="btn-primary group">
+                  See Case Studies
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                </Link>
+                <Link href="/practice" className="btn-outline border border-[#0A0A0A] px-10 py-5 text-[10px] tracking-widest uppercase font-bold hover:bg-[#0A0A0A] hover:text-white transition-all shadow-md">
+                 View Approach
+                </Link>
+                <Link href="/contact" className="btn-outline bg-blue-600 text-white border-blue-600 px-10 py-5 text-[10px] tracking-widest uppercase font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20">
+                  Start Project
                 </Link>
               </div>
             </div>
 
             <div className="relative">
-              <div className="hero-img-wrap rounded-none shadow-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4]">
-                <img src="/img/hero-image.jpg" alt="Harare Architectural Design" className="w-full h-full object-cover" />
-              </div>
-              <div className="absolute -bottom-10 -left-10 bg-black p-8 text-white hidden lg:block">
-                <p className="text-[10px] tracking-widest uppercase mb-2 text-blue-400">Featured Project</p>
-                <p className="font-serif text-xl">Harare Civic<br />Centre Expansion</p>
+              <div className="hero-img-wrap rounded-none shadow-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] border border-gray-100">
+                <HeroCarousel />
               </div>
             </div>
 
@@ -137,14 +140,34 @@ export default function HomePage() {
                 Architecture That<br />Expresses Purpose.
               </h2>
             </div>
-            <div className="lg:col-span-7 lg:pl-8">
-              <p className="text-[#374151] text-base leading-relaxed mb-5">
-                Studio5 Architects is a full-service practice built on the conviction that architecture is most powerful when it grows from its context — from the climate, the community, the brief, and the site.
-                Founded in Harare, we bring together registered architects, designers, and project managers united by a singular commitment: buildings that serve people with intelligence and integrity.
+            <div className="lg:col-span-7 lg:pl-8 font-serif">
+              <p className="text-[#374151] text-lg leading-relaxed mb-6 italic">
+                Studio5 is an integrated practice where architecture, landscape, and interiors work in <em style={{ color: 'var(--blue)' }}>total cohesion.</em>
               </p>
-              <p className="text-[#4B5563] text-sm leading-relaxed">
-                We work at every scale — from intimate private residences to large civic and commercial commissions. Every project receives the same rigorous design thinking, precise technical execution, and close client collaboration.
+              <p className="text-[#4B5563] text-sm leading-relaxed mb-8">
+                We believe that great architecture is the result of rigorous collaboration and a deep respect for context. Our work spans from bespoke retreats to civic masterplans, always driven by <strong className="text-gray-900 uppercase tracking-widest text-[10px]">Skill, not Ego</strong>.
               </p>
+              <div className="flex bg-blue-50/50 p-8 border border-blue-100/50 gap-10">
+                 <div>
+                   <p className="text-[10px] tracking-widest uppercase font-bold text-blue-600 mb-2">Our Commitments</p>
+                   <ul className="text-xs text-gray-500 space-y-2">
+                     <li className="flex items-center gap-2">
+                       <span className="w-1 h-1 bg-blue-600" /> Passive Design Strategies
+                     </li>
+                     <li className="flex items-center gap-2">
+                       <span className="w-1 h-1 bg-blue-600" /> Respect for Local Culture
+                     </li>
+                     <li className="flex items-center gap-2">
+                       <span className="w-1 h-1 bg-blue-600" /> Client Collaboration
+                     </li>
+                   </ul>
+                 </div>
+                 <div className="flex items-center">
+                    <Link href="/practice" className="text-blue-600 text-[10px] font-bold tracking-widest uppercase border-b border-blue-600/30 hover:border-blue-600 transition-colors">
+                      Explore Our Philosophy →
+                    </Link>
+                 </div>
+              </div>
             </div>
           </div>
 
@@ -165,20 +188,47 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Stats Band ── */}
-      <div style={{ background: 'var(--blue)' }} className="py-14">
+      {/* ── Studio Laboratory ── */}
+      <section className="py-28 bg-[#F4F5F7] border-y border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 text-center">
-            {stats.map(({ value, label, sub }) => (
-              <div key={label}>
-                <p className="font-serif text-5xl font-bold text-white leading-none mb-2">{value}</p>
-                <p className="text-blue-200 text-xs tracking-widest uppercase">{label}</p>
-                <p className="text-blue-200/70 text-xs mt-1">{sub}</p>
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div className="reveal">
+              <span className="label mb-6 block">Our Studio</span>
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#0A0A0A] mb-8 leading-tight">
+                A Laboratory for <br /><em style={{ color: 'var(--blue)' }}>Brave Beauty.</em>
+              </h2>
+              <p className="text-gray-500 text-lg leading-relaxed mb-10">
+                Our Harare studio is more than an office — it is a lab for physical modelling, material innovation, 
+                and computational simulation. We ensure that every project at Studio5 is rational, buildable, and poetic.
+              </p>
+              <div className="flex gap-4">
+                <div className="w-1/2 aspect-square relative border border-gray-200 grayscale hover:grayscale-0 transition-all duration-700 bg-white shadow-sm group">
+                   <Image src="/img/banner1.png" alt="Drafting process" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                   <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <div className="w-1/2 aspect-square relative border border-gray-200 grayscale hover:grayscale-0 transition-all duration-700 bg-white shadow-sm group">
+                   <Image src="/img/banner2.png" alt="Site safety & integrity" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                   <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
               </div>
-            ))}
+            </div>
+            <div className="reveal reveal--scale relative h-full">
+              <div className="aspect-[4/5] relative overflow-hidden shadow-2xl">
+                <Image
+                  src="/img/banner3.png"
+                  alt="Team Collaboration"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 border border-gray-100 hidden md:block">
+                 <p className="text-[10px] tracking-widest uppercase font-bold text-blue-600 mb-1">Collaboration</p>
+                 <p className="font-serif text-sm text-gray-900 leading-tight italic">“Architecture is most powerful <br />when reached together.”</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* ── Services ── */}
       <section id="services" style={{ background: '#FFFFFF' }} className="py-28">
@@ -198,39 +248,21 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {services.map(({ title, body, bullets, icon }) => (
-              <div key={title} className="service-card p-8">
-                <div className="card-icon w-12 h-12 flex items-center justify-center mb-6" style={{ background: 'rgba(27,79,138,0.15)', border: '1px solid rgba(59,130,196,0.25)' }}>
-                  <svg className="w-5 h-5" style={{ color: 'var(--blue-light)' }} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">{icon}</svg>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100">
+            {[
+              { title: 'Architecture & Design', icon: <path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />, body: 'Crafting expressive structures that respond to place, climate and lifestyle.' },
+              { title: 'Landscape & Ecology', icon: <path d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747" />, body: 'Integrating biodiversity and regional setting for resilient, life-supporting environments.' },
+              { title: 'Interiors & Objects', icon: <path d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245" />, body: 'Designing human-centred spaces from the inside out with bespoke furniture and details.' },
+              { title: 'Urbanism & Masterplanning', icon: <path d="M9 6.75V15m6-6v8.25m.503 3.498 4.875-2.437" />, body: 'Strategic frameworks that lead the creative vision for future-ready communities.' },
+            ].map(({ title, icon, body }) => (
+              <div key={title} className="bg-white p-10 hover:bg-gray-50 transition-colors">
+                <div className="w-12 h-12 flex items-center justify-center mb-6 bg-blue-600/5 text-blue-600 border border-blue-600/10">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">{icon}</svg>
                 </div>
-                <h3 className="font-semibold text-[#0A0A0A] mb-3">{title}</h3>
-                <p className="text-[#4B5563] text-sm leading-relaxed mb-5">{body}</p>
-                <ul className="space-y-1.5">
-                  {bullets.map(b => (
-                    <li key={b} className="text-xs text-[#6B7280] flex gap-2">
-                      <span style={{ color: 'var(--blue)' }}>—</span> {b}
-                    </li>
-                  ))}
-                </ul>
+                <h3 className="font-serif text-lg font-bold text-[#0A0A0A] mb-3">{title}</h3>
+                <p className="text-[#6B7280] text-sm leading-relaxed">{body}</p>
               </div>
             ))}
-
-            {/* P&CM highlight card */}
-            <div className="p-8 relative overflow-hidden" style={{ background: 'var(--blue)' }}>
-              <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px)', backgroundSize: '30px 30px' }} />
-              <div className="relative z-10">
-                <div className="w-12 h-12 flex items-center justify-center mb-6 bg-white/10 border border-white/20">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" /></svg>
-                </div>
-                <h3 className="font-semibold text-white mb-3">Project &amp; Construction Management</h3>
-                <p className="text-blue-100 text-sm leading-relaxed mb-6">We act as your single point of accountability from procurement through to handover — managing contractors, controlling costs, and ensuring the building you receive matches the building you approved.</p>
-                <Link href="#approach" className="inline-flex items-center gap-2 text-white text-[11px] tracking-widest uppercase font-semibold border-b border-white/40 pb-0.5 hover:border-white transition-colors">
-                  See Our Process
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -252,16 +284,20 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
-            {sectors.map(({ title, body, icon }) => (
-              <div key={title} className="sector-card bg-white p-7">
-                <div className="flex items-start gap-5">
-                  <div className="w-10 h-10 shrink-0 flex items-center justify-center" style={{ background: 'var(--blue-dim)', border: '1px solid rgba(27,79,138,0.2)' }}>
-                    <svg className="w-5 h-5" style={{ color: 'var(--blue)' }} fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">{icon}</svg>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {sectors.map(({ title, body, icon }, i) => (
+              <div key={title} className="sector-card bg-white p-10 border border-gray-100 hover:border-blue-100 transition-all group overflow-hidden relative">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-10 blur-xl group-hover:blur-0 transition-all duration-1000 scale-110 group-hover:scale-100 pointer-events-none">
+                   <Image src={['/img/hero-1.png', '/img/banner1.png', '/img/banner2.png', '/img/banner3.png', '/img/hero-1.png', '/img/banner1.png'][i]} alt="Background" fill className="object-cover grayscale" />
+                </div>
+                <div className="flex items-start gap-5 relative z-10">
+                  <div className="w-12 h-12 shrink-0 flex items-center justify-center bg-blue-50 text-blue-600 border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">{icon}</svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-sm mb-1" style={{ color: 'var(--black)' }}>{title}</h3>
-                    <p className="text-[#4B5563] text-xs leading-relaxed">{body}</p>
+                    <h3 className="font-serif text-xl font-bold mb-3 tracking-tight group-hover:text-blue-600 transition-colors">{title}</h3>
+                    <p className="text-gray-500 text-[13px] leading-relaxed mb-6">{body}</p>
+                    <Link href="/sectors" className="text-[10px] tracking-widest uppercase font-bold text-blue-600 border-b border-blue-600/20 hover:border-blue-600 transition-all pb-1">Explore Sector →</Link>
                   </div>
                 </div>
               </div>
@@ -410,9 +446,9 @@ export default function HomePage() {
                   <label className="block text-[10px] tracking-widest uppercase text-[#4B5563] mb-2">Project Brief</label>
                   <textarea rows={5} placeholder="Describe your project — type, location, approximate budget, and timescale…" className="w-full text-[#0A0A0A] text-sm px-4 py-3.5 placeholder-gray-400 outline-none resize-none form-input" />
                 </div>
-                <Link href="/contact" className="block w-full text-white py-4 text-[11px] tracking-widest uppercase font-semibold text-center transition-opacity hover:opacity-90" style={{ background: 'var(--blue)' }}>
+                <button type="submit" className="block w-full text-white py-4 text-[11px] tracking-widest uppercase font-semibold text-center transition-opacity hover:opacity-90 border-none cursor-pointer" style={{ background: 'var(--blue)' }}>
                   Submit Enquiry
-                </Link>
+                </button>
                 <p className="text-[#4B5563] text-xs text-center">We respond to all enquiries within one business day.</p>
               </form>
             </div>

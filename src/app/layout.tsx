@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import BackToTop from '@/components/BackToTop';
+import RevealInit from '@/components/RevealInit';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${playfair.variable} scroll-smooth`}>
       <body className="font-sans">
         <Navbar />
+        <RevealInit />
         <main>{children}</main>
         <Footer />
         <BackToTop />

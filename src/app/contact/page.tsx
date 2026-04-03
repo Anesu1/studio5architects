@@ -250,7 +250,13 @@ export default function ContactPage() {
                   </div>
 
                   {status === 'error' && (
-                    <p className="text-red-600 text-xs">Something went wrong. Please try again or email us directly.</p>
+                    <div className="p-6 bg-red-50 border border-red-100 mb-6">
+                      <p className="text-red-800 text-xs font-bold uppercase tracking-widest mb-2">Submission Error</p>
+                      <p className="text-red-700 text-[13px] leading-relaxed mb-4">
+                        Something went wrong during the digital submission. To ensure we receive your message, please email us directly: 
+                        <a href="mailto:info@studio5architects.com" className="font-bold underline ml-1">info@studio5architects.com</a>
+                      </p>
+                    </div>
                   )}
 
                   <button

@@ -1,15 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, Suspense } from 'react';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 const FILTERS = [
-  { key: 'all', label: 'All' },
+  { key: 'all', label: 'All Projects' },
+  { key: 'civic', label: 'Civic & Institutional' },
   { key: 'residential', label: 'Residential' },
   { key: 'commercial', label: 'Commercial' },
-  { key: 'civic', label: 'Civic' },
-  { key: 'heritage', label: 'Heritage' },
-  { key: 'interior', label: 'Interior' },
-  { key: 'masterplanning', label: 'Planning' },
+  { key: 'heritage', label: 'Heritage & Conservation' },
+  { key: 'masterplanning', label: 'Urban & Planning' },
 ];
 
 interface Project {
@@ -29,73 +30,55 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     id: 1,
-    sector: 'civic',
-    title: 'Harare Civic Centre Renovation',
-    description:
-      'A comprehensive restoration and adaptive reuse of a 1960s civic building, integrating modern accessibility requirements while preserving heritage character.',
-    location: 'Harare',
+    sector: 'commercial',
+    title: 'Gweru Mall Expansion',
+    description: 'A major retail expansion providing 12,000 m² of new retail space, anchor tenants, and a reimagined public food court that serves as a community hub.',
+    location: 'Gweru',
     year: '2023',
-    badge: 'Civic',
-    award: true,
+    badge: 'Retail',
     featured: true,
-    img: '/img/banner1.png',
-    imgAlt: 'Harare Civic Centre Renovation',
+    img: '/images/gweru-mall (1).webp',
+    imgAlt: 'Gweru Mall Expansion Architecture',
   },
   {
     id: 2,
-    sector: 'residential',
-    title: 'Borrowdale Private Residence',
-    description:
-      'A contemporary family home designed to respond to the topography of the site, with passive cooling strategies and natural material palette.',
+    sector: 'commercial',
+    title: 'Cell Insurance Headquarters',
+    description: 'A contemporary corporate office building designed with a high-performance glass facade and open-plan workspaces to foster collaboration.',
     location: 'Harare',
     year: '2022',
-    badge: 'Residential',
-    img: '/img/banner2.png',
-    imgAlt: 'Borrowdale Private Residence',
+    badge: 'Office',
+    award: true,
+    img: '/images/cell-insurance (1).webp',
+    imgAlt: 'Cell Insurance Headquarters Exterior',
   },
   {
     id: 3,
     sector: 'commercial',
-    title: "Sam Levy's Village Retail Precinct",
-    description:
-      'Retail precinct expansion and public realm upgrade, improving pedestrian connectivity and tenant experience across 4,200 m².',
-    location: 'Harare',
+    title: 'Glow Petroleum Precinct',
+    description: 'Strategic retail and industrial hub designed for high-volume logistics and customer experience in Chitungwiza.',
+    location: 'Chitungwiza',
     year: '2021',
-    badge: 'Commercial',
-    img: '/img/banner3.png',
-    imgAlt: "Sam Levy's Village Retail Precinct",
+    badge: 'Industrial',
+    img: '/images/glow-petroleum (1).webp',
+    imgAlt: 'Glow Petroleum Precinct Chitungwiza',
   },
   {
     id: 4,
-    sector: 'heritage',
-    title: 'Bulawayo Heritage Conservation',
-    description:
-      "Structural and façade conservation of a Grade II listed colonial building in Bulawayo's historic CBD, with sensitive new insertions.",
-    location: 'Bulawayo',
-    year: '2022',
-    badge: 'Heritage',
-    award: true,
-    img: '/img/mission.webp',
-    imgAlt: 'Bulawayo Colonial Heritage Conservation',
+    sector: 'commercial',
+    title: 'Hyundai Showroom',
+    description: 'A minimalist, high-tech automotive showroom that emphasizes transparency and clean lines to showcase premium vehicles.',
+    location: 'Harare',
+    year: '2023',
+    badge: 'Retail',
+    img: '/images/projects/hyndai/ezgif-frame-001.webp',
+    imgAlt: 'Hyundai Showroom Harare',
   },
   {
     id: 5,
-    sector: 'interior',
-    title: 'Meikles Hotel Interior Refresh',
-    description:
-      "Comprehensive interior redesign of the landmark five-star hotel's public areas, balancing contemporary elegance with historical identity.",
-    location: 'Harare',
-    year: '2020',
-    badge: 'Interior Design',
-    img: '/img/principles (1).webp',
-    imgAlt: 'Meikles Hotel Interior Refresh',
-  },
-  {
-    id: 6,
     sector: 'civic',
     title: 'National Sports Stadium Upgrade',
-    description:
-      'Phased upgrade programme for spectator facilities, structural improvements, and new ancillary buildings within the national stadium precinct.',
+    description: 'Phased upgrade programme for spectator facilities and structural improvements.',
     location: 'Harare',
     year: '2019',
     badge: 'Civic',
@@ -103,98 +86,43 @@ const PROJECTS: Project[] = [
     imgAlt: 'National Sports Stadium Upgrade',
   },
   {
-    id: 7,
+    id: 6,
     sector: 'masterplanning',
     title: 'Ruwa Township Masterplan',
-    description:
-      'Urban design framework for a 250-hectare mixed-use township extension, integrating green corridors, transit nodes, and affordable housing clusters.',
+    description: 'Urban design framework for a 250-hectare mixed-use township extension.',
     location: 'Ruwa',
     year: '2023',
     badge: 'Masterplanning',
     img: '/img/banner2.png',
     imgAlt: 'Ruwa Township Masterplan',
-  },
-  {
-    id: 8,
-    sector: 'residential',
-    title: 'Gunhill Apartment Complex',
-    description:
-      'A 48-unit medium-density residential development with communal amenities, designed around a landscaped central courtyard.',
-    location: 'Harare',
-    year: '2021',
-    badge: 'Residential',
-    img: '/img/banner3.png',
-    imgAlt: 'Gunhill Apartments',
-  },
-  {
-    id: 9,
-    sector: 'commercial',
-    title: 'Eastgate Office Tower',
-    description:
-      'A 12-storey mixed-use commercial tower in Harare CBD, featuring flexible floor plates, sky gardens, and ground-level retail activation.',
-    location: 'Harare',
-    year: '2020',
-    badge: 'Commercial',
-    img: '/img/mission.webp',
-    imgAlt: 'Eastgate Commercial Tower',
-  },
-  {
-    id: 10,
-    sector: 'interior',
-    title: 'Rainbow Towers Conference Suite',
-    description:
-      "Interior design and fitout of the hotel's 2,000 m² international conference centre, accommodating 1,200 delegates across multiple configurations.",
-    location: 'Harare',
-    year: '2019',
-    badge: 'Interior Design',
-    img: '/img/principles (1).webp',
-    imgAlt: 'Rainbow Towers Interior',
-  },
-  {
-    id: 11,
-    sector: 'heritage',
-    title: 'Matobo Hills Cultural Centre',
-    description:
-      'A new visitor and interpretation centre at the UNESCO World Heritage Site, designed using local stone and timber in response to the ancient landscape.',
-    location: 'Matobo',
-    year: '2018',
-    badge: 'Heritage',
-    award: true,
-    img: '/img/banner1.png',
-    imgAlt: 'Matobo Hills Cultural Centre',
-  },
-  {
-    id: 12,
-    sector: 'civic',
-    title: 'Chitungwiza Community Library',
-    description:
-      'A community library and learning hub for 80,000 residents, delivered under a public-private partnership with an emphasis on natural daylighting and flexible spaces.',
-    location: 'Chitungwiza',
-    year: '2022',
-    badge: 'Civic',
-    img: '/img/banner2.png',
-    imgAlt: 'Chitungwiza Community Library',
-  },
+  }
 ];
 
-export default function PortfolioPage() {
+function PortfolioContent() {
+  const searchParams = useSearchParams();
+  const sectorParam = searchParams.get('sector');
   const [active, setActive] = useState('all');
+
+  useEffect(() => {
+    if (sectorParam && FILTERS.some(f => f.key === sectorParam)) {
+      setActive(sectorParam);
+    }
+  }, [sectorParam]);
 
   const visible = active === 'all' ? PROJECTS : PROJECTS.filter((p) => p.sector === active);
   const activeLabel = FILTERS.find((f) => f.key === active)?.label ?? '';
 
   return (
     <>
-      {/* ── PAGE HERO ──────────────────────────────────── */}
       <section className="pt-40 pb-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6 text-center lg:text-left">
           <div className="reveal">
             <span className="label mb-6 block">Our Work</span>
             <h1 className="font-serif text-[clamp(2.5rem,7vw,4.5rem)] font-bold text-[#0A0A0A] leading-tight mb-8">
               Built Work &amp;<br />
-              <em style={{ color: 'var(--blue)' }}>Projects.</em>
+              <em className="text-blue-600 italic">Projects.</em>
             </h1>
-            <p className="text-gray-500 text-lg max-w-2xl leading-relaxed">
+            <p className="text-gray-500 text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
               Over a decade of architectural practice across Zimbabwe — from residential retreats to
               civic infrastructure.
             </p>
@@ -202,17 +130,14 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      <hr className="divider" />
-
-      {/* ── FILTER BAR ─────────────────────────────────── */}
       <section className="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="flex items-center gap-8 overflow-x-auto py-2">
+          <div className="flex items-center gap-8 overflow-x-auto py-4 no-scrollbar">
             {FILTERS.map(({ key, label }) => (
               <button
                 key={key}
                 onClick={() => setActive(key)}
-                className={`filter-btn${active === key ? ' active' : ''}`}
+                className={`filter-btn whitespace-nowrap ${active === key ? 'active' : ''}`}
               >
                 {label}
               </button>
@@ -221,96 +146,83 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* ── PROJECT GRID ───────────────────────────────── */}
-      <section className="py-16" style={{ background: '#FFFFFF' }}>
+      <section className="py-16 bg-white min-h-[600px]">
         <div className="max-w-7xl mx-auto px-6">
-          <p className="text-gray-500 text-xs tracking-widest uppercase mb-8">
+          <p className="text-gray-400 text-[10px] tracking-widest uppercase mb-10 font-bold border-l-2 border-blue-600 pl-4">
             {active === 'all'
-              ? 'Showing all projects'
-              : `Showing ${visible.length} result${visible.length !== 1 ? 's' : ''} for ${activeLabel}`}
+              ? 'Showing full body of work'
+              : `Sector: ${activeLabel} (${visible.length})`}
           </p>
 
           {visible.length === 0 ? (
-            <div className="text-center py-24">
-              <p className="text-gray-600 text-sm">No projects in this category yet.</p>
+            <div className="text-center py-32 bg-gray-50 border border-dashed border-gray-200">
+              <p className="text-gray-400 font-serif text-xl italic">No projects found in this category.</p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {visible.map((project) => (
-                <div
+                <Link
                   key={project.id}
-                  className={`project-card${project.featured ? ' featured' : ''}`}
-                  data-sector={project.sector}
+                  href={`/portfolio/${project.id}`}
+                  className="project-card group reveal"
                 >
-                  <div className="project-img-wrap">
-                    <img src={project.img} alt={project.imgAlt} loading="lazy" />
-                    <div className="project-overlay">
-                      <span className="text-white text-xs font-medium">View Project →</span>
+                  <div className="project-img-wrap aspect-[4/5] bg-gray-100 overflow-hidden relative">
+                    <img 
+                       src={project.img} 
+                       alt={project.imgAlt} 
+                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                       <span className="text-white text-[10px] tracking-[0.3em] font-bold uppercase border border-white/30 px-6 py-3 backdrop-blur-sm">View Details</span>
                     </div>
                   </div>
-                  <div className="p-5">
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <h3 className="text-[#0A0A0A] font-semibold text-base leading-snug">
-                        {project.title}
-                      </h3>
-                      <span className="sector-badge shrink-0">{project.badge}</span>
+                  <div className="pt-6">
+                    <div className="flex justify-between items-start mb-4">
+                       <span className="text-[10px] tracking-widest uppercase font-bold text-blue-600 bg-blue-50 px-2 py-1">{project.badge}</span>
+                       <span className="text-[10px] tracking-widest uppercase font-bold text-gray-300">{project.year}</span>
                     </div>
-                    <p className="text-gray-500 text-xs leading-relaxed mb-4">
-                      {project.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400 text-xs">
-                        {project.location} · {project.year}
-                      </span>
-                      {project.award && (
-                        <span className="text-blue-400 text-xs font-medium">Award Winner</span>
-                      )}
+                    <h3 className="font-serif text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors uppercase tracking-tight">{project.title}</h3>
+                    <p className="text-gray-500 text-sm leading-relaxed line-clamp-2 mb-6">{project.description}</p>
+                    <div className="flex items-center gap-2 text-[10px] tracking-widest uppercase font-bold text-gray-400 group-hover:text-blue-900 transition-colors">
+                       <span>{project.location}, Zimbabwe</span>
+                       <span className="w-4 h-px bg-gray-200" />
+                       <span>Built Excellence</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
         </div>
       </section>
 
-      {/* ── CTA BAND ───────────────────────────────────── */}
-      <div
-        style={{ background: 'var(--blue)', position: 'relative', overflow: 'hidden' }}
-        className="py-20"
-      >
-        <div className="grid-pattern absolute inset-0 opacity-[0.04] pointer-events-none" />
-        <div className="max-w-7xl mx-auto px-6 relative">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <div>
-              <span className="label" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Commission a Project
-              </span>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mt-3 leading-snug">
-                Have a project in mind?
-                <br />
-                <em>Let&apos;s discuss it.</em>
-              </h2>
-              <p className="text-blue-100 text-sm mt-4 max-w-lg leading-relaxed opacity-80">
-                Initial consultations are free of charge and without obligation. We work across all
-                sectors, scales, and budgets.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4 shrink-0">
-              <a href="/contact" className="btn-white">
-                Start Your Project
-              </a>
-              <a
-                href="/practice"
-                className="btn-outline"
-                style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}
-              >
-                About the Practice
-              </a>
-            </div>
+      <div style={{ background: '#1B4F8A' }} className="py-24 relative overflow-hidden">
+        <div className="grid-pattern absolute inset-0 opacity-10 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-6 relative text-center lg:text-left flex flex-col lg:flex-row lg:items-center lg:justify-between gap-12">
+          <div className="max-w-2xl">
+            <span className="label text-blue-200">Partnership</span>
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mt-4 mb-6 leading-tight">
+              Ready to create something <em className="italic text-blue-300 underline decoration-1 underline-offset-8">extraordinary?</em>
+            </h2>
+            <p className="text-blue-100 text-lg opacity-80 leading-relaxed">
+              We collaborate with visionary clients to deliver buildings that aren't just seen, but felt. 
+              Let's discuss how we can bring technical rigour to your vision.
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center lg:justify-end gap-6 shrink-0">
+            <Link href="/contact" className="btn-white">Start Your Project</Link>
+            <Link href="/practice" className="btn-outline border-white/30 text-white hover:bg-white/10">About Studio5</Link>
           </div>
         </div>
       </div>
     </>
+  );
+}
+
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={<div className="pt-60 pb-40 text-center font-serif italic text-gray-400">Loading Portfolio...</div>}>
+      <PortfolioContent />
+    </Suspense>
   );
 }

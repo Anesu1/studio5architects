@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import CTASection from '@/components/CTASection';
 
 export const metadata: Metadata = {
-  title: 'Insights',
+  title: 'Insights — Architectural Thinking on the Zimbabwean Built Environment',
   description:
-    'Insights and architectural thinking from Studio5 Architects. Exploring the intersection of design, climate, and community in Zimbabwe.',
+    'Research, material investigation, and architectural reflections from Studio5. Exploring climate-responsive design and urban development in Harare and Bulawayo.',
 };
 
 export default function InsightsPage() {
@@ -46,21 +49,7 @@ export default function InsightsPage() {
               />
             </div>
             <div>
-              <span
-                style={{
-                  fontSize: '0.6rem',
-                  letterSpacing: '0.15em',
-                  textTransform: 'uppercase',
-                  fontWeight: 600,
-                  color: 'var(--blue)',
-                  borderBottom: '2px solid var(--blue-dim)',
-                  paddingBottom: 2,
-                  marginBottom: '1rem',
-                  display: 'inline-block',
-                }}
-              >
-                Research &amp; Materials
-              </span>
+                <span className="label text-blue-600 mb-6 block border-b-2 border-blue-100/50 pb-2">Sustainability Research</span>
               <h2 className="font-serif text-4xl font-bold text-[#0A0A0A] mb-6 leading-tight">
                 Thermal Mass &amp; The Highveld: Rethinking Passive Cooling in Harare.
               </h2>
@@ -82,126 +71,97 @@ export default function InsightsPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            {/* Article 1 */}
-            <article className="insight-card">
-              <div className="insight-img-wrap">
-                <img src="/img/mission.webp" alt="Article 1" />
-              </div>
-              <div className="p-8">
-                <span
-                  style={{
-                    fontSize: '0.6rem',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                    color: 'var(--blue)',
-                    borderBottom: '2px solid var(--blue-dim)',
-                    paddingBottom: 2,
-                    marginBottom: '1rem',
-                    display: 'inline-block',
-                  }}
-                >
-                  Studio Life
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">
-                  Architecture as a Fundamental Act of Care.
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Reflecting on a decade of practice in Harare and the responsibility architects
-                  carry in shaping the public realm.
-                </p>
-                <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                  <span className="text-gray-400 text-[10px] tracking-widest uppercase">
-                    March 2026
-                  </span>
-                  <a href="#" className="text-blue-600 text-xs font-semibold hover:underline">
-                    Read More
-                  </a>
+            {/* Article 1 - Case Study */}
+            <article className="insight-card border border-gray-100 bg-white shadow-soft group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+              <Link href="/insights/thermal-mass">
+                <div className="insight-img-wrap relative aspect-video overflow-hidden">
+                  <Image src="/img/banner1.png" alt="Case Study Details" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 </div>
-              </div>
+                <div className="p-8">
+                  <span className="label text-blue-600 mb-6 block border-b border-blue-100/50 pb-2">Case Study Narrative</span>
+                  <h3 className="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">
+                    The Multi-Generational Home: Adaptability in Borrowdale.
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                     Lessons learned from our recent residential commission on designing for three 
+                     generations under one roof while maintaining thermal and acoustic privacy.
+                  </p>
+                  <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                    <span className="text-gray-400 text-[10px] tracking-widest uppercase font-bold">
+                      March 2026
+                    </span>
+                    <span className="text-blue-600 text-[10px] tracking-widest uppercase font-bold hover:underline">
+                      Read Case Study
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </article>
 
-            {/* Article 2 */}
-            <article className="insight-card">
-              <div className="insight-img-wrap">
-                <img src="/img/banner2.png" alt="Article 2" />
-              </div>
-              <div className="p-8">
-                <span
-                  style={{
-                    fontSize: '0.6rem',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                    color: 'var(--blue)',
-                    borderBottom: '2px solid var(--blue-dim)',
-                    paddingBottom: 2,
-                    marginBottom: '1rem',
-                    display: 'inline-block',
-                  }}
-                >
-                  Urban Design
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">
-                  The Porous City: Pedestrian Connectivity in CBD.
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  Exploring ways to reclaim the street level for people in high-density urban
-                  environments through mixed-use activation.
-                </p>
-                <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                  <span className="text-gray-400 text-[10px] tracking-widest uppercase">
-                    February 2026
-                  </span>
-                  <a href="#" className="text-blue-600 text-xs font-semibold hover:underline">
-                    Read More
-                  </a>
+            {/* Article 2 - Client Guide */}
+            <article className="insight-card border border-gray-100 bg-white shadow-soft hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+              <Link href="/insights/budgeting-guide">
+                <div className="insight-img-wrap relative aspect-video overflow-hidden">
+                  <Image src="/img/banner2.png" alt="Guide for clients" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 </div>
-              </div>
+                <div className="p-8">
+                  <span className="label text-blue-600 mb-6 block border-b border-blue-100/50 pb-2">Guide for Clients</span>
+                  <h3 className="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">
+                    Budgeting for Design: From Concept to Construction.
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                    A comprehensive guide for first-time builders on how to allocate costs across 
+                    design, statutory approvals, and construction management.
+                  </p>
+                  <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                    <span className="text-gray-400 text-[10px] tracking-widest uppercase font-bold">
+                      February 2026
+                    </span>
+                    <span className="text-blue-600 text-[10px] tracking-widest uppercase font-bold hover:underline">
+                      View Guide
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </article>
 
-            {/* Article 3 */}
-            <article className="insight-card">
-              <div className="insight-img-wrap">
-                <img src="/img/principles (1).webp" alt="Article 3" />
-              </div>
-              <div className="p-8">
-                <span
-                  style={{
-                    fontSize: '0.6rem',
-                    letterSpacing: '0.15em',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                    color: 'var(--blue)',
-                    borderBottom: '2px solid var(--blue-dim)',
-                    paddingBottom: 2,
-                    marginBottom: '1rem',
-                    display: 'inline-block',
-                  }}
-                >
-                  Heritage
-                </span>
-                <h3 className="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">
-                  Adaptive Reuse: Breathing Life into Historic Fabric.
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-6">
-                  The technical and ethical challenges of modern additions to colonial-era structures
-                  in Bulawayo.
-                </p>
-                <div className="flex items-center justify-between pt-6 border-t border-gray-100">
-                  <span className="text-gray-400 text-[10px] tracking-widest uppercase">
-                    January 2026
-                  </span>
-                  <a href="#" className="text-blue-600 text-xs font-semibold hover:underline">
-                    Read More
-                  </a>
+            {/* Article 3 - Lessons Learned */}
+            <article className="insight-card border border-gray-100 bg-white shadow-soft hover:shadow-xl hover:-translate-y-1 transition-all duration-500 group">
+              <Link href="/insights/adaptive-reuse">
+                <div className="insight-img-wrap relative aspect-video overflow-hidden">
+                  <Image src="/img/banner3.png" alt="Lessons learned" fill className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700" />
                 </div>
-              </div>
+                <div className="p-8">
+                  <span className="label text-blue-600 mb-6 block border-b border-blue-100/50 pb-2">Lessons Learned</span>
+                  <h3 className="font-serif text-2xl font-bold text-[#0A0A0A] mb-4">
+                    Adaptive Reuse: Breathing New Life into Historic Fabric.
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-6">
+                    A retrospective on the Bulawayo Heritage project, exploring the technical 
+                    challenges of modern insertions into colonial-era stonework.
+                  </p>
+                  <div className="flex items-center justify-between pt-6 border-t border-gray-100">
+                    <span className="text-gray-400 text-[10px] tracking-widest uppercase font-bold">
+                      January 2026
+                    </span>
+                    <span className="text-blue-600 text-[10px] tracking-widest uppercase font-bold hover:underline">
+                      Read Story
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </article>
 
           </div>
         </div>
       </section>
+
+      <CTASection
+        dark
+        title="Stay Informed on the Built Environment."
+        subtitle="Subscribe to our quarterly journal for technical research and architectural reflections from the Zimbabwe plateau."
+        ctaText="Subscribe to Journal"
+      />
     </>
   );
 }
