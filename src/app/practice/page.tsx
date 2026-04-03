@@ -217,9 +217,9 @@ export default function PracticePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
              {[
-               { name: 'Brighton Madondo', role: 'Principal Architect & Director', img: '/about/team/madondo.webp', bio: 'With over 12 years of experience in civic and residential architecture, Brighton focuses on the intersection of climate performance and structural honesty. He leads the studio’s research into Highveld-specific passive cooling.' },
-               { name: 'Tapiwa Manditsera', role: 'Architect & Design Lead', img: '/about/team/manditsera.webp', bio: 'Tapiwa specializes in technical coordination and BIM implementation, ensuring that Studio5 designs are as efficient in their construction as they are in their architectural expression.' },
-               { name: 'Tinashe Honde', role: 'Registered Architect', img: '/about/team/honde.webp', bio: 'Tinashe brings a multi-disciplinary perspective to the studio, integrating urban design principles into site-specific architectural solutions across diverse sectors.' },
+               { name: 'Brighton Madondo', role: 'Principal Architect', img: '/about/team/madondo.webp', bio: 'Master of Architecture (NUST), Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Board Member of both professional bodies.' },
+               { name: 'Tapiwa Manditsera', role: 'Architect', img: '/about/team/manditsera.webp', bio: 'Master of Architecture (NUST). Bachelor of Architectural Studies (Hons) (NUST). Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Former Board Member of both professional bodies.' },
+               { name: 'Tinashe Honde', role: 'Architect', img: '/about/team/honde.webp', bio: 'Master of Architecture (Professional) (Cyprus). Bachelor of Architectural Studies (Hons) (NUST). Associate Member of Royal Institute of Chartered Surveyors, and Member of the Architects Council of Zimbabwe.' },
              ].map(member => (
                <div key={member.name} className="reveal reveal--scale">
                   <div className="aspect-[4/5] bg-gray-100 mb-10 overflow-hidden grayscale hover:grayscale-0 transition-all duration-1000 shadow-sm border border-gray-100">
