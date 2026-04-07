@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import CTASection from '@/components/CTASection';
-import { blogPosts } from '@/lib/blogs';
+import { getAllBlogPosts } from '@/lib/blogs';
 
 export const metadata: Metadata = {
   title: 'Insights — Architectural Thinking on the Zimbabwean Built Environment',
@@ -10,8 +10,9 @@ export const metadata: Metadata = {
     'Research, material investigation, and architectural reflections from Studio5. Exploring climate-responsive design and urban development in Harare and Bulawayo.',
 };
 
-export default function InsightsPage() {
-  const featuredPost = blogPosts[0];
+export default async function InsightsPage() {
+  const posts = await getAllBlogPosts();
+  const featuredPost = posts[0];
 
   return (
     <>
@@ -74,7 +75,7 @@ export default function InsightsPage() {
       <section className="py-20 bg-[#F4F5F7]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
+            {posts.map((post) => (
               <article key={post.slug} className="insight-card border border-gray-100 bg-white shadow-soft group hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                 <Link href={`/insights/${post.slug}`}>
                   <div className="insight-img-wrap relative aspect-video overflow-hidden">

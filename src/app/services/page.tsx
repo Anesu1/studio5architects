@@ -46,7 +46,7 @@ const SERVICES = [
   },
 ];
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
   return (
     <>
       <section className="pt-40 pb-24 bg-white">

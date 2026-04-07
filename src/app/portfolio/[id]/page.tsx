@@ -6,11 +6,19 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import CTASection from '@/components/CTASection';
 
-import { PROJECTS, Project } from '@/lib/projects';
+import { STATIC_PROJECTS, getAllProjects, getProjectBySlug, Project } from '@/lib/projects';
 
 
 function ProjectContent({ id }: { id: string }) {
-  const project = PROJECTS.find(p => p.id === id) || PROJECTS[0];
+  const [project, setProject] = useState<Project>(
+    STATIC_PROJECTS.find(p => p.slug === id || p.id === id) || STATIC_PROJECTS[0]
+  );
+
+  useEffect(() => {
+    getProjectBySlug(id).then((data) => {
+      if (data) setProject(data);
+    });
+  }, [id]);
 
   return (
     <>

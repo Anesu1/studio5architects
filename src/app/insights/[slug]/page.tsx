@@ -3,11 +3,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import CTASection from '@/components/CTASection';
-import { blogPosts } from '@/lib/blogs';
+import { getBlogPostBySlug } from '@/lib/blogs';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogPosts.find(b => b.slug === slug);
+  const post = await getBlogPostBySlug(slug);
   return {
     title: `${post?.title || 'Insight'} — Studio5`,
   };
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function InsightPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = blogPosts.find(b => b.slug === slug);
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();

@@ -13,13 +13,18 @@ const FILTERS = [
   { key: 'masterplanning', label: 'Urban & Planning' },
 ];
 
-import { PROJECTS, Project } from '@/lib/projects';
+import { STATIC_PROJECTS, getAllProjects, Project } from '@/lib/projects';
 
 
 function PortfolioContent() {
   const searchParams = useSearchParams();
   const sectorParam = searchParams.get('sector');
   const [active, setActive] = useState('all');
+  const [projects, setProjects] = useState<Project[]>(STATIC_PROJECTS);
+
+  useEffect(() => {
+    getAllProjects().then((data) => { if (data.length > 0) setProjects(data); });
+  }, []);
 
   useEffect(() => {
     if (sectorParam && FILTERS.some(f => f.key === sectorParam)) {
@@ -27,7 +32,7 @@ function PortfolioContent() {
     }
   }, [sectorParam]);
 
-  const visible = active === 'all' ? PROJECTS : PROJECTS.filter((p) => p.sector === active);
+  const visible = active === 'all' ? projects : projects.filter((p) => p.sector === active);
   const activeLabel = FILTERS.find((f) => f.key === active)?.label ?? '';
 
   return (
@@ -81,7 +86,7 @@ function PortfolioContent() {
               {visible.map((project) => (
                 <Link
                   key={project.id}
-                  href={`/portfolio/${project.id}`}
+                  href={`/portfolio/${project.slug || project.id}`}
                   className="project-card group reveal"
                 >
                   <div className="project-img-wrap aspect-[4/5] bg-gray-100 overflow-hidden relative">

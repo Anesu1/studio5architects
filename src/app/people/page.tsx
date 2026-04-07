@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import CTASection from '@/components/CTASection';
+import { getAllTeamMembers } from '@/lib/queries';
 
 export const metadata: Metadata = {
   title: 'People',
@@ -7,94 +8,28 @@ export const metadata: Metadata = {
     'Meet the team behind Studio5 Architects. A multi-disciplinary collective of architects, designers, and project managers in Zimbabwe.',
 };
 
-const TEAM = [
-  {
-    name: "Brighton Madondo",
-    role: "Principal Architect",
-    bio: "Master of Architecture (NUST), Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Board Member of both professional bodies.",
-    img: "/about/team/madondo.webp",
-    delay: 0
-  },
-  {
-    name: "Tapiwa Manditsera",
-    role: "Architect",
-    bio: "Master of Architecture (NUST). Bachelor of Architectural Studies (Hons) (NUST). Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe. Former Board Member of both professional bodies.",
-    img: "/about/team/manditsera.webp",
-    delay: 100
-  },
-  {
-    name: "Tinashe Honde",
-    role: "Architect",
-    bio: "Master of Architecture (Professional) (Cyprus). Bachelor of Architectural Studies (Hons) (NUST). Associate Member of Royal Institute of Chartered Surveyors, and Member of the Architects Council of Zimbabwe.",
-    img: "/about/team/honde.webp",
-    delay: 200
-  },
-  {
-    name: "Tichaona Gondo",
-    role: "Candidate Architect",
-    bio: "Bachelor of Architectural Studies (Hons) (NUST).",
-    img: "/about/team/gondo.webp",
-    delay: 300
-  },
-  {
-    name: "Bernice Murape",
-    role: "Candidate Architect",
-    bio: "Bachelor of Architectural Studies (Hons) (NUST).",
-    img: "/about/team/murape.webp",
-    delay: 0
-  },
-  {
-    name: "Kelvin Mukucha",
-    role: "Candidate Architect",
-    bio: "Bachelor of Architectural Studies (Hons) (NUST).",
-    img: "/about/team/mukucha.webp",
-    delay: 100
-  },
-  {
-    name: "Augustine Jewure",
-    role: "Candidate Architect",
-    bio: "Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology (Harare Polytechnic).",
-    img: "/about/team/jewure.webp",
-    delay: 200
-  },
-  {
-    name: "Paddington",
-    role: "Architectural Technician",
-    bio: "Aspiring architectural designer focusing on innovative spatial solutions and technical precision.",
-    img: "/about/team/placeholder.svg",
-    delay: 300
-  },
-  {
-    name: "Evans Mbizi",
-    role: "Graduate Architect",
-    bio: "Creative architectural graduate specializing in conceptual modeling and sustainable design practices.",
-    img: "/about/team/placeholder.svg",
-    delay: 0
-  },
-  {
-    name: "Thelma Mare",
-    role: "Architectural Technician",
-    bio: "National Diploma in Architectural Technology (Harare Polytechnic).",
-    img: "/about/team/mare.webp",
-    delay: 100
-  },
-  {
-    name: "Rumbidzai Njani",
-    role: "Architectural Technician",
-    bio: "National Diploma in Architectural Technology (Harare Polytechnic).",
-    img: "/about/team/njani.webp",
-    delay: 200
-  },
-  {
-    name: "Fortunate Nyamanza",
-    role: "Admin",
-    bio: "Dedicated administrative professional managing studio operations and client communications.",
-    img: "/about/team/placeholder.svg",
-    delay: 300
-  }
+// Static fallback — used when Sanity has no teamMember documents yet
+const STATIC_TEAM = [
+  { name: 'Brighton Madondo', role: 'Principal Architect', bio: 'Master of Architecture (NUST), Member of Architects Council of Zimbabwe and Institute of Architects Zimbabwe.', image: '/about/team/madondo.webp', order: 1 },
+  { name: 'Tapiwa Manditsera', role: 'Architect', bio: 'Master of Architecture (NUST). Bachelor of Architectural Studies (Hons) (NUST). Member of ACZ and AIAZ.', image: '/about/team/manditsera.webp', order: 2 },
+  { name: 'Tinashe Honde', role: 'Architect', bio: 'Master of Architecture (Professional) (Cyprus). Associate Member of RICS. Member of ACZ.', image: '/about/team/honde.webp', order: 3 },
+  { name: 'Tichaona Gondo', role: 'Candidate Architect', bio: 'Bachelor of Architectural Studies (Hons) (NUST).', image: '/about/team/gondo.webp', order: 4 },
+  { name: 'Bernice Murape', role: 'Candidate Architect', bio: 'Bachelor of Architectural Studies (Hons) (NUST).', image: '/about/team/murape.webp', order: 5 },
+  { name: 'Kelvin Mukucha', role: 'Candidate Architect', bio: 'Bachelor of Architectural Studies (Hons) (NUST).', image: '/about/team/mukucha.webp', order: 6 },
+  { name: 'Augustine Jewure', role: 'Candidate Architect', bio: 'Bachelor of Architectural Studies (Hons) (NUST) and Diploma in Architectural Technology.', image: '/about/team/jewure.webp', order: 7 },
+  { name: 'Thelma Mare', role: 'Architectural Technician', bio: 'National Diploma in Architectural Technology (Harare Polytechnic).', image: '/about/team/mare.webp', order: 8 },
+  { name: 'Rumbidzai Njani', role: 'Architectural Technician', bio: 'National Diploma in Architectural Technology (Harare Polytechnic).', image: '/about/team/njani.webp', order: 9 },
+  { name: 'Fortunate Nyamanza', role: 'Administration', bio: 'Studio operations and client communications.', image: '/about/team/placeholder.svg', order: 10 },
 ];
 
-export default function PeoplePage() {
+export default async function PeoplePage() {
+  let team: { name: string; role: string; bio: string; image: string; order: number }[] = STATIC_TEAM;
+  try {
+    const sanityTeam = await getAllTeamMembers();
+    if (sanityTeam && sanityTeam.length > 0) {
+      team = sanityTeam.map(m => ({ name: m.name, role: m.role, bio: m.bio || '', image: m.image || '/about/team/placeholder.svg', order: m.order }));
+    }
+  } catch { /* use static fallback */ }
   return (
     <>
       {/* ── HERO ─────────────────────────────────────────── */}
@@ -133,10 +68,10 @@ export default function PeoplePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            {TEAM.map((person) => (
+            {team.map((person, i) => (
               <div
                 key={person.name}
-                className={`team-card reveal reveal--scale delay-${person.delay} group`}
+                className={`team-card reveal reveal--scale delay-${[0,100,200,300][i%4]} group`}
                 style={{
                   position: 'relative',
                   overflow: 'hidden',
@@ -145,7 +80,7 @@ export default function PeoplePage() {
                 }}
               >
                 <img
-                  src={person.img}
+                  src={(person as any).image || (person as any).img || '/about/team/placeholder.svg'}
                   alt={person.name}
                   style={{
                     width: '100%',
