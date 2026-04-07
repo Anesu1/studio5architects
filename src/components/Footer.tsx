@@ -2,11 +2,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 const practiceNav = [
-  { href: '/practice',       label: 'Our Practice' },
-  { href: '/people',         label: 'Our People' },
-  { href: '/services',       label: 'Expertise' },
-  { href: '/sectors',        label: 'Sectors' },
-  { href: '/portfolio',      label: 'Portfolio' },
+  { href: '/',          label: 'Home' },
+  { href: '/about',     label: 'About the Practice' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/services',  label: 'Our Services' },
+  { href: '/sectors',   label: 'Sectors' },
 ];
 
 const insightsNav = [
