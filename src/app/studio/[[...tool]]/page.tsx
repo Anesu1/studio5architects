@@ -1,7 +1,10 @@
-import { redirect } from 'next/navigation';
+'use client';
 
-// Redirect to the hosted Sanity Studio (manage.sanity.io or your project's studio URL)
-// This avoids version conflicts with the embedded studio while keeping data fetching working
+import { NextStudio } from 'next-sanity/studio';
+import config from '../../../../sanity.config';
+
+export const dynamic = 'force-dynamic';
+
 export default function StudioPage() {
-  redirect(`https://studio5architects.sanity.studio`);
+  return <NextStudio config={config} />;
 }
